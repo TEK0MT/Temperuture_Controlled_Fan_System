@@ -2139,6 +2139,8 @@ uint8 gpio_pin_direction_initialize(const pin_config_t *pin){
         ret = 0x01;
     }
     else{
+        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
         switch(pin->direction){
             case GPIO_DIRECTION_OUTPUT:
                 (*tris_registers[pin->port] &= ~(0x01 << pin->pin));
@@ -2147,16 +2149,26 @@ uint8 gpio_pin_direction_initialize(const pin_config_t *pin){
                 (*tris_registers[pin->port] |= (0x01 << pin->pin));
                 break;
         }
+        }
+    else{
+        ret = 0x01;
     }
     return ret;
 }
 uint8 gpio_get_pin_direction(const pin_config_t *pin,direction_t *direction){
     uint8 ret = 0x00;
+
     if(pin == ((void*)0) || direction == ((void*)0)){
         ret = 0x01;
     }
     else{
+        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
         *direction = ((*tris_registers[pin->port] >> pin->pin) & 0x01);
+        }
+        else{
+            ret = 0x01;
+        }
     }
     return ret;
 }
@@ -2166,6 +2178,9 @@ uint8 gpio_pin_write_logic(const pin_config_t *pin,logic_t logic){
         ret = 0x01;
     }
     else{
+        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
+
         switch(logic){
             case GPIO_HIGH:
                 (*port_registers[pin->port] |= (0x01 << pin->pin));
@@ -2173,6 +2188,10 @@ uint8 gpio_pin_write_logic(const pin_config_t *pin,logic_t logic){
             case GPIO_LOW:
                 (*port_registers[pin->port] &= ~(0x01 << pin->pin));
                 break;
+        }
+        }
+        else{
+            ret = 0x01;
         }
     }
     return ret;
@@ -2183,7 +2202,13 @@ uint8 gpio_pin_read_logic(const pin_config_t *pin,logic_t *logic){
         ret = 0x01;
     }
     else{
+        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
         *logic = ((*port_registers[pin->port] >> pin->pin) & 0x01);
+        }
+        else{
+            ret = 0x01;
+        }
     }
     return ret;
 }
