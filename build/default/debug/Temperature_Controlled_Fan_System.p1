@@ -1,0 +1,239 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"61 ./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h
+[; ;./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h: 61: typedef struct{
+[s S101 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S101 . port pin logic direction ]
+"8 Temperature_Controlled_Fan_System.c
+[; ;Temperature_Controlled_Fan_System.c: 8: pin_config_t pin = {.port = PORTC_INDEX,.pin = PIN0,.logic = GPIO_HIGH,.direction = GPIO_DIRECTION_OUTPUT};
+[c E1345 0 1 2 3 4 .. ]
+[n E1345 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E1335 0 1 2 3 4 5 6 7 .. ]
+[n E1335 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
+[c E1352 0 1 .. ]
+[n E1352 . GPIO_LOW GPIO_HIGH  ]
+[c E1356 0 1 .. ]
+[n E1356 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+[p mainexit ]
+"77 ./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h
+[; ;./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h: 77: uint8 gpio_port_direction_initialize(const port_t port,direction_t direction);
+[v _gpio_port_direction_initialize `(uc ~T0 @X0 0 ef2`CE1345`E1356 ]
+[v F485 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v __delay `JF485 ~T0 @X0 0 e ]
+[p i __delay ]
+"79 ./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h
+[; ;./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h: 79: uint8 gpio_port_write_logic(const port_t port,logic_t logic);
+[v _gpio_port_write_logic `(uc ~T0 @X0 0 ef2`CE1345`E1352 ]
+"80
+[; ;./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h: 80: uint8 gpio_port_read_logic(const port_t port,logic_t *logic);
+[v _gpio_port_read_logic `(uc ~T0 @X0 0 ef2`CE1345`*E1352 ]
+"78
+[; ;./ECU_LAYER/../MCAL_LAYER/GPIO/mcal_gpio.h: 78: uint8 gpio_get_port_direction(const port_t port,direction_t *direction);
+[v _gpio_get_port_direction `(uc ~T0 @X0 0 ef2`CE1345`*E1356 ]
+"54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\../../../xc8/pic/include/proc/pic16f877a.h
+[; <" INDF equ 00h ;# ">
+"61
+[; <" TMR0 equ 01h ;# ">
+"68
+[; <" PCL equ 02h ;# ">
+"75
+[; <" STATUS equ 03h ;# ">
+"161
+[; <" FSR equ 04h ;# ">
+"168
+[; <" PORTA equ 05h ;# ">
+"218
+[; <" PORTB equ 06h ;# ">
+"280
+[; <" PORTC equ 07h ;# ">
+"342
+[; <" PORTD equ 08h ;# ">
+"404
+[; <" PORTE equ 09h ;# ">
+"436
+[; <" PCLATH equ 0Ah ;# ">
+"456
+[; <" INTCON equ 0Bh ;# ">
+"534
+[; <" PIR1 equ 0Ch ;# ">
+"596
+[; <" PIR2 equ 0Dh ;# ">
+"636
+[; <" TMR1 equ 0Eh ;# ">
+"643
+[; <" TMR1L equ 0Eh ;# ">
+"650
+[; <" TMR1H equ 0Fh ;# ">
+"657
+[; <" T1CON equ 010h ;# ">
+"732
+[; <" TMR2 equ 011h ;# ">
+"739
+[; <" T2CON equ 012h ;# ">
+"810
+[; <" SSPBUF equ 013h ;# ">
+"817
+[; <" SSPCON equ 014h ;# ">
+"887
+[; <" CCPR1 equ 015h ;# ">
+"894
+[; <" CCPR1L equ 015h ;# ">
+"901
+[; <" CCPR1H equ 016h ;# ">
+"908
+[; <" CCP1CON equ 017h ;# ">
+"966
+[; <" RCSTA equ 018h ;# ">
+"1061
+[; <" TXREG equ 019h ;# ">
+"1068
+[; <" RCREG equ 01Ah ;# ">
+"1075
+[; <" CCPR2 equ 01Bh ;# ">
+"1082
+[; <" CCPR2L equ 01Bh ;# ">
+"1089
+[; <" CCPR2H equ 01Ch ;# ">
+"1096
+[; <" CCP2CON equ 01Dh ;# ">
+"1154
+[; <" ADRESH equ 01Eh ;# ">
+"1161
+[; <" ADCON0 equ 01Fh ;# ">
+"1257
+[; <" OPTION_REG equ 081h ;# ">
+"1327
+[; <" TRISA equ 085h ;# ">
+"1377
+[; <" TRISB equ 086h ;# ">
+"1439
+[; <" TRISC equ 087h ;# ">
+"1501
+[; <" TRISD equ 088h ;# ">
+"1563
+[; <" TRISE equ 089h ;# ">
+"1620
+[; <" PIE1 equ 08Ch ;# ">
+"1682
+[; <" PIE2 equ 08Dh ;# ">
+"1722
+[; <" PCON equ 08Eh ;# ">
+"1756
+[; <" SSPCON2 equ 091h ;# ">
+"1818
+[; <" PR2 equ 092h ;# ">
+"1825
+[; <" SSPADD equ 093h ;# ">
+"1832
+[; <" SSPSTAT equ 094h ;# ">
+"2001
+[; <" TXSTA equ 098h ;# ">
+"2082
+[; <" SPBRG equ 099h ;# ">
+"2089
+[; <" CMCON equ 09Ch ;# ">
+"2159
+[; <" CVRCON equ 09Dh ;# ">
+"2224
+[; <" ADRESL equ 09Eh ;# ">
+"2231
+[; <" ADCON1 equ 09Fh ;# ">
+"2290
+[; <" EEDATA equ 010Ch ;# ">
+"2297
+[; <" EEADR equ 010Dh ;# ">
+"2304
+[; <" EEDATH equ 010Eh ;# ">
+"2311
+[; <" EEADRH equ 010Fh ;# ">
+"2318
+[; <" EECON1 equ 018Ch ;# ">
+"2363
+[; <" EECON2 equ 018Dh ;# ">
+"8 Temperature_Controlled_Fan_System.c
+[; ;Temperature_Controlled_Fan_System.c: 8: pin_config_t pin = {.port = PORTC_INDEX,.pin = PIN0,.logic = GPIO_HIGH,.direction = GPIO_DIRECTION_OUTPUT};
+[v _pin `S101 ~T0 @X0 1 e ]
+[i _pin
+:U ..
+:U ..
+-> . `E1345 2 `uc
+-> . `E1335 0 `uc
+-> . `E1352 1 `uc
+-> . `E1356 0 `uc
+..
+..
+]
+"9
+[; ;Temperature_Controlled_Fan_System.c: 9: pin_config_t pin2 = {.port = PORTC_INDEX,.pin = PIN1,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_INPUT};
+[v _pin2 `S101 ~T0 @X0 1 e ]
+[i _pin2
+:U ..
+:U ..
+-> . `E1345 2 `uc
+-> . `E1335 1 `uc
+-> . `E1352 0 `uc
+-> . `E1356 1 `uc
+..
+..
+]
+"10
+[; ;Temperature_Controlled_Fan_System.c: 10: logic_t logic;
+[v _logic `E1352 ~T0 @X0 1 e ]
+"11
+[; ;Temperature_Controlled_Fan_System.c: 11: direction_t direction;
+[v _direction `E1356 ~T0 @X0 1 e ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"12
+[; ;Temperature_Controlled_Fan_System.c: 12: int main() {
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"13
+[; ;Temperature_Controlled_Fan_System.c: 13: gpio_port_direction_initialize(PORTC_INDEX,0xed);
+[e ( _gpio_port_direction_initialize (2 , . `E1345 2 -> -> 237 `i `E1356 ]
+"14
+[; ;Temperature_Controlled_Fan_System.c: 14: gpio_port_direction_initialize(PORTD_INDEX,GPIO_DIRECTION_INPUT);
+[e ( _gpio_port_direction_initialize (2 , . `E1345 3 . `E1356 1 ]
+"15
+[; ;Temperature_Controlled_Fan_System.c: 15: while(1){
+[e :U 104 ]
+{
+"16
+[; ;Temperature_Controlled_Fan_System.c: 16:     _delay((unsigned long)((1000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"17
+[; ;Temperature_Controlled_Fan_System.c: 17: gpio_port_write_logic(PORTC_INDEX,0xed);
+[e ( _gpio_port_write_logic (2 , . `E1345 2 -> -> 237 `i `E1352 ]
+"18
+[; ;Temperature_Controlled_Fan_System.c: 18: gpio_port_read_logic(PORTC_INDEX,&logic);
+[e ( _gpio_port_read_logic (2 , . `E1345 2 &U _logic ]
+"19
+[; ;Temperature_Controlled_Fan_System.c: 19: gpio_get_port_direction(PORTC_INDEX,&direction);
+[e ( _gpio_get_port_direction (2 , . `E1345 2 &U _direction ]
+"20
+[; ;Temperature_Controlled_Fan_System.c: 20:    _delay((unsigned long)((1000)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"21
+[; ;Temperature_Controlled_Fan_System.c: 21: gpio_port_write_logic(PORTC_INDEX,GPIO_LOW);
+[e ( _gpio_port_write_logic (2 , . `E1345 2 . `E1352 0 ]
+"22
+[; ;Temperature_Controlled_Fan_System.c: 22: gpio_port_read_logic(PORTC_INDEX,&logic);
+[e ( _gpio_port_read_logic (2 , . `E1345 2 &U _logic ]
+"23
+[; ;Temperature_Controlled_Fan_System.c: 23: gpio_get_port_direction(PORTC_INDEX,&direction);
+[e ( _gpio_get_port_direction (2 , . `E1345 2 &U _direction ]
+"24
+[; ;Temperature_Controlled_Fan_System.c: 24: }
+}
+[e :U 103 ]
+[e $U 104  ]
+[e :U 105 ]
+"25
+[; ;Temperature_Controlled_Fan_System.c: 25:     return (0);
+[e ) -> 0 `i ]
+[e $UE 102  ]
+"26
+[; ;Temperature_Controlled_Fan_System.c: 26: }
+[e :UE 102 ]
+}
