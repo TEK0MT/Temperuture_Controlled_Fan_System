@@ -2127,129 +2127,127 @@ uint8 gpio_port_read_logic(const port_t port,logic_t *logic);
 uint8 gpio_port_toggle_logic(const port_t port);
 # 7 "MCAL_LAYER/GPIO/mcal_gpio.c" 2
 
-volatile uint8 *tris_registers[] = {&TRISA,&TRISB,&TRISC,&TRISD,&TRISE};
+volatile uint8 *tris_registers[] = {&TRISA, &TRISB, &TRISC, &TRISD, &TRISE};
 
-volatile uint8 *port_registers[] = {&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
+volatile uint8 *port_registers[] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE};
 
-
-
-uint8 gpio_pin_direction_initialize(const pin_config_t *pin){
+uint8 gpio_pin_direction_initialize(const pin_config_t *pin) {
     uint8 ret = 0x00;
-    if(pin == ((void*)0)){
+    if (pin == ((void*)0)) {
         ret = 0x01;
+    } else {
+        if ((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+                (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)) {
+            switch (pin->direction) {
+                case GPIO_DIRECTION_OUTPUT:
+                    (*tris_registers[pin->port] &= ~(0x01 << pin->pin));
+                    break;
+                case GPIO_DIRECTION_INPUT:
+                    (*tris_registers[pin->port] |= (0x01 << pin->pin));
+                    break;
+            }
+        } else {
+            ret = 0x01;
+        }
+        return ret;
     }
-    else{
-        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
-           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
-        switch(pin->direction){
-            case GPIO_DIRECTION_OUTPUT:
-                (*tris_registers[pin->port] &= ~(0x01 << pin->pin));
-                break;
+}
+
+uint8 gpio_get_pin_direction(const pin_config_t *pin, direction_t *direction) {
+    uint8 ret = 0x00;
+
+    if (pin == ((void*)0) || direction == ((void*)0)) {
+        ret = 0x01;
+    } else {
+        if ((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+                (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)) {
+            *direction = ((*tris_registers[pin->port] >> pin->pin) & 0x01);
+        } else {
+            ret = 0x01;
+        }
+    }
+    return ret;
+}
+
+uint8 gpio_pin_write_logic(const pin_config_t *pin, logic_t logic) {
+    uint8 ret = 0x00;
+    if (pin == ((void*)0)) {
+        ret = 0x01;
+    } else {
+        if ((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+                (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)) {
+
+            switch (logic) {
+                case GPIO_HIGH:
+                    (*port_registers[pin->port] |= (0x01 << pin->pin));
+                    break;
+                case GPIO_LOW:
+                    (*port_registers[pin->port] &= ~(0x01 << pin->pin));
+                    break;
+            }
+        } else {
+            ret = 0x01;
+        }
+    }
+    return ret;
+}
+
+uint8 gpio_pin_read_logic(const pin_config_t *pin, logic_t *logic) {
+    uint8 ret = 0x00;
+    if (pin == ((void*)0) || logic == ((void*)0)) {
+        ret = 0x01;
+    } else {
+        if ((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+                (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)) {
+            *logic = ((*port_registers[pin->port] >> pin->pin) & 0x01);
+        } else {
+            ret = 0x01;
+        }
+    }
+    return ret;
+}
+
+uint8 gpio_pin_toggle_logic(const pin_config_t *pin) {
+    uint8 ret = 0x00;
+    if (pin == ((void*)0)) {
+        ret = 0x01;
+    } else {
+        if ((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+                (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)) {
+            (*port_registers[pin->port] ^= (0x01 << pin->pin));
+        } else {
+            ret = 0x01;
+        }
+    }
+    return ret;
+}
+
+uint8 gpio_pin_initialize(const pin_config_t *pin) {
+    uint8 ret = 0x00;
+    if (pin == ((void*)0)) {
+        ret = 0x01;
+    } else {
+        if ((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
+                (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)) {
+            gpio_pin_direction_initialize(pin);
+            gpio_pin_write_logic(pin, pin->logic);
+        } else {
+            ret = 0x01;
+        }
+    }
+    return ret;
+}
+
+uint8 gpio_port_direction_initialize(const port_t port, direction_t direction) {
+    uint8 ret = 0x00;
+    if (port > 5 - 1) {
+        ret = 0x01;
+    } else {
+        switch (direction) {
             case GPIO_DIRECTION_INPUT:
-                (*tris_registers[pin->port] |= (0x01 << pin->pin));
-                break;
-        }
-        }
-    else{
-        ret = 0x01;
-    }
-    return ret;
-}
-uint8 gpio_get_pin_direction(const pin_config_t *pin,direction_t *direction){
-    uint8 ret = 0x00;
-
-    if(pin == ((void*)0) || direction == ((void*)0)){
-        ret = 0x01;
-    }
-    else{
-        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
-           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
-        *direction = ((*tris_registers[pin->port] >> pin->pin) & 0x01);
-        }
-        else{
-            ret = 0x01;
-        }
-    }
-    return ret;
-}
-uint8 gpio_pin_write_logic(const pin_config_t *pin,logic_t logic){
-    uint8 ret = 0x00;
-    if(pin == ((void*)0)){
-        ret = 0x01;
-    }
-    else{
-        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
-           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
-
-        switch(logic){
-            case GPIO_HIGH:
-                (*port_registers[pin->port] |= (0x01 << pin->pin));
-                break;
-            case GPIO_LOW:
-                (*port_registers[pin->port] &= ~(0x01 << pin->pin));
-                break;
-        }
-        }
-        else{
-            ret = 0x01;
-        }
-    }
-    return ret;
-}
-uint8 gpio_pin_read_logic(const pin_config_t *pin,logic_t *logic){
-    uint8 ret = 0x00;
-    if(pin == ((void*)0) || logic == ((void*)0)){
-        ret = 0x01;
-    }
-    else{
-        if((pin->port == PORTA_INDEX && pin->pin < 6) || (pin->port == PORTB_INDEX && pin->pin < 8) || (pin->port == PORTC_INDEX && pin->pin < 8) ||
-           (pin->port == PORTD_INDEX && pin->pin < 8) || (pin->port == PORTE_INDEX && pin->pin < 3)){
-        *logic = ((*port_registers[pin->port] >> pin->pin) & 0x01);
-        }
-        else{
-            ret = 0x01;
-        }
-    }
-    return ret;
-}
-uint8 gpio_pin_toggle_logic(const pin_config_t *pin){
-    uint8 ret = 0x00;
-    if(pin == ((void*)0)){
-        ret = 0x01;
-    }
-    else{
-        (*port_registers[pin->port] ^= (0x01 << pin->pin));
-    }
-    return ret;
-}
-uint8 gpio_pin_initialize(const pin_config_t *pin){
-    uint8 ret = 0x00;
-    if(pin == ((void*)0)){
-        ret = 0x01;
-    }
-    else{
-        gpio_pin_direction_initialize(pin);
-        gpio_pin_write_logic(pin,pin->logic);
-    }
-    return ret;
-}
-
-
-
-
-
-
-uint8 gpio_port_direction_initialize(const port_t port,direction_t direction){
-    uint8 ret = 0x00;
-    if(port > 5 -1){
-        ret = 0x01;
-    }
-    else{
-        switch(direction){
-            case GPIO_DIRECTION_INPUT :
                 *tris_registers[port] = 0xFF;
                 break;
-            case GPIO_DIRECTION_OUTPUT :
+            case GPIO_DIRECTION_OUTPUT:
                 *tris_registers[port] = 0x00;
                 break;
             default:
@@ -2259,52 +2257,52 @@ uint8 gpio_port_direction_initialize(const port_t port,direction_t direction){
     }
     return ret;
 }
-uint8 gpio_get_port_direction(const port_t port,direction_t *direction){
+
+uint8 gpio_get_port_direction(const port_t port, direction_t *direction) {
     uint8 ret = 0x00;
-    if(port > 5 -1){
+    if (port > 5 - 1) {
         ret = 0x01;
-    }
-    else{
+    } else {
         *direction = *tris_registers[port];
     }
     return ret;
 }
-uint8 gpio_port_write_logic(const port_t port,logic_t logic){
+
+uint8 gpio_port_write_logic(const port_t port, logic_t logic) {
     uint8 ret = 0x00;
-    if(port > 5 -1){
+    if (port > 5 - 1) {
         ret = 0x01;
-    }
-    else{
-        switch(logic){
-            case GPIO_HIGH :
+    } else {
+        switch (logic) {
+            case GPIO_HIGH:
                 *port_registers[port] = 0xFF;
                 break;
-            case GPIO_LOW :
+            case GPIO_LOW:
                 *port_registers[port] = 0x00;
                 break;
-                default:
+            default:
                 *port_registers[port] = logic;
         }
 
     }
     return ret;
 }
-uint8 gpio_port_read_logic(const port_t port,logic_t *logic){
+
+uint8 gpio_port_read_logic(const port_t port, logic_t *logic) {
     uint8 ret = 0x00;
-    if(port > 5 -1){
+    if (port > 5 - 1) {
         ret = 0x01;
-    }
-    else{
+    } else {
         *logic = *port_registers[port];
     }
     return ret;
 }
-uint8 gpio_port_toggle_logic(const port_t port){
+
+uint8 gpio_port_toggle_logic(const port_t port) {
     uint8 ret = 0x00;
-    if(port > 5 -1){
+    if (port > 5 - 1) {
         ret = 0x01;
-    }
-    else{
+    } else {
         *port_registers[port] ^= 0xFF;
     }
     return ret;

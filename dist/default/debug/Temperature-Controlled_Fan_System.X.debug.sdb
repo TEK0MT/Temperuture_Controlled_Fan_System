@@ -29,23 +29,23 @@ GPIO_HIGH 1
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
-"27 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
-[e E1356 . `uc
-GPIO_DIRECTION_OUTPUT 0
-GPIO_DIRECTION_INPUT 1
-]
-"41
-[e E1352 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"95
+"17 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
 [e E1345 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
+]
+"26
+[e E1356 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+"50
+[e E1352 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
 ]
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
@@ -55,17 +55,17 @@ PORTE_INDEX 4
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"14 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
+"12 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
-"41
+"50
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
-"95
+"119
 [v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
-"115
+"139
 [v _gpio_get_port_direction gpio_get_port_direction `(uc  1 e 1 0 ]
-"125
+"149
 [v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
-"145
+"169
 [v _gpio_port_read_logic gpio_port_read_logic `(uc  1 e 1 0 ]
 "12 T:\Embedded Systems\Temperature-Controlled Fan System.X\Temperature_Controlled_Fan_System.c
 [v _main main `(i  1 e 2 0 ]
@@ -102,39 +102,39 @@ PORTE_INDEX 4
 {
 "26
 } 0
-"125 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
+"149 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
 [v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
 {
 [v gpio_port_write_logic@port port `DCE1345  1 a 1 wreg ]
 [v gpio_port_write_logic@port port `DCE1345  1 a 1 wreg ]
 [v gpio_port_write_logic@logic logic `E1352  1 p 1 0 ]
 [v gpio_port_write_logic@port port `DCE1345  1 a 1 4 ]
-"144
+"167
 } 0
-"145
+"169
 [v _gpio_port_read_logic gpio_port_read_logic `(uc  1 e 1 0 ]
 {
 [v gpio_port_read_logic@port port `DCE1345  1 a 1 wreg ]
 [v gpio_port_read_logic@port port `DCE1345  1 a 1 wreg ]
 [v gpio_port_read_logic@logic logic `*.1E1352  1 p 1 0 ]
 [v gpio_port_read_logic@port port `DCE1345  1 a 1 4 ]
-"154
+"177
 } 0
-"95
+"119
 [v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
 {
 [v gpio_port_direction_initialize@port port `DCE1345  1 a 1 wreg ]
 [v gpio_port_direction_initialize@port port `DCE1345  1 a 1 wreg ]
 [v gpio_port_direction_initialize@direction direction `E1356  1 p 1 0 ]
 [v gpio_port_direction_initialize@port port `DCE1345  1 a 1 4 ]
-"114
+"137
 } 0
-"115
+"139
 [v _gpio_get_port_direction gpio_get_port_direction `(uc  1 e 1 0 ]
 {
 [v gpio_get_port_direction@port port `DCE1345  1 a 1 wreg ]
 [v gpio_get_port_direction@port port `DCE1345  1 a 1 wreg ]
 [v gpio_get_port_direction@direction direction `*.1E1356  1 p 1 0 ]
 [v gpio_get_port_direction@port port `DCE1345  1 a 1 4 ]
-"124
+"147
 } 0

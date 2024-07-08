@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Mon Jul 08 07:41:37 2024
+                                                                                               Mon Jul 08 08:27:00 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	16F877A
@@ -535,7 +535,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    521     0783                     _main:	
    522                           ;psect for function _main
    523                           
-   524     0783                     l921:	
+   524     0783                     l1145:	
    525                           ;incstack = 0
    526                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
    527                           
@@ -553,7 +553,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    537     078C  0AF0               	incf	gpio_port_direction_initialize@direction,f
    538     078D  3003               	movlw	3
    539     078E  120A  118A  26E1  120A  118A  	fcall	_gpio_port_direction_initialize
-   540     0793                     l923:
+   540     0793                     l1147:
    541                           
    542                           ;Temperature_Controlled_Fan_System.c: 16:     _delay((unsigned long)((1000)*(8000000UL/4
       +                          000.0)));
@@ -563,29 +563,29 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    546     0796  00F6               	movwf	??_main+1
    547     0797  305D               	movlw	93
    548     0798  00F5               	movwf	??_main
-   549     0799                     u417:
+   549     0799                     u1617:
    550     0799  0BF5               	decfsz	??_main,f
-   551     079A  2F99               	goto	u417
+   551     079A  2F99               	goto	u1617
    552     079B  0BF6               	decfsz	??_main+1,f
-   553     079C  2F99               	goto	u417
+   553     079C  2F99               	goto	u1617
    554     079D  0BF7               	decfsz	??_main+2,f
-   555     079E  2F99               	goto	u417
+   555     079E  2F99               	goto	u1617
    556     079F  2FA0               	nop2
-   557     07A0                     l925:
+   557     07A0                     l1149:
    558                           
    559                           ;Temperature_Controlled_Fan_System.c: 17: gpio_port_write_logic(PORTC_INDEX,0xed);
    560     07A0  30ED               	movlw	237
    561     07A1  00F0               	movwf	gpio_port_write_logic@logic
    562     07A2  3002               	movlw	2
    563     07A3  120A  118A  2732  120A  118A  	fcall	_gpio_port_write_logic
-   564     07A8                     l927:
+   564     07A8                     l1151:
    565                           
    566                           ;Temperature_Controlled_Fan_System.c: 18: gpio_port_read_logic(PORTC_INDEX,&logic);
    567     07A8  3079               	movlw	(low (_logic| 0))& (0+255)
    568     07A9  00F0               	movwf	gpio_port_read_logic@logic
    569     07AA  3002               	movlw	2
    570     07AB  120A  118A  26C2  120A  118A  	fcall	_gpio_port_read_logic
-   571     07B0                     l929:
+   571     07B0                     l1153:
    572                           
    573                           ;Temperature_Controlled_Fan_System.c: 19: gpio_get_port_direction(PORTC_INDEX,&direction
       +                          );
@@ -602,28 +602,28 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    583     07BB  00F6               	movwf	??_main+1
    584     07BC  305D               	movlw	93
    585     07BD  00F5               	movwf	??_main
-   586     07BE                     u427:
+   586     07BE                     u1627:
    587     07BE  0BF5               	decfsz	??_main,f
-   588     07BF  2FBE               	goto	u427
+   588     07BF  2FBE               	goto	u1627
    589     07C0  0BF6               	decfsz	??_main+1,f
-   590     07C1  2FBE               	goto	u427
+   590     07C1  2FBE               	goto	u1627
    591     07C2  0BF7               	decfsz	??_main+2,f
-   592     07C3  2FBE               	goto	u427
+   592     07C3  2FBE               	goto	u1627
    593     07C4  2FC5               	nop2
-   594     07C5                     l931:
+   594     07C5                     l1155:
    595                           
    596                           ;Temperature_Controlled_Fan_System.c: 21: gpio_port_write_logic(PORTC_INDEX,GPIO_LOW);
    597     07C5  01F0               	clrf	gpio_port_write_logic@logic
    598     07C6  3002               	movlw	2
    599     07C7  120A  118A  2732  120A  118A  	fcall	_gpio_port_write_logic
-   600     07CC                     l933:
+   600     07CC                     l1157:
    601                           
    602                           ;Temperature_Controlled_Fan_System.c: 22: gpio_port_read_logic(PORTC_INDEX,&logic);
    603     07CC  3079               	movlw	(low (_logic| 0))& (0+255)
    604     07CD  00F0               	movwf	gpio_port_read_logic@logic
    605     07CE  3002               	movlw	2
    606     07CF  120A  118A  26C2  120A  118A  	fcall	_gpio_port_read_logic
-   607     07D4                     l935:
+   607     07D4                     l1159:
    608                           
    609                           ;Temperature_Controlled_Fan_System.c: 23: gpio_get_port_direction(PORTC_INDEX,&direction
       +                          );
@@ -631,7 +631,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    611     07D5  00F0               	movwf	gpio_get_port_direction@direction
    612     07D6  3002               	movlw	2
    613     07D7  120A  118A  26A3  120A  118A  	fcall	_gpio_get_port_direction
-   614     07DC  2F93               	goto	l923
+   614     07DC  2F93               	goto	l1147
    615     07DD  120A  118A  2800   	ljmp	start
    616     07E0                     __end_of_main:
    617                           
@@ -639,7 +639,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    619     0732                     __ptext1:	
    620 ;; *************** function _gpio_port_write_logic *****************
    621 ;; Defined at:
-   622 ;;		line 125 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
+   622 ;;		line 149 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
    623 ;; Parameters:    Size  Location     Type
    624 ;;  port            1    wreg     const enum E1345
    625 ;;  logic           1    0[COMMON] enum E1352
@@ -676,25 +676,25 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    656                           ; Regs used in _gpio_port_write_logic: [wreg-fsr0h+status,2+status,0]
    657                           ;gpio_port_write_logic@port stored from wreg
    658     0732  00F4               	movwf	gpio_port_write_logic@port
-   659     0733                     l851:
-   660     0733                     l853:
+   659     0733                     l1035:
+   660     0733                     l1037:
    661                           
-   662                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 127:     if(port > 5 -1){
+   662                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 151:     if (port > 5 - 1) {
    663     0733  3005               	movlw	5
    664     0734  0274               	subwf	gpio_port_write_logic@port,w
    665     0735  1C03               	skipc
-   666     0736  2F38               	goto	u221
-   667     0737  2F39               	goto	u220
-   668     0738                     u221:
-   669     0738  2F72               	goto	l863
-   670     0739                     u220:
-   671     0739                     l855:
+   666     0736  2F38               	goto	u821
+   667     0737  2F39               	goto	u820
+   668     0738                     u821:
+   669     0738  2F72               	goto	l1047
+   670     0739                     u820:
+   671     0739                     l1039:
    672                           
-   673                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 129:     }
-   674     0739  2F82               	goto	l117
-   675     073A                     l857:
+   673                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 153:     } else {
+   674     0739  2F82               	goto	l189
+   675     073A                     l1041:
    676                           
-   677                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 133:                 *port_registers[port] = 0xFF;
+   677                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 156:                 *port_registers[port] = 0xFF;
    678     073A  0874               	movf	gpio_port_write_logic@port,w
    679     073B  00F1               	movwf	??_gpio_port_write_logic
    680     073C  0771               	addwf	??_gpio_port_write_logic,w
@@ -714,11 +714,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    694     074A  30FF               	movlw	255
    695     074B  0080               	movwf	0
    696                           
-   697                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 134:                 break;
-   698     074C  2F82               	goto	l117
-   699     074D                     l859:
+   697                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 157:                 break;
+   698     074C  2F82               	goto	l189
+   699     074D                     l1043:
    700                           
-   701                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 136:                 *port_registers[port] = 0x00;
+   701                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 159:                 *port_registers[port] = 0x00;
    702     074D  0874               	movf	gpio_port_write_logic@port,w
    703     074E  00F1               	movwf	??_gpio_port_write_logic
    704     074F  0771               	addwf	??_gpio_port_write_logic,w
@@ -737,11 +737,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    717     075C  1383               	bcf	3,7
    718     075D  0180               	clrf	0
    719                           
-   720                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 137:                 break;
-   721     075E  2F82               	goto	l117
-   722     075F                     l861:
+   720                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 160:                 break;
+   721     075E  2F82               	goto	l189
+   722     075F                     l1045:
    723                           
-   724                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 139:                 *port_registers[port] = logic;
+   724                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 162:                 *port_registers[port] = logic;
    725     075F  0874               	movf	gpio_port_write_logic@port,w
    726     0760  00F1               	movwf	??_gpio_port_write_logic
    727     0761  0771               	addwf	??_gpio_port_write_logic,w
@@ -761,9 +761,9 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    741     076F  0870               	movf	gpio_port_write_logic@logic,w
    742     0770  0080               	movwf	0
    743                           
-   744                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 140:         }
-   745     0771  2F82               	goto	l117
-   746     0772                     l863:
+   744                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 163:         }
+   745     0771  2F82               	goto	l189
+   746     0772                     l1047:
    747     0772  0870               	movf	gpio_port_write_logic@logic,w
    748     0773  00F1               	movwf	??_gpio_port_write_logic
    749     0774  01F2               	clrf	??_gpio_port_write_logic+1
@@ -781,9 +781,9 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    760     0775  0872               	movf	??_gpio_port_write_logic+1,w
    761     0776  3A00               	xorlw	0	; case 0
    762     0777  1903               	skipnz
-   763     0778  2F7A               	goto	l995
-   764     0779  2F5F               	goto	l861
-   765     077A                     l995:
+   763     0778  2F7A               	goto	l1291
+   764     0779  2F5F               	goto	l1045
+   765     077A                     l1291:
    766                           
    767                           ; Switch size 1, requested type "simple"
    768                           ; Number of cases is 2, Range of values is 0 to 1
@@ -796,12 +796,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    775     077A  0871               	movf	??_gpio_port_write_logic,w
    776     077B  3A00               	xorlw	0	; case 0
    777     077C  1903               	skipnz
-   778     077D  2F4D               	goto	l859
+   778     077D  2F4D               	goto	l1043
    779     077E  3A01               	xorlw	1	; case 1
    780     077F  1903               	skipnz
-   781     0780  2F3A               	goto	l857
-   782     0781  2F5F               	goto	l861
-   783     0782                     l117:
+   781     0780  2F3A               	goto	l1041
+   782     0781  2F5F               	goto	l1045
+   783     0782                     l189:
    784     0782  0008               	return
    785     0783                     __end_of_gpio_port_write_logic:
    786                           
@@ -809,7 +809,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    788     06C2                     __ptext2:	
    789 ;; *************** function _gpio_port_read_logic *****************
    790 ;; Defined at:
-   791 ;;		line 145 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
+   791 ;;		line 169 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
    792 ;; Parameters:    Size  Location     Type
    793 ;;  port            1    wreg     const enum E1345
    794 ;;  logic           1    0[COMMON] PTR enum E1352
@@ -847,25 +847,25 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    826                           ; Regs used in _gpio_port_read_logic: [wreg-fsr0h+status,2+status,0+btemp+1]
    827                           ;gpio_port_read_logic@port stored from wreg
    828     06C2  00F4               	movwf	gpio_port_read_logic@port
-   829     06C3                     l869:
-   830     06C3                     l871:
+   829     06C3                     l1053:
+   830     06C3                     l1055:
    831                           
-   832                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 147:     if(port > 5 -1){
+   832                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 171:     if (port > 5 - 1) {
    833     06C3  3005               	movlw	5
    834     06C4  0274               	subwf	gpio_port_read_logic@port,w
    835     06C5  1C03               	skipc
-   836     06C6  2EC8               	goto	u231
-   837     06C7  2EC9               	goto	u230
-   838     06C8                     u231:
-   839     06C8  2ECA               	goto	l875
-   840     06C9                     u230:
-   841     06C9                     l873:
+   836     06C6  2EC8               	goto	u831
+   837     06C7  2EC9               	goto	u830
+   838     06C8                     u831:
+   839     06C8  2ECA               	goto	l1059
+   840     06C9                     u830:
+   841     06C9                     l1057:
    842                           
-   843                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 149:     }
-   844     06C9  2EE0               	goto	l122
-   845     06CA                     l875:
+   843                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 173:     } else {
+   844     06C9  2EE0               	goto	l194
+   845     06CA                     l1059:
    846                           
-   847                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 151:         *logic = *port_registers[port];
+   847                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 174:         *logic = *port_registers[port];
    848     06CA  0874               	movf	gpio_port_read_logic@port,w
    849     06CB  00F1               	movwf	??_gpio_port_read_logic
    850     06CC  0771               	addwf	??_gpio_port_read_logic,w
@@ -888,7 +888,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    867     06DD  0084               	movwf	4
    868     06DE  087F               	movf	btemp+1,w
    869     06DF  0080               	movwf	0
-   870     06E0                     l122:
+   870     06E0                     l194:
    871     06E0  0008               	return
    872     06E1                     __end_of_gpio_port_read_logic:
    873                           
@@ -896,7 +896,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    875     06E1                     __ptext3:	
    876 ;; *************** function _gpio_port_direction_initialize *****************
    877 ;; Defined at:
-   878 ;;		line 95 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
+   878 ;;		line 119 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
    879 ;; Parameters:    Size  Location     Type
    880 ;;  port            1    wreg     const enum E1345
    881 ;;  direction       1    0[COMMON] enum E1356
@@ -933,25 +933,25 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    912                           ; Regs used in _gpio_port_direction_initialize: [wreg-fsr0h+status,2+status,0]
    913                           ;gpio_port_direction_initialize@port stored from wreg
    914     06E1  00F4               	movwf	gpio_port_direction_initialize@port
-   915     06E2                     l833:
-   916     06E2                     l835:
+   915     06E2                     l1017:
+   916     06E2                     l1019:
    917                           
-   918                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 97:     if(port > 5 -1){
+   918                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 121:     if (port > 5 - 1) {
    919     06E2  3005               	movlw	5
    920     06E3  0274               	subwf	gpio_port_direction_initialize@port,w
    921     06E4  1C03               	skipc
-   922     06E5  2EE7               	goto	u211
-   923     06E6  2EE8               	goto	u210
-   924     06E7                     u211:
-   925     06E7  2F21               	goto	l845
-   926     06E8                     u210:
-   927     06E8                     l837:
+   922     06E5  2EE7               	goto	u811
+   923     06E6  2EE8               	goto	u810
+   924     06E7                     u811:
+   925     06E7  2F21               	goto	l1029
+   926     06E8                     u810:
+   927     06E8                     l1021:
    928                           
-   929                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 99:     }
-   930     06E8  2F31               	goto	l102
-   931     06E9                     l839:
+   929                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 123:     } else {
+   930     06E8  2F31               	goto	l174
+   931     06E9                     l1023:
    932                           
-   933                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 103:                 *tris_registers[port] = 0xFF;
+   933                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 126:                 *tris_registers[port] = 0xFF;
    934     06E9  0874               	movf	gpio_port_direction_initialize@port,w
    935     06EA  00F1               	movwf	??_gpio_port_direction_initialize
    936     06EB  0771               	addwf	??_gpio_port_direction_initialize,w
@@ -971,11 +971,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    950     06F9  30FF               	movlw	255
    951     06FA  0080               	movwf	0
    952                           
-   953                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 104:                 break;
-   954     06FB  2F31               	goto	l102
-   955     06FC                     l841:
+   953                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 127:                 break;
+   954     06FB  2F31               	goto	l174
+   955     06FC                     l1025:
    956                           
-   957                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 106:                 *tris_registers[port] = 0x00;
+   957                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 129:                 *tris_registers[port] = 0x00;
    958     06FC  0874               	movf	gpio_port_direction_initialize@port,w
    959     06FD  00F1               	movwf	??_gpio_port_direction_initialize
    960     06FE  0771               	addwf	??_gpio_port_direction_initialize,w
@@ -994,11 +994,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    973     070B  1383               	bcf	3,7
    974     070C  0180               	clrf	0
    975                           
-   976                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 107:                 break;
-   977     070D  2F31               	goto	l102
-   978     070E                     l843:
+   976                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 130:                 break;
+   977     070D  2F31               	goto	l174
+   978     070E                     l1027:
    979                           
-   980                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 109:                 *tris_registers[port] = direction;
+   980                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 132:                 *tris_registers[port] = direction;
    981     070E  0874               	movf	gpio_port_direction_initialize@port,w
    982     070F  00F1               	movwf	??_gpio_port_direction_initialize
    983     0710  0771               	addwf	??_gpio_port_direction_initialize,w
@@ -1018,9 +1018,9 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    997     071E  0870               	movf	gpio_port_direction_initialize@direction,w
    998     071F  0080               	movwf	0
    999                           
-  1000                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 110:         }
-  1001     0720  2F31               	goto	l102
-  1002     0721                     l845:
+  1000                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 133:         }
+  1001     0720  2F31               	goto	l174
+  1002     0721                     l1029:
   1003     0721  0870               	movf	gpio_port_direction_initialize@direction,w
   1004     0722  00F1               	movwf	??_gpio_port_direction_initialize
   1005     0723  01F2               	clrf	??_gpio_port_direction_initialize+1
@@ -1038,9 +1038,9 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1016     0724  0872               	movf	??_gpio_port_direction_initialize+1,w
   1017     0725  3A00               	xorlw	0	; case 0
   1018     0726  1903               	skipnz
-  1019     0727  2F29               	goto	l997
-  1020     0728  2F0E               	goto	l843
-  1021     0729                     l997:
+  1019     0727  2F29               	goto	l1293
+  1020     0728  2F0E               	goto	l1027
+  1021     0729                     l1293:
   1022                           
   1023                           ; Switch size 1, requested type "simple"
   1024                           ; Number of cases is 2, Range of values is 0 to 1
@@ -1053,12 +1053,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1031     0729  0871               	movf	??_gpio_port_direction_initialize,w
   1032     072A  3A00               	xorlw	0	; case 0
   1033     072B  1903               	skipnz
-  1034     072C  2EFC               	goto	l841
+  1034     072C  2EFC               	goto	l1025
   1035     072D  3A01               	xorlw	1	; case 1
   1036     072E  1903               	skipnz
-  1037     072F  2EE9               	goto	l839
-  1038     0730  2F0E               	goto	l843
-  1039     0731                     l102:
+  1037     072F  2EE9               	goto	l1023
+  1038     0730  2F0E               	goto	l1027
+  1039     0731                     l174:
   1040     0731  0008               	return
   1041     0732                     __end_of_gpio_port_direction_initialize:
   1042                           
@@ -1066,7 +1066,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1044     06A3                     __ptext4:	
   1045 ;; *************** function _gpio_get_port_direction *****************
   1046 ;; Defined at:
-  1047 ;;		line 115 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
+  1047 ;;		line 139 in file "MCAL_LAYER/GPIO/mcal_gpio.c"
   1048 ;; Parameters:    Size  Location     Type
   1049 ;;  port            1    wreg     const enum E1345
   1050 ;;  direction       1    0[COMMON] PTR enum E1356
@@ -1104,25 +1104,25 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1082                           ; Regs used in _gpio_get_port_direction: [wreg-fsr0h+status,2+status,0+btemp+1]
   1083                           ;gpio_get_port_direction@port stored from wreg
   1084     06A3  00F4               	movwf	gpio_get_port_direction@port
-  1085     06A4                     l879:
-  1086     06A4                     l881:
+  1085     06A4                     l1063:
+  1086     06A4                     l1065:
   1087                           
-  1088                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 117:     if(port > 5 -1){
+  1088                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 141:     if (port > 5 - 1) {
   1089     06A4  3005               	movlw	5
   1090     06A5  0274               	subwf	gpio_get_port_direction@port,w
   1091     06A6  1C03               	skipc
-  1092     06A7  2EA9               	goto	u241
-  1093     06A8  2EAA               	goto	u240
-  1094     06A9                     u241:
-  1095     06A9  2EAB               	goto	l885
-  1096     06AA                     u240:
-  1097     06AA                     l883:
+  1092     06A7  2EA9               	goto	u841
+  1093     06A8  2EAA               	goto	u840
+  1094     06A9                     u841:
+  1095     06A9  2EAB               	goto	l1069
+  1096     06AA                     u840:
+  1097     06AA                     l1067:
   1098                           
-  1099                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 119:     }
-  1100     06AA  2EC1               	goto	l107
-  1101     06AB                     l885:
+  1099                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 143:     } else {
+  1100     06AA  2EC1               	goto	l179
+  1101     06AB                     l1069:
   1102                           
-  1103                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 121:         *direction = *tris_registers[port];
+  1103                           ;MCAL_LAYER/GPIO/mcal_gpio.c: 144:         *direction = *tris_registers[port];
   1104     06AB  0874               	movf	gpio_get_port_direction@port,w
   1105     06AC  00F1               	movwf	??_gpio_get_port_direction
   1106     06AD  0771               	addwf	??_gpio_get_port_direction,w
@@ -1145,7 +1145,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   1123     06BE  0084               	movwf	4
   1124     06BF  087F               	movf	btemp+1,w
   1125     06C0  0080               	movwf	0
-  1126     06C1                     l107:
+  1126     06C1                     l179:
   1127     06C1  0008               	return
   1128     06C2                     __end_of_gpio_get_port_direction:
   1129     007E                     btemp	set	126	;btemp
@@ -1295,34 +1295,34 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Mon Jul 08 07:41:37 2024
+Symbol Table                                                                                   Mon Jul 08 08:27:00 2024
 
                                       pc 0002                                       fsr 0004  
-                                    l102 0731                                      l122 06E0  
-                                    l107 06C1                                      l117 0782  
-                                    l841 06FC                                      l833 06E2  
-                                    l921 0783                                      l843 070E  
-                                    l835 06E2                                      l851 0733  
-                                    l931 07C5                                      l923 0793  
-                                    l837 06E8                                      l845 0721  
-                                    l861 075F                                      l853 0733  
-                                    l933 07CC                                      l925 07A0  
-                                    l839 06E9                                      l871 06C3  
-                                    l855 0739                                      l863 0772  
-                                    l935 07D4                                      l927 07A8  
-                                    l881 06A4                                      l873 06C9  
-                                    l857 073A                                      l929 07B0  
-                                    l883 06AA                                      l875 06CA  
-                                    l859 074D                                      l885 06AB  
-                                    l869 06C3                                      l879 06A4  
-                                    l995 077A                                      l997 0729  
-                                    u210 06E8                                      u211 06E7  
-                                    u220 0739                                      u221 0738  
-                                    u230 06C9                                      u231 06C8  
-                                    u240 06AA                                      u241 06A9  
-                                    u417 0799                                      u427 07BE  
+                                    l174 0731                                      l194 06E0  
+                                    l179 06C1                                      l189 0782  
+                                    u810 06E8                                      u811 06E7  
+                                    u820 0739                                      u821 0738  
+                                    u830 06C9                                      u831 06C8  
+                                    u840 06AA                                      u841 06A9  
                                     _pin 007B                                      fsr0 0004  
-                                    indf 0000                                     _main 0783  
+                                    indf 0000                                     l1021 06E8  
+                                   l1023 06E9                                     l1025 06FC  
+                                   l1017 06E2                                     l1041 073A  
+                                   l1027 070E                                     l1019 06E2  
+                                   l1043 074D                                     l1035 0733  
+                                   l1029 0721                                     l1053 06C3  
+                                   l1045 075F                                     l1037 0733  
+                                   l1063 06A4                                     l1055 06C3  
+                                   l1039 0739                                     l1047 0772  
+                                   l1151 07A8                                     l1065 06A4  
+                                   l1057 06C9                                     l1153 07B0  
+                                   l1145 0783                                     l1067 06AA  
+                                   l1059 06CA                                     l1155 07C5  
+                                   l1147 0793                                     l1069 06AB  
+                                   l1157 07CC                                     l1149 07A0  
+                                   l1159 07D4                                     l1291 077A  
+                                   l1293 0729                                     u1617 0799  
+                                   u1627 07BE                                     _main 0783  
                                    _pin2 007A                                     btemp 007E  
                                    start 0000                    _gpio_port_write_logic 0732  
                                   ?_main 0070                                    _PORTA 0005  
