@@ -1,4 +1,4 @@
-# 1 "Temperature_Controlled_Fan_System.c"
+# 1 "ECU_LAYER/Motor/ecu_motor_driver.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,26 +6,22 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Temperature_Controlled_Fan_System.c" 2
+# 1 "ECU_LAYER/Motor/ecu_motor_driver.c" 2
 
 
 
 
 
 
-# 1 "./Temperature_Controlled_Fan_System.h" 1
-# 11 "./Temperature_Controlled_Fan_System.h"
-# 1 "./ECU_LAYER/ECU_LAYER.h" 1
-# 11 "./ECU_LAYER/ECU_LAYER.h"
-# 1 "./ECU_LAYER/Motor/ecu_motor_driver.h" 1
-# 11 "./ECU_LAYER/Motor/ecu_motor_driver.h"
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/gpio_cfg.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 1 "ECU_LAYER/Motor/ecu_motor_driver.h" 1
+# 11 "ECU_LAYER/Motor/ecu_motor_driver.h"
+# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 1
+# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
+# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/gpio_cfg.h" 1
+# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h"
+# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 1
+# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -196,7 +192,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -273,11 +269,11 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
-# 12 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 12 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+# 12 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h"
+# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 1
+# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2065,12 +2061,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 2
-# 13 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 2
+# 13 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
 
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h" 1
-# 17 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h"
+# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h" 1
+# 17 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -2079,8 +2075,8 @@ typedef signed char sint8;
 typedef signed short sint16;
 typedef signed int sint32;
 typedef signed long long sint64;
-# 15 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
-# 32 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
+# 15 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 32 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
 typedef enum{
     PIN0 = 0,
     PIN1,
@@ -2131,7 +2127,7 @@ uint8 gpio_get_port_direction(const port_t port,direction_t *direction);
 uint8 gpio_port_write_logic(const port_t port,logic_t logic);
 uint8 gpio_port_read_logic(const port_t port,logic_t *logic);
 uint8 gpio_port_toggle_logic(const port_t port);
-# 11 "./ECU_LAYER/Motor/ecu_motor_driver.h" 2
+# 11 "ECU_LAYER/Motor/ecu_motor_driver.h" 2
 
 
 
@@ -2147,42 +2143,49 @@ uint8 motor_initialize(const motor_t *motor);
 uint8 motor_turn_right(const motor_t *motor);
 uint8 motor_turn_left(const motor_t *motor);
 uint8 motor_turn_off(const motor_t *motor);
-# 11 "./ECU_LAYER/ECU_LAYER.h" 2
+# 7 "ECU_LAYER/Motor/ecu_motor_driver.c" 2
 
-
-
-
-
-
-void ecu_initialzie(void);
-# 11 "./Temperature_Controlled_Fan_System.h" 2
-
-
-
-
-extern motor_t motor1;
-extern motor_t motor2;
-
-void apllication_initilaize(void);
-# 7 "Temperature_Controlled_Fan_System.c" 2
-
-
-int main() {
-
-while(1){
-    apllication_initilaize();
-    motor_turn_right(&motor1);
-    motor_turn_left(&motor2);
-    _delay((unsigned long)((2000)*(8000000UL/4000.0)));
-    motor_turn_right(&motor2);
-    motor_turn_left(&motor1);
-    _delay((unsigned long)((2000)*(8000000UL/4000.0)));
-    motor_turn_off(&motor1);
-    motor_turn_off(&motor2);
-    _delay((unsigned long)((2000)*(8000000UL/4000.0)));
+uint8 motor_initialize(const motor_t *motor){
+    uint8 ret = 0x00;
+    if(motor == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_initialize(&(motor->pins[0]));
+        ret = gpio_pin_initialize(&(motor->pins[1]));
+    }
+    return ret;
 }
-    return (0);
+uint8 motor_turn_right(const motor_t *motor){
+    uint8 ret = 0x00;
+    if(motor == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_write_logic(&(motor->pins[0]),GPIO_HIGH);
+        ret = gpio_pin_write_logic(&(motor->pins[1]),GPIO_LOW);
+    }
+    return ret;
 }
-void apllication_initilaize(void){
-    ecu_initialzie();
+uint8 motor_turn_left(const motor_t *motor){
+    uint8 ret = 0x00;
+    if(motor == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_write_logic(&(motor->pins[0]),GPIO_LOW);
+        ret = gpio_pin_write_logic(&(motor->pins[1]),GPIO_HIGH);
+    }
+    return ret;
+}
+uint8 motor_turn_off(const motor_t *motor){
+    uint8 ret = 0x00;
+    if(motor == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_write_logic(&(motor->pins[0]),GPIO_LOW);
+        ret = gpio_pin_write_logic(&(motor->pins[1]),GPIO_LOW);
+    }
+    return ret;
 }

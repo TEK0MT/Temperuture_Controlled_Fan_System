@@ -12,7 +12,9 @@
 /*Section : Macro Declaration Section*/
 /*Section : Macro Functions Declaration Section*/
 /*Section : Data Type Declaration Section*/
+extern motor_t motor1;
+extern motor_t motor2;
 /*Section : Functions Declaration Section*/
-
+void apllication_initilaize(void);
 #endif	/* TEMPERATURE_CONTROLLED_FAN_SYSTEM_H */
 

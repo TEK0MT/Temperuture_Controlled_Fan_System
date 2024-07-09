@@ -5,6 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ECU_LAYER" displayName="ECU_LAYER" projectFiles="true">
+        <logicalFolder name="Motor" displayName="Motor" projectFiles="true">
+          <itemPath>ECU_LAYER/Motor/ecu_motor_driver.h</itemPath>
+        </logicalFolder>
         <itemPath>ECU_LAYER/ECU_LAYER.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_LAYER" displayName="MCAL_LAYER" projectFiles="true">
@@ -31,6 +34,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ECU_LAYER" displayName="ECU_LAYER" projectFiles="true">
+        <logicalFolder name="Motor" displayName="Motor" projectFiles="true">
+          <itemPath>ECU_LAYER/Motor/ecu_motor_driver.c</itemPath>
+        </logicalFolder>
+        <itemPath>ECU_LAYER/ECU_LAYER.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_LAYER" displayName="MCAL_LAYER" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">

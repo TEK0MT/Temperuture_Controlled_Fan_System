@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/ECU_LAYER/Motor/ecu_motor_driver.h</file>
             <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/Temperature_Controlled_Fan_System.c</file>
             <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/MCAL_LAYER/GPIO/mcal_gpio.h</file>
             <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/Temperature_Controlled_Fan_System.h</file>
-            <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/MCAL_LAYER/GPIO/mcal_gpio.c</file>
-            <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/.git/config</file>
-            <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/MCAL_LAYER/device_config.h</file>
+            <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/ECU_LAYER/ECU_LAYER.c</file>
+            <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/ECU_LAYER/ECU_LAYER.h</file>
+            <file>file:/T:/Embedded%20Systems/Temperature-Controlled%20Fan%20System.X/ECU_LAYER/Motor/ecu_motor_driver.c</file>
         </group>
     </open-files>
 </project-private>

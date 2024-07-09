@@ -8,12 +8,12 @@
 #ifndef ECU_LAYER_H
 #define	ECU_LAYER_H
 /*Section : Include Section*/
-#include "../MCAL_LAYER/GPIO/mcal_gpio.h"
+#include "Motor/ecu_motor_driver.h"
 /*Section : Macro Declaration Section*/
 
 /*Section : Macro Functions Declaration Section*/
 /*Section : Data Type Declaration Section*/
 /*Section : Functions Declaration Section*/
-
+void ecu_initialzie(void);
 #endif	/* ECU_LAYER_H */
 
