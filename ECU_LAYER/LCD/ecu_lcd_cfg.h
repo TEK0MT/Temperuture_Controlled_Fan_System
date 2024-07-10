@@ -1,21 +1,17 @@
 /* 
- * File:   device_config.h
+ * File:   ecu_lcd_cfg.h
  * Author: Mohamed Tarek
  *
- * Created on July 7, 2024, 11:18 PM
+ * Created on July 9, 2024, 7:39 AM
  */
 
-#ifndef DEVICE_CONFIG_H
-#define	DEVICE_CONFIG_H
+#ifndef ECU_LCD_CFG_H
+#define	ECU_LCD_CFG_H
 /*Section : Include Section*/
-#include <xc.h>
-#define _XTAL_FREQ 20000000UL
-
 /*Section : Macro Declaration Section*/
-
 
 /*Section : Macro Functions Declaration Section*/
 /*Section : Data Type Declaration Section*/
 /*Section : Functions Declaration Section*/
-#endif	/* DEVICE_CONFIG_H */
+#endif	/* ECU_LCD_CFG_H */
 

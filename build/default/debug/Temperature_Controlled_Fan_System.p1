@@ -1,37 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"18 ./Temperature_Controlled_Fan_System.h
-[; ;./Temperature_Controlled_Fan_System.h: 18: void apllication_initilaize(void);
+"19 ./Temperature_Controlled_Fan_System.h
+[; ;./Temperature_Controlled_Fan_System.h: 19: void apllication_initilaize(void);
 [v _apllication_initilaize `(v ~T0 @X0 0 ef ]
-"61 ./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h
-[; ;./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h: 61: typedef struct{
+"61 ./ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h
 [s S101 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S101 . port pin logic direction ]
-"18 ./ECU_LAYER/Motor/ecu_motor_driver.h
-[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 18: typedef struct{
-[s S102 `S101 -> 2 `i ]
-[n S102 . pins ]
-"23
-[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 23: uint8 motor_turn_right(const motor_t *motor);
-[v _motor_turn_right `(uc ~T0 @X0 0 ef1`*CS102 ]
-"15 ./Temperature_Controlled_Fan_System.h
-[; ;./Temperature_Controlled_Fan_System.h: 15: extern motor_t motor1;
-[v _motor1 `S102 ~T0 @X0 0 e ]
-"24 ./ECU_LAYER/Motor/ecu_motor_driver.h
-[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 24: uint8 motor_turn_left(const motor_t *motor);
-[v _motor_turn_left `(uc ~T0 @X0 0 ef1`*CS102 ]
-"16 ./Temperature_Controlled_Fan_System.h
-[; ;./Temperature_Controlled_Fan_System.h: 16: extern motor_t motor2;
-[v _motor2 `S102 ~T0 @X0 0 e ]
-[v F485 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
-[v __delay `JF485 ~T0 @X0 0 e ]
-[p i __delay ]
-"25 ./ECU_LAYER/Motor/ecu_motor_driver.h
-[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 25: uint8 motor_turn_off(const motor_t *motor);
-[v _motor_turn_off `(uc ~T0 @X0 0 ef1`*CS102 ]
-"17 ./ECU_LAYER/ECU_LAYER.h
-[; ;./ECU_LAYER/ECU_LAYER.h: 17: void ecu_initialzie(void);
+"37 ./ECU_LAYER/LCD/ecu_lcd.h
+[; ;./ECU_LAYER/LCD/ecu_lcd.h: 37: typedef struct{
+[s S103 `S101 1 `S101 1 `S101 -> 4 `i ]
+[n S103 . rs en pins ]
+"45
+[; ;./ECU_LAYER/LCD/ecu_lcd.h: 45: uint8 lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data);
+[v _lcd_4bits_send_char `(uc ~T0 @X0 0 ef2`*CS103`uc ]
+"17 ./Temperature_Controlled_Fan_System.h
+[; ;./Temperature_Controlled_Fan_System.h: 17: extern lcd_4bits_t lcd;
+[v _lcd `S103 ~T0 @X0 0 e ]
+"18 ./ECU_LAYER/ECU_LAYER.h
+[; ;./ECU_LAYER/ECU_LAYER.h: 18: void ecu_initialzie(void);
 [v _ecu_initialzie `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\../../../xc8/pic/include/proc/pic16f877a.h
 [; <" INDF equ 00h ;# ">
@@ -160,64 +146,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _main ]
 [f ]
-"11
-[; ;Temperature_Controlled_Fan_System.c: 11: while(1){
-[e :U 105 ]
-{
-"12
-[; ;Temperature_Controlled_Fan_System.c: 12:     apllication_initilaize();
+"10
+[; ;Temperature_Controlled_Fan_System.c: 10:     apllication_initilaize();
 [e ( _apllication_initilaize ..  ]
-"13
-[; ;Temperature_Controlled_Fan_System.c: 13:     motor_turn_right(&motor1);
-[e ( _motor_turn_right (1 -> &U _motor1 `*CS102 ]
-"14
-[; ;Temperature_Controlled_Fan_System.c: 14:     motor_turn_left(&motor2);
-[e ( _motor_turn_left (1 -> &U _motor2 `*CS102 ]
-"15
-[; ;Temperature_Controlled_Fan_System.c: 15:     _delay((unsigned long)((2000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"16
-[; ;Temperature_Controlled_Fan_System.c: 16:     motor_turn_right(&motor2);
-[e ( _motor_turn_right (1 -> &U _motor2 `*CS102 ]
-"17
-[; ;Temperature_Controlled_Fan_System.c: 17:     motor_turn_left(&motor1);
-[e ( _motor_turn_left (1 -> &U _motor1 `*CS102 ]
-"18
-[; ;Temperature_Controlled_Fan_System.c: 18:     _delay((unsigned long)((2000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"19
-[; ;Temperature_Controlled_Fan_System.c: 19:     motor_turn_off(&motor1);
-[e ( _motor_turn_off (1 -> &U _motor1 `*CS102 ]
-"20
-[; ;Temperature_Controlled_Fan_System.c: 20:     motor_turn_off(&motor2);
-[e ( _motor_turn_off (1 -> &U _motor2 `*CS102 ]
-"21
-[; ;Temperature_Controlled_Fan_System.c: 21:     _delay((unsigned long)((2000)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"22
-[; ;Temperature_Controlled_Fan_System.c: 22: }
-}
-[e :U 104 ]
-[e $U 105  ]
+"12
+[; ;Temperature_Controlled_Fan_System.c: 12: while(1){
 [e :U 106 ]
+{
+"13
+[; ;Temperature_Controlled_Fan_System.c: 13:     lcd_4bits_send_char(&lcd,'f');
+[e ( _lcd_4bits_send_char (2 , -> &U _lcd `*CS103 -> -> 102 `ui `uc ]
 "23
-[; ;Temperature_Controlled_Fan_System.c: 23:     return (0);
-[e ) -> 0 `i ]
-[e $UE 103  ]
-"24
-[; ;Temperature_Controlled_Fan_System.c: 24: }
-[e :UE 103 ]
+[; ;Temperature_Controlled_Fan_System.c: 23: }
 }
+[e :U 105 ]
+[e $U 106  ]
+[e :U 107 ]
+"24
+[; ;Temperature_Controlled_Fan_System.c: 24:     return (0);
+[e ) -> 0 `i ]
+[e $UE 104  ]
 "25
-[; ;Temperature_Controlled_Fan_System.c: 25: void apllication_initilaize(void){
+[; ;Temperature_Controlled_Fan_System.c: 25: }
+[e :UE 104 ]
+}
+"26
+[; ;Temperature_Controlled_Fan_System.c: 26: void apllication_initilaize(void){
 [v _apllication_initilaize `(v ~T0 @X0 1 ef ]
 {
 [e :U _apllication_initilaize ]
 [f ]
-"26
-[; ;Temperature_Controlled_Fan_System.c: 26:     ecu_initialzie();
-[e ( _ecu_initialzie ..  ]
 "27
-[; ;Temperature_Controlled_Fan_System.c: 27: }
-[e :UE 107 ]
+[; ;Temperature_Controlled_Fan_System.c: 27:     ecu_initialzie();
+[e ( _ecu_initialzie ..  ]
+"28
+[; ;Temperature_Controlled_Fan_System.c: 28: }
+[e :UE 108 ]
 }

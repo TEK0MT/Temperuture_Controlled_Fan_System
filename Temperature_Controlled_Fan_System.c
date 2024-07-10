@@ -7,10 +7,11 @@
 #include "Temperature_Controlled_Fan_System.h"
 
 int main() {
+    apllication_initilaize();
 
 while(1){
-    apllication_initilaize();
-    motor_turn_right(&motor1);
+    lcd_4bits_send_char(&lcd,'f');
+    /*motor_turn_right(&motor1);
     motor_turn_left(&motor2);
     __delay_ms(2000);
     motor_turn_right(&motor2);
@@ -18,7 +19,7 @@ while(1){
     __delay_ms(2000);
     motor_turn_off(&motor1);
     motor_turn_off(&motor2);
-    __delay_ms(2000);
+    __delay_ms(2000);*/
 }
     return (EXIT_SUCCESS);
 }

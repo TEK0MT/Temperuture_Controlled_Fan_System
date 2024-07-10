@@ -14,6 +14,7 @@
 /*Section : Data Type Declaration Section*/
 extern motor_t motor1;
 extern motor_t motor2;
+extern lcd_4bits_t lcd;
 /*Section : Functions Declaration Section*/
 void apllication_initilaize(void);
 #endif	/* TEMPERATURE_CONTROLLED_FAN_SYSTEM_H */

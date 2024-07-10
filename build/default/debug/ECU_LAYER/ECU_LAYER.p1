@@ -1,6 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"61 ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h
-[; ;ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h: 61: typedef struct{
+"61 ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h
 [s S101 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S101 . port pin logic direction ]
 "18 ECU_LAYER/Motor/ecu_motor_driver.h
@@ -17,9 +16,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E1352 . GPIO_LOW GPIO_HIGH  ]
 [c E1356 0 1 .. ]
 [n E1356 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+"37 ECU_LAYER/LCD/ecu_lcd.h
+[; ;ECU_LAYER/LCD/ecu_lcd.h: 37: typedef struct{
+[s S103 `S101 1 `S101 1 `S101 -> 4 `i ]
+[n S103 . rs en pins ]
 "22 ECU_LAYER/Motor/ecu_motor_driver.h
 [; ;ECU_LAYER/Motor/ecu_motor_driver.h: 22: uint8 motor_initialize(const motor_t *motor);
 [v _motor_initialize `(uc ~T0 @X0 0 ef1`*CS102 ]
+"43 ECU_LAYER/LCD/ecu_lcd.h
+[; ;ECU_LAYER/LCD/ecu_lcd.h: 43: uint8 lcd_4bits_initialize(const lcd_4bits_t *lcd);
+[v _lcd_4bits_initialize `(uc ~T0 @X0 0 ef1`*CS103 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\../../../xc8/pic/include/proc/pic16f877a.h
 [; <" INDF equ 00h ;# ">
 "61
@@ -186,19 +192,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"14
-[; ;ECU_LAYER/ECU_LAYER.c: 14: void ecu_initialzie(void){
+"16
+[; ;ECU_LAYER/ECU_LAYER.c: 16: lcd_4bits_t lcd = {.rs.port = PORTA_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.rs.direction = GPIO_DIRECTION_OUTPUT,
+[v _lcd `S103 ~T0 @X0 1 e ]
+[i _lcd
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E1345 0 `uc
+-> . `E1335 0 `uc
+-> . `E1352 0 `uc
+-> . `E1356 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E1345 0 `uc
+-> . `E1335 1 `uc
+-> . `E1352 0 `uc
+-> . `E1356 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E1345 0 `uc
+-> . `E1335 2 `uc
+-> . `E1352 0 `uc
+-> . `E1356 0 `uc
+..
+:U ..
+-> . `E1345 0 `uc
+-> . `E1335 3 `uc
+-> . `E1352 0 `uc
+..
+:U ..
+-> . `E1345 0 `uc
+-> . `E1335 4 `uc
+-> . `E1352 0 `uc
+..
+:U ..
+-> . `E1345 0 `uc
+-> . `E1335 5 `uc
+-> . `E1352 0 `uc
+..
+..
+..
+..
+]
+"22
+[; ;ECU_LAYER/ECU_LAYER.c: 22: void ecu_initialzie(void){
 [v _ecu_initialzie `(v ~T0 @X0 1 ef ]
 {
 [e :U _ecu_initialzie ]
 [f ]
-"15
-[; ;ECU_LAYER/ECU_LAYER.c: 15:     motor_initialize(&motor1);
+"23
+[; ;ECU_LAYER/ECU_LAYER.c: 23:     motor_initialize(&motor1);
 [e ( _motor_initialize (1 -> &U _motor1 `*CS102 ]
-"16
-[; ;ECU_LAYER/ECU_LAYER.c: 16:     motor_initialize(&motor2);
+"24
+[; ;ECU_LAYER/ECU_LAYER.c: 24:     motor_initialize(&motor2);
 [e ( _motor_initialize (1 -> &U _motor2 `*CS102 ]
-"17
-[; ;ECU_LAYER/ECU_LAYER.c: 17: }
-[e :UE 103 ]
+"25
+[; ;ECU_LAYER/ECU_LAYER.c: 25:     lcd_4bits_initialize(&lcd);
+[e ( _lcd_4bits_initialize (1 -> &U _lcd `*CS103 ]
+"26
+[; ;ECU_LAYER/ECU_LAYER.c: 26: }
+[e :UE 104 ]
 }

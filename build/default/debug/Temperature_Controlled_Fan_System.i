@@ -2149,6 +2149,25 @@ uint8 motor_turn_left(const motor_t *motor);
 uint8 motor_turn_off(const motor_t *motor);
 # 11 "./ECU_LAYER/ECU_LAYER.h" 2
 
+# 1 "./ECU_LAYER/LCD/ecu_lcd.h" 1
+# 11 "./ECU_LAYER/LCD/ecu_lcd.h"
+# 1 "./ECU_LAYER/LCD/ecu_lcd_cfg.h" 1
+# 11 "./ECU_LAYER/LCD/ecu_lcd.h" 2
+# 37 "./ECU_LAYER/LCD/ecu_lcd.h"
+typedef struct{
+    pin_config_t rs;
+    pin_config_t en;
+    pin_config_t pins[4];
+}lcd_4bits_t;
+
+uint8 lcd_4bits_initialize(const lcd_4bits_t *lcd);
+uint8 lcd_4bits_send_command(const lcd_4bits_t *lcd,uint8 command);
+uint8 lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data);
+uint8 lcd_4bits_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 data);
+uint8 lcd_4bits_send_string(const lcd_4bits_t *lcd,uint8 *data);
+uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data);
+# 12 "./ECU_LAYER/ECU_LAYER.h" 2
+
 
 
 
@@ -2162,24 +2181,18 @@ void ecu_initialzie(void);
 
 extern motor_t motor1;
 extern motor_t motor2;
+extern lcd_4bits_t lcd;
 
 void apllication_initilaize(void);
 # 7 "Temperature_Controlled_Fan_System.c" 2
 
 
 int main() {
+    apllication_initilaize();
 
 while(1){
-    apllication_initilaize();
-    motor_turn_right(&motor1);
-    motor_turn_left(&motor2);
-    _delay((unsigned long)((2000)*(8000000UL/4000.0)));
-    motor_turn_right(&motor2);
-    motor_turn_left(&motor1);
-    _delay((unsigned long)((2000)*(8000000UL/4000.0)));
-    motor_turn_off(&motor1);
-    motor_turn_off(&motor2);
-    _delay((unsigned long)((2000)*(8000000UL/4000.0)));
+    lcd_4bits_send_char(&lcd,'f');
+# 23 "Temperature_Controlled_Fan_System.c"
 }
     return (0);
 }

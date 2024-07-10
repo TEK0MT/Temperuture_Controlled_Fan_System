@@ -1,4 +1,4 @@
-# 1 "ECU_LAYER/ECU_LAYER.c"
+# 1 "ECU_LAYER/LCD/ecu_lcd.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,24 +6,25 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU_LAYER/ECU_LAYER.c" 2
+# 1 "ECU_LAYER/LCD/ecu_lcd.c" 2
 
 
 
 
 
 
-# 1 "ECU_LAYER/ECU_LAYER.h" 1
-# 11 "ECU_LAYER/ECU_LAYER.h"
-# 1 "ECU_LAYER/Motor/ecu_motor_driver.h" 1
-# 11 "ECU_LAYER/Motor/ecu_motor_driver.h"
-# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 1
-# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
-# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/gpio_cfg.h" 1
-# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 1 "ECU_LAYER/LCD/ecu_lcd.h" 1
+# 11 "ECU_LAYER/LCD/ecu_lcd.h"
+# 1 "ECU_LAYER/LCD/ecu_lcd_cfg.h" 1
+# 11 "ECU_LAYER/LCD/ecu_lcd.h" 2
 
-# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 1
-# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h"
+# 1 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 1
+# 11 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h"
+# 1 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/gpio_cfg.h" 1
+# 11 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+
+# 1 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_libraries.h" 1
+# 11 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -194,7 +195,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+# 11 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -271,11 +272,11 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
-# 12 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 12 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+# 12 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
-# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 1
-# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h"
+# 1 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../device_config.h" 1
+# 11 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../device_config.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2063,12 +2064,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 11 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 2
-# 13 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 11 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../device_config.h" 2
+# 13 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
 
-# 1 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h" 1
-# 17 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h"
+# 1 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_type.h" 1
+# 17 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_type.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -2077,8 +2078,8 @@ typedef signed char sint8;
 typedef signed short sint16;
 typedef signed int sint32;
 typedef signed long long sint64;
-# 15 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
-# 32 "ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
+# 15 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 32 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h"
 typedef enum{
     PIN0 = 0,
     PIN1,
@@ -2129,28 +2130,7 @@ uint8 gpio_get_port_direction(const port_t port,direction_t *direction);
 uint8 gpio_port_write_logic(const port_t port,logic_t logic);
 uint8 gpio_port_read_logic(const port_t port,logic_t *logic);
 uint8 gpio_port_toggle_logic(const port_t port);
-# 11 "ECU_LAYER/Motor/ecu_motor_driver.h" 2
-
-
-
-
-
-
-
-typedef struct{
-    pin_config_t pins[2];
-}motor_t;
-
-uint8 motor_initialize(const motor_t *motor);
-uint8 motor_turn_right(const motor_t *motor);
-uint8 motor_turn_left(const motor_t *motor);
-uint8 motor_turn_off(const motor_t *motor);
-# 11 "ECU_LAYER/ECU_LAYER.h" 2
-
-# 1 "ECU_LAYER/LCD/ecu_lcd.h" 1
-# 11 "ECU_LAYER/LCD/ecu_lcd.h"
-# 1 "ECU_LAYER/LCD/ecu_lcd_cfg.h" 1
-# 11 "ECU_LAYER/LCD/ecu_lcd.h" 2
+# 12 "ECU_LAYER/LCD/ecu_lcd.h" 2
 # 37 "ECU_LAYER/LCD/ecu_lcd.h"
 typedef struct{
     pin_config_t rs;
@@ -2164,32 +2144,150 @@ uint8 lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data);
 uint8 lcd_4bits_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 data);
 uint8 lcd_4bits_send_string(const lcd_4bits_t *lcd,uint8 *data);
 uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data);
-# 12 "ECU_LAYER/ECU_LAYER.h" 2
+# 7 "ECU_LAYER/LCD/ecu_lcd.c" 2
 
 
 
+static uint8 send_4bits( lcd_4bits_t *lcd,uint8 command);
+static uint8 send_enable_signal(const lcd_4bits_t *lcd);
+static uint8 set_cursor(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn);
+
+uint8 lcd_4bits_initialize(const lcd_4bits_t *lcd){
+    uint8 ret = 0x00;
+    uint8 counter = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_initialize(&(lcd->rs));
+        ret = gpio_pin_initialize(&(lcd->en));
+        for(counter = 0x00;counter < 4;counter++){
+        ret = gpio_pin_initialize(&(lcd->pins[counter]));
+        }
+        _delay((unsigned long)((150)*(20000000UL/4000.0)));
+        ret = lcd_4bits_send_command(lcd,0x38);
+        _delay((unsigned long)((50)*(20000000UL/4000.0)));
+        ret = lcd_4bits_send_command(lcd,0x38);
+        _delay((unsigned long)((150)*(20000000UL/4000000.0)));
+        ret = lcd_4bits_send_command(lcd,0x38);
+        ret = lcd_4bits_send_command(lcd,0x01);
+        ret = lcd_4bits_send_command(lcd,0x02);
+        ret = lcd_4bits_send_command(lcd,0x06);
+        ret = lcd_4bits_send_command(lcd,0x0F);
+        ret = lcd_4bits_send_command(lcd,0x10);
+        ret = lcd_4bits_send_command(lcd,0x28);
+        ret = lcd_4bits_send_command(lcd,0x80);
+
+    }
+    return ret;
+}
+uint8 lcd_4bits_send_command(const lcd_4bits_t *lcd,uint8 command){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_write_logic(&(lcd->rs),GPIO_LOW);
+        ret = send_4bits(lcd,(command >> 4));
+        ret = send_enable_signal(lcd);
+        ret = send_4bits(lcd,command);
+        ret = send_enable_signal(lcd);
+    }
+    return ret;
+}
+uint8 lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_write_logic(&(lcd->rs),GPIO_HIGH);
+        ret = send_4bits(lcd,(data >> 4));
+         ret = send_enable_signal(lcd);
+        ret = send_4bits(lcd,data);
+        ret = send_enable_signal(lcd);
+    }
+    return ret;
+}
+uint8 lcd_4bits_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 data){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = set_cursor(lcd,Row,coloumn);
+        ret = lcd_4bits_send_char(lcd,data);
+    }
+    return ret;
+}
+uint8 lcd_4bits_send_string(const lcd_4bits_t *lcd,uint8 *data){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        while(*data){
+            ret = lcd_4bits_send_char(lcd,*data++);
+        }
+    }
+    return ret;
+}
+uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = set_cursor(lcd,Row,coloumn);
+        ret = lcd_4bits_send_char(lcd,*data++);
+    }
+    return ret;
+}
 
 
 
-void ecu_initialzie(void);
-# 7 "ECU_LAYER/ECU_LAYER.c" 2
+static uint8 send_4bits( lcd_4bits_t *lcd,uint8 command){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_write_logic(&(lcd->pins[0]),((command >> 0) & 0x01));
+        ret = gpio_pin_write_logic(&(lcd->pins[1]),((command >> 1) & 0x01));
+        ret = gpio_pin_write_logic(&(lcd->pins[2]),((command >> 2) & 0x01));
+        ret = gpio_pin_write_logic(&(lcd->pins[3]),((command >> 3) & 0x01));
+    }
+    return ret;
+}
 
-
-motor_t motor1 = {.pins[0].port = PORTB_INDEX,.pins[0].pin = PIN0,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[1].port = PORTB_INDEX,.pins[1].pin = PIN1,.pins[1].logic = GPIO_LOW,.pins[1].direction = GPIO_DIRECTION_OUTPUT};
-
-motor_t motor2 = {.pins[0].port = PORTB_INDEX,.pins[0].pin = PIN2,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[1].port = PORTB_INDEX,.pins[1].pin = PIN3,.pins[1].logic = GPIO_LOW,.pins[1].direction = GPIO_DIRECTION_OUTPUT};
-
-
-lcd_4bits_t lcd = {.rs.port = PORTA_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.rs.direction = GPIO_DIRECTION_OUTPUT,
-                   .en.port = PORTA_INDEX,.en.pin = PIN1,.en.logic = GPIO_LOW,.en.direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[0].port = PORTA_INDEX,.pins[0].pin = PIN2,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[1].port = PORTA_INDEX,.pins[1].pin = PIN3,.pins[1].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[2].port = PORTA_INDEX,.pins[2].pin = PIN4,.pins[2].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[3].port = PORTA_INDEX,.pins[3].pin = PIN5,.pins[3].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT};
-void ecu_initialzie(void){
-    motor_initialize(&motor1);
-    motor_initialize(&motor2);
-    lcd_4bits_initialize(&lcd);
+static uint8 send_enable_signal(const lcd_4bits_t *lcd){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        ret = gpio_pin_write_logic(&(lcd->en),GPIO_HIGH);
+        _delay((unsigned long)((5)*(20000000UL/4000000.0)));
+        ret = gpio_pin_write_logic(&(lcd->en),GPIO_LOW);
+    }
+    return ret;
+}
+static uint8 set_cursor(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn){
+    uint8 ret = 0x00;
+    if(lcd == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        switch(Row){
+            case 1 :
+                ret = lcd_4bits_send_command(lcd,(0x80 + coloumn));
+                break;
+            case 2 :
+                ret = lcd_4bits_send_command(lcd,(0xC0 + coloumn));
+                break;
+            default :
+                break;
+        }
+    }
+    return ret;
 }

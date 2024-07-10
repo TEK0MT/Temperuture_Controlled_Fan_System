@@ -9,6 +9,7 @@
 #define	ECU_LAYER_H
 /*Section : Include Section*/
 #include "Motor/ecu_motor_driver.h"
+#include "LCD/ecu_lcd.h"
 /*Section : Macro Declaration Section*/
 
 /*Section : Macro Functions Declaration Section*/
