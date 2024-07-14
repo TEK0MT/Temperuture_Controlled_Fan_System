@@ -273,6 +273,65 @@ typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
 # 12 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 13 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
 # 12 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
 # 1 "ECU_LAYER/LCD/../../MCAL_LAYER/GPIO/../device_config.h" 1
@@ -2131,7 +2190,7 @@ uint8 gpio_port_write_logic(const port_t port,logic_t logic);
 uint8 gpio_port_read_logic(const port_t port,logic_t *logic);
 uint8 gpio_port_toggle_logic(const port_t port);
 # 12 "ECU_LAYER/LCD/ecu_lcd.h" 2
-# 37 "ECU_LAYER/LCD/ecu_lcd.h"
+# 38 "ECU_LAYER/LCD/ecu_lcd.h"
 typedef struct{
     pin_config_t rs;
     pin_config_t en;
@@ -2144,6 +2203,10 @@ uint8 lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data);
 uint8 lcd_4bits_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 data);
 uint8 lcd_4bits_send_string(const lcd_4bits_t *lcd,uint8 *data);
 uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data);
+uint8 lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
+void Convert_uint8_to_string(uint8 data,uint8 *str);
+void Convert_uint16_to_string(uint16 data,uint8 *str);
+void Convert_uint32_to_string(uint32 data,uint8 *str);
 # 7 "ECU_LAYER/LCD/ecu_lcd.c" 2
 
 
@@ -2164,16 +2227,16 @@ uint8 lcd_4bits_initialize(const lcd_4bits_t *lcd){
         for(counter = 0x00;counter < 4;counter++){
         ret = gpio_pin_initialize(&(lcd->pins[counter]));
         }
-        _delay((unsigned long)((150)*(20000000UL/4000.0)));
+        _delay((unsigned long)((150)*(8000000UL/4000.0)));
         ret = lcd_4bits_send_command(lcd,0x38);
-        _delay((unsigned long)((50)*(20000000UL/4000.0)));
+        _delay((unsigned long)((50)*(8000000UL/4000.0)));
         ret = lcd_4bits_send_command(lcd,0x38);
-        _delay((unsigned long)((150)*(20000000UL/4000000.0)));
+        _delay((unsigned long)((150)*(8000000UL/4000000.0)));
         ret = lcd_4bits_send_command(lcd,0x38);
         ret = lcd_4bits_send_command(lcd,0x01);
         ret = lcd_4bits_send_command(lcd,0x02);
         ret = lcd_4bits_send_command(lcd,0x06);
-        ret = lcd_4bits_send_command(lcd,0x0F);
+        ret = lcd_4bits_send_command(lcd,0x0C);
         ret = lcd_4bits_send_command(lcd,0x10);
         ret = lcd_4bits_send_command(lcd,0x28);
         ret = lcd_4bits_send_command(lcd,0x80);
@@ -2239,11 +2302,39 @@ uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,u
     }
     else{
         ret = set_cursor(lcd,Row,coloumn);
-        ret = lcd_4bits_send_char(lcd,*data++);
+        ret = lcd_4bits_send_string(lcd,data);
     }
     return ret;
 }
+void Convert_uint8_to_string(uint8 data,uint8 *str){
+    memset(str,'/0',4);
+    sprintf(str,"%i",data);
+}
+void Convert_uint16_to_string(uint16 data,uint8 *str){
+    memset(str,'/0',6);
+    sprintf(str,"%i",data);
+}
+void Convert_uint32_to_string(uint32 data,uint8 *str){
+    memset(str,'/0',11);
+    sprintf(str,"%i",data);
+}
+uint8 lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos){
+    uint8 ret = 0x00;
+    uint8 counter = 0x00;
+    if(((void*)0) == lcd){
+        ret = 0x01;
+    }
+    else{
 
+        ret = lcd_4bits_send_command(lcd,(0x40 + (mempos*8)));
+        for(counter = 0;counter <= 7;counter++){
+        ret = lcd_4bits_send_char(lcd,chr[counter]);
+        }
+        ret = lcd_4bits_send_char_pos(lcd,Row,coloumns,mempos);
+
+    }
+    return ret;
+}
 
 
 static uint8 send_4bits( lcd_4bits_t *lcd,uint8 command){
@@ -2267,7 +2358,7 @@ static uint8 send_enable_signal(const lcd_4bits_t *lcd){
     }
     else{
         ret = gpio_pin_write_logic(&(lcd->en),GPIO_HIGH);
-        _delay((unsigned long)((5)*(20000000UL/4000000.0)));
+        _delay((unsigned long)((5)*(8000000UL/4000000.0)));
         ret = gpio_pin_write_logic(&(lcd->en),GPIO_LOW);
     }
     return ret;

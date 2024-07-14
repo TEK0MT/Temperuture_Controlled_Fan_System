@@ -274,6 +274,65 @@ typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
 # 12 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 13 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
 # 12 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
 # 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 1
@@ -2153,7 +2212,7 @@ uint8 motor_turn_off(const motor_t *motor);
 # 11 "./ECU_LAYER/LCD/ecu_lcd.h"
 # 1 "./ECU_LAYER/LCD/ecu_lcd_cfg.h" 1
 # 11 "./ECU_LAYER/LCD/ecu_lcd.h" 2
-# 37 "./ECU_LAYER/LCD/ecu_lcd.h"
+# 38 "./ECU_LAYER/LCD/ecu_lcd.h"
 typedef struct{
     pin_config_t rs;
     pin_config_t en;
@@ -2166,6 +2225,10 @@ uint8 lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data);
 uint8 lcd_4bits_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 data);
 uint8 lcd_4bits_send_string(const lcd_4bits_t *lcd,uint8 *data);
 uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data);
+uint8 lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
+void Convert_uint8_to_string(uint8 data,uint8 *str);
+void Convert_uint16_to_string(uint16 data,uint8 *str);
+void Convert_uint32_to_string(uint32 data,uint8 *str);
 # 12 "./ECU_LAYER/ECU_LAYER.h" 2
 
 
@@ -2182,17 +2245,41 @@ void ecu_initialzie(void);
 extern motor_t motor1;
 extern motor_t motor2;
 extern lcd_4bits_t lcd;
+extern pin_config_t pin1;
+extern pin_config_t pin2;
+extern pin_config_t pin3;
+extern pin_config_t pin4;
+extern pin_config_t pin5;
+extern pin_config_t pin6;
+extern pin_config_t pin7;
+extern pin_config_t pin8;
 
 void apllication_initilaize(void);
 # 7 "Temperature_Controlled_Fan_System.c" 2
 
-
+const uint8 customChar[] = {
+  0x00,
+  0x0E,
+  0x11,
+  0x11,
+  0x0E,
+  0x00,
+  0x00,
+  0x00
+};
 int main() {
     apllication_initilaize();
+    uint32 counter = 0;
+    uint8 str[11];
 
 while(1){
-    lcd_4bits_send_char(&lcd,'f');
-# 23 "Temperature_Controlled_Fan_System.c"
+# 52 "Temperature_Controlled_Fan_System.c"
+    Convert_uint32_to_string(counter,str);
+    lcd_4bits_send_string_pos(&lcd,1,1,str);
+    lcd_4bit_custom_character(&lcd,1,10,customChar,0);
+    _delay((unsigned long)((500)*(8000000UL/4000.0)));
+    counter++;
+
 }
     return (0);
 }

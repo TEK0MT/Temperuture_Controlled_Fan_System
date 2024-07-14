@@ -32,7 +32,7 @@ Std_ReturnType lcd_4bits_initialize(const lcd_4bits_t *lcd){
         ret = lcd_4bits_send_command(lcd,CLEAR_DISPLAY);
         ret = lcd_4bits_send_command(lcd,RETURN_HOME);
         ret = lcd_4bits_send_command(lcd,ENTRY_MODE_INCREAMENT_SIFT_OFF);
-        ret = lcd_4bits_send_command(lcd,DISPLAY_ON_CURSOR_ON_BLINKING_ON);
+        ret = lcd_4bits_send_command(lcd,DISPLAY_ON_CURSOR_OFF_BLINKING_OFF);
         ret = lcd_4bits_send_command(lcd,CURSOR_MOVE);
         ret = lcd_4bits_send_command(lcd,LCD_4BITS_2LINE);
         ret = lcd_4bits_send_command(lcd,0x80);
@@ -98,11 +98,39 @@ Std_ReturnType lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 
     }
     else{
         ret = set_cursor(lcd,Row,coloumn);
-        ret = lcd_4bits_send_char(lcd,*data++);
+        ret = lcd_4bits_send_string(lcd,data);
     }
     return ret;
 }
-
+void Convert_uint8_to_string(uint8 data,uint8 *str){
+    memset(str,'/0',4);
+    sprintf(str,"%i",data);
+}
+void Convert_uint16_to_string(uint16 data,uint8 *str){
+    memset(str,'/0',6);
+    sprintf(str,"%i",data);
+}
+void Convert_uint32_to_string(uint32 data,uint8 *str){
+    memset(str,'/0',11);
+    sprintf(str,"%i",data);
+}
+Std_ReturnType lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos){
+    Std_ReturnType ret = E_OK;
+    uint8 counter = ZERO_INIT;
+    if(NULL == lcd){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+        ret = lcd_4bits_send_command(lcd,(_LCD_CGRAM_START + (mempos*8)));
+        for(counter = 0;counter <= 7;counter++){
+        ret = lcd_4bits_send_char(lcd,chr[counter]);
+        }
+        ret = lcd_4bits_send_char_pos(lcd,Row,coloumns,mempos);
+        
+    }
+    return ret;
+}
 
 /**************************HELPER FUNCTIONS*************************************/
 static Std_ReturnType send_4bits( lcd_4bits_t *lcd,uint8 command){

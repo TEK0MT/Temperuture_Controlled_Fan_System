@@ -1,4 +1,20 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"7 MCAL_LAYER/device_config.c
+[p x FOSC  =  EXTRC      ]
+"8
+[p x WDTE  =  OFF        ]
+"9
+[p x PWRTE  =  OFF       ]
+"10
+[p x BOREN  =  OFF       ]
+"11
+[p x LVP  =  OFF         ]
+"12
+[p x CPD  =  OFF         ]
+"13
+[p x WRT  =  OFF         ]
+"14
+[p x CP  =  OFF          ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -179,19 +195,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"13 MCAL_LAYER/device_config.c
-[p x FOSC  =  HS         ]
-"14
-[p x WDTE  =  OFF        ]
-"15
-[p x PWRTE  =  ON        ]
-"16
-[p x BOREN  =  ON        ]
-"17
-[p x LVP  =  OFF         ]
-"18
-[p x CPD  =  OFF         ]
-"19
-[p x WRT  =  OFF         ]
-"20
-[p x CP  =  OFF          ]

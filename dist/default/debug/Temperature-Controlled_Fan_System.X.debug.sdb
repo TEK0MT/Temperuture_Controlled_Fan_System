@@ -4,19 +4,19 @@
 [d chip 16F877A ]
 [d frameptr 0 ]
 "25 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/Motor/ecu_motor_driver.c
-[e E1352 . `uc
+[e E1519 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"9 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
-[e E1345 . `uc
+"8 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
+[e E1512 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-[e E1335 . `uc
+[e E1502 . `uc
 PIN0 0
 PIN1 1
 PIN2 2
@@ -26,16 +26,16 @@ PIN5 5
 PIN6 6
 PIN7 7
 ]
-[e E1352 . `uc
+[e E1519 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-[e E1356 . `uc
+[e E1523 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "17 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
-[e E1345 . `uc
+[e E1512 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
@@ -43,20 +43,40 @@ PORTD_INDEX 3
 PORTE_INDEX 4
 ]
 "26
-[e E1356 . `uc
+[e E1523 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "50
-[e E1352 . `uc
+[e E1519 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "49 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/LCD/ecu_lcd.c
-[e E1352 . `uc
+[e E1519 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
+"1 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"1177 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"1817
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memset.c
+[v _memset memset `(*.4v  1 e 1 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul8_16.c
@@ -65,7 +85,7 @@ GPIO_HIGH 1
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"22 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
+"29 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
 [v _ecu_initialzie ecu_initialzie `(v  1 e 1 0 ]
 "14 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/LCD/ecu_lcd.c
 [v _lcd_4bits_initialize lcd_4bits_initialize `(uc  1 e 1 0 ]
@@ -73,11 +93,21 @@ GPIO_HIGH 1
 [v _lcd_4bits_send_command lcd_4bits_send_command `(uc  1 e 1 0 ]
 "57
 [v _lcd_4bits_send_char lcd_4bits_send_char `(uc  1 e 1 0 ]
-"108
+"71
+[v _lcd_4bits_send_char_pos lcd_4bits_send_char_pos `(uc  1 e 1 0 ]
+"82
+[v _lcd_4bits_send_string lcd_4bits_send_string `(uc  1 e 1 0 ]
+"94
+[v _lcd_4bits_send_string_pos lcd_4bits_send_string_pos `(uc  1 e 1 0 ]
+"113
+[v _Convert_uint32_to_string Convert_uint32_to_string `(v  1 e 1 0 ]
+"117
+[v _lcd_4bit_custom_character lcd_4bit_custom_character `(uc  1 e 1 0 ]
+"136
 [v _send_4bits send_4bits `(uc  1 s 1 send_4bits ]
-"122
+"150
 [v _send_enable_signal send_enable_signal `(uc  1 s 1 send_enable_signal ]
-"134
+"162
 [v _set_cursor set_cursor `(uc  1 s 1 set_cursor ]
 "8 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/Motor/ecu_motor_driver.c
 [v _motor_initialize motor_initialize `(uc  1 e 1 0 ]
@@ -87,9 +117,9 @@ GPIO_HIGH 1
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 "103
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
-"9 T:\Embedded Systems\Temperature-Controlled Fan System.X\Temperature_Controlled_Fan_System.c
+"18 T:\Embedded Systems\Temperature-Controlled Fan System.X\Temperature_Controlled_Fan_System.c
 [v _main main `(i  1 e 2 0 ]
-"26
+"61
 [v _apllication_initilaize apllication_initilaize `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f877a.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -111,29 +141,158 @@ GPIO_HIGH 1
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1561
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"153 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"154
+[v _flags flags `uc  1 s 1 flags ]
+"185
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 [s S22 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 logic 1 0 :1:6 
 `uc 1 direction 1 0 :1:7 
 ]
-"9 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
+"8 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
+[v _pin1 pin1 `S22  1 e 1 0 ]
+"9
+[v _pin2 pin2 `S22  1 e 1 0 ]
+"10
+[v _pin3 pin3 `S22  1 e 1 0 ]
+"11
+[v _pin4 pin4 `S22  1 e 1 0 ]
+"12
+[v _pin5 pin5 `S22  1 e 1 0 ]
+"13
+[v _pin6 pin6 `S22  1 e 1 0 ]
+"14
+[v _pin7 pin7 `S22  1 e 1 0 ]
+"15
+[v _pin8 pin8 `S22  1 e 1 0 ]
+"16
 [s S27 . 2 `[2]S22 1 pins 2 0 ]
 [v _motor1 motor1 `S27  1 e 2 0 ]
-"12
+"19
 [v _motor2 motor2 `S27  1 e 2 0 ]
-"16
+"23
 [s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
 [v _lcd lcd `S88  1 e 6 0 ]
 "8 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
 [v _tris_registers tris_registers `[5]*.39VEuc  1 e 10 0 ]
 "10
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"9 T:\Embedded Systems\Temperature-Controlled Fan System.X\Temperature_Controlled_Fan_System.c
+"8 T:\Embedded Systems\Temperature-Controlled Fan System.X\Temperature_Controlled_Fan_System.c
+[v _customChar customChar `DC[8]uc  1 e 8 0 ]
+"18
 [v _main main `(i  1 e 2 0 ]
 {
-"25
+"21
+[v main@str str `[11]uc  1 a 11 35 ]
+"20
+[v main@counter counter `ui  1 a 2 46 ]
+"60
 } 0
-"57 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/LCD/ecu_lcd.c
+"94 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/LCD/ecu_lcd.c
+[v _lcd_4bits_send_string_pos lcd_4bits_send_string_pos `(uc  1 e 1 0 ]
+{
+[s S22 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 logic 1 0 :1:6 
+`uc 1 direction 1 0 :1:7 
+]
+[s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
+[v lcd_4bits_send_string_pos@lcd lcd `*.4DCS88  1 a 1 wreg ]
+"95
+[v lcd_4bits_send_string_pos@ret ret `uc  1 a 1 9 ]
+"94
+[v lcd_4bits_send_string_pos@lcd lcd `*.4DCS88  1 a 1 wreg ]
+[v lcd_4bits_send_string_pos@Row Row `uc  1 p 1 6 ]
+[v lcd_4bits_send_string_pos@coloumn coloumn `uc  1 p 1 7 ]
+[v lcd_4bits_send_string_pos@data data `*.4uc  1 p 1 8 ]
+[v lcd_4bits_send_string_pos@lcd lcd `*.4DCS88  1 a 1 10 ]
+"104
+} 0
+"82
+[v _lcd_4bits_send_string lcd_4bits_send_string `(uc  1 e 1 0 ]
+{
+[s S22 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 logic 1 0 :1:6 
+`uc 1 direction 1 0 :1:7 
+]
+[s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
+[v lcd_4bits_send_string@lcd lcd `*.4DCS88  1 a 1 wreg ]
+"83
+[v lcd_4bits_send_string@ret ret `uc  1 a 1 3 ]
+"82
+[v lcd_4bits_send_string@lcd lcd `*.4DCS88  1 a 1 wreg ]
+[v lcd_4bits_send_string@data data `*.4uc  1 p 1 2 ]
+[v lcd_4bits_send_string@lcd lcd `*.4DCS88  1 a 1 4 ]
+"93
+} 0
+"117
+[v _lcd_4bit_custom_character lcd_4bit_custom_character `(uc  1 e 1 0 ]
+{
+[s S22 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 logic 1 0 :1:6 
+`uc 1 direction 1 0 :1:7 
+]
+[s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
+[v lcd_4bit_custom_character@lcd lcd `*.4DCS88  1 a 1 wreg ]
+"119
+[v lcd_4bit_custom_character@counter counter `uc  1 a 1 16 ]
+"117
+[v lcd_4bit_custom_character@lcd lcd `*.4DCS88  1 a 1 wreg ]
+[v lcd_4bit_custom_character@Row Row `uc  1 p 1 11 ]
+[v lcd_4bit_custom_character@coloumns coloumns `uc  1 p 1 12 ]
+[v lcd_4bit_custom_character@chr chr `*.24uc  1 p 1 13 ]
+[v lcd_4bit_custom_character@mempos mempos `uc  1 p 1 14 ]
+"119
+"117
+[v lcd_4bit_custom_character@lcd lcd `*.4DCS88  1 a 1 17 ]
+"133
+} 0
+"71
+[v _lcd_4bits_send_char_pos lcd_4bits_send_char_pos `(uc  1 e 1 0 ]
+{
+[s S22 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 logic 1 0 :1:6 
+`uc 1 direction 1 0 :1:7 
+]
+[s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
+[v lcd_4bits_send_char_pos@lcd lcd `*.4DCS88  1 a 1 wreg ]
+"72
+[v lcd_4bits_send_char_pos@ret ret `uc  1 a 1 9 ]
+"71
+[v lcd_4bits_send_char_pos@lcd lcd `*.4DCS88  1 a 1 wreg ]
+[v lcd_4bits_send_char_pos@Row Row `uc  1 p 1 6 ]
+[v lcd_4bits_send_char_pos@coloumn coloumn `uc  1 p 1 7 ]
+[v lcd_4bits_send_char_pos@data data `uc  1 p 1 8 ]
+[v lcd_4bits_send_char_pos@lcd lcd `*.4DCS88  1 a 1 10 ]
+"81
+} 0
+"162
+[v _set_cursor set_cursor `(uc  1 s 1 set_cursor ]
+{
+[s S22 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 logic 1 0 :1:6 
+`uc 1 direction 1 0 :1:7 
+]
+[s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
+[v set_cursor@lcd lcd `*.4DCS88  1 a 1 wreg ]
+"163
+[v set_cursor@ret ret `uc  1 a 1 4 ]
+"162
+[v set_cursor@lcd lcd `*.4DCS88  1 a 1 wreg ]
+[v set_cursor@Row Row `uc  1 p 1 2 ]
+[v set_cursor@coloumn coloumn `uc  1 p 1 3 ]
+[v set_cursor@lcd lcd `*.4DCS88  1 a 1 5 ]
+"180
+} 0
+"57
 [v _lcd_4bits_send_char lcd_4bits_send_char `(uc  1 e 1 0 ]
 {
 [s S22 . 1 `uc 1 port 1 0 :3:0 
@@ -151,15 +310,15 @@ GPIO_HIGH 1
 [v lcd_4bits_send_char@lcd lcd `*.4DCS88  1 a 1 1 ]
 "70
 } 0
-"26 T:\Embedded Systems\Temperature-Controlled Fan System.X\Temperature_Controlled_Fan_System.c
+"61 T:\Embedded Systems\Temperature-Controlled Fan System.X\Temperature_Controlled_Fan_System.c
 [v _apllication_initilaize apllication_initilaize `(v  1 e 1 0 ]
 {
-"28
+"63
 } 0
-"22 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
+"29 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/ECU_LAYER.c
 [v _ecu_initialzie ecu_initialzie `(v  1 e 1 0 ]
 {
-"26
+"42
 } 0
 "8 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/Motor/ecu_motor_driver.c
 [v _motor_initialize motor_initialize `(uc  1 e 1 0 ]
@@ -217,7 +376,7 @@ GPIO_HIGH 1
 [v lcd_4bits_send_command@lcd lcd `*.4DCS88  1 a 1 1 ]
 "56
 } 0
-"122
+"150
 [v _send_enable_signal send_enable_signal `(uc  1 s 1 send_enable_signal ]
 {
 [s S22 . 1 `uc 1 port 1 0 :3:0 
@@ -227,14 +386,14 @@ GPIO_HIGH 1
 ]
 [s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
 [v send_enable_signal@lcd lcd `*.4DCS88  1 a 1 wreg ]
-"123
+"151
 [v send_enable_signal@ret ret `uc  1 a 1 9 ]
-"122
+"150
 [v send_enable_signal@lcd lcd `*.4DCS88  1 a 1 wreg ]
 [v send_enable_signal@lcd lcd `*.4DCS88  1 a 1 10 ]
-"133
+"161
 } 0
-"108
+"136
 [v _send_4bits send_4bits `(uc  1 s 1 send_4bits ]
 {
 [s S22 . 1 `uc 1 port 1 0 :3:0 
@@ -244,13 +403,13 @@ GPIO_HIGH 1
 ]
 [s S88 . 6 `S22 1 rs 1 0 `S22 1 en 1 1 `[4]S22 1 pins 4 2 ]
 [v send_4bits@lcd lcd `*.4S88  1 a 1 wreg ]
-"109
+"137
 [v send_4bits@ret ret `uc  1 a 1 10 ]
-"108
+"136
 [v send_4bits@lcd lcd `*.4S88  1 a 1 wreg ]
 [v send_4bits@command command `uc  1 p 1 8 ]
 [v send_4bits@lcd lcd `*.4S88  1 a 1 11 ]
-"120
+"148
 } 0
 "103 T:\Embedded Systems\Temperature-Controlled Fan System.X\MCAL_LAYER/GPIO/mcal_gpio.c
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
@@ -281,7 +440,7 @@ GPIO_HIGH 1
 [v gpio_pin_write_logic@ret ret `uc  1 a 1 6 ]
 "50
 [v gpio_pin_write_logic@pin pin `*.4DCS22  1 a 1 wreg ]
-[v gpio_pin_write_logic@logic logic `E1352  1 p 1 0 ]
+[v gpio_pin_write_logic@logic logic `E1519  1 p 1 0 ]
 [v gpio_pin_write_logic@pin pin `*.4DCS22  1 a 1 7 ]
 "71
 } 0
@@ -297,4 +456,124 @@ GPIO_HIGH 1
 [v gpio_pin_direction_initialize@pin pin `*.4DCS22  1 a 1 wreg ]
 [v gpio_pin_direction_initialize@pin pin `*.4DCS22  1 a 1 5 ]
 "32
+} 0
+"113 T:\Embedded Systems\Temperature-Controlled Fan System.X\ECU_LAYER/LCD/ecu_lcd.c
+[v _Convert_uint32_to_string Convert_uint32_to_string `(v  1 e 1 0 ]
+{
+[v Convert_uint32_to_string@data data `ui  1 p 2 29 ]
+[v Convert_uint32_to_string@str str `*.4uc  1 p 1 31 ]
+"116
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@s s `*.4uc  1 a 1 wreg ]
+[u S922 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+"13
+[s S925 _IO_FILE 11 `S922 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S925  1 a 11 18 ]
+"12
+[v sprintf@ap ap `[1]*.4v  1 a 1 16 ]
+"9
+[v sprintf@s s `*.4uc  1 a 1 wreg ]
+[v sprintf@fmt fmt `*.24DCuc  1 p 1 12 ]
+"15
+[v sprintf@s s `*.4uc  1 a 1 17 ]
+"23
+} 0
+"1817 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+[s S957 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.4S957  1 a 1 wreg ]
+"1820
+[v vfprintf@cfmt cfmt `*.24uc  1 a 1 11 ]
+"1817
+[v vfprintf@fp fp `*.4S957  1 a 1 wreg ]
+[v vfprintf@fmt fmt `*.24DCuc  1 p 1 8 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 9 ]
+"1822
+"1817
+[v vfprintf@fp fp `*.4S957  1 a 1 10 ]
+"1840
+} 0
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[s S957 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.4S957  1 a 1 wreg ]
+[u S970 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+"1188
+[v vfpfcnvrt@convarg convarg `S970  1 a 4 3 ]
+"1179
+[v vfpfcnvrt@c c `uc  1 a 1 7 ]
+[v vfpfcnvrt@cp cp `*.24uc  1 a 1 2 ]
+"1180
+[v vfpfcnvrt@done done `a  1 a 1 0 ]
+"1177
+[v vfpfcnvrt@fp fp `*.4S957  1 a 1 wreg ]
+[v vfpfcnvrt@fmt fmt `*.4*.24uc  1 p 1 10 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 11 ]
+"1201
+"1177
+[v vfpfcnvrt@fp fp `*.4S957  1 a 1 1 ]
+"1814
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 0 ]
+[u S922 . 2 `*.1uc 1 buffer 2 0 `*.1DCuc 1 source 2 0 ]
+[s S925 _IO_FILE 11 `S922 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.4S925  1 p 1 2 ]
+"24
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+"9
+} 0
+"1 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 6 ]
+"4
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"34
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"41
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memset.c
+[v _memset memset `(*.4v  1 e 1 0 ]
+{
+[v memset@dest dest `*.4v  1 a 1 wreg ]
+"5
+[v memset@p p `*.4uc  1 a 1 4 ]
+"3
+[v memset@dest dest `*.4v  1 a 1 wreg ]
+[v memset@c c `i  1 p 2 0 ]
+[v memset@n n `ui  1 p 2 2 ]
+"5
+[v memset@dest dest `*.4v  1 a 1 5 ]
+"10
 } 0

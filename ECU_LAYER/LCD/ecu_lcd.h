@@ -28,7 +28,8 @@
 #define LCD_8BITS_2LINE 0x38
 #define LCD_4BITS_1LINE 0x20
 #define LCD_4BITS_2LINE 0x28
-
+#define _LCD_CGRAM_START 0x40
+#define _LCD_DDRAM_START 0x80
 
 #define ROW1 1
 #define ROW2 2
@@ -46,5 +47,9 @@ Std_ReturnType lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data);
 Std_ReturnType lcd_4bits_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 data);
 Std_ReturnType lcd_4bits_send_string(const lcd_4bits_t *lcd,uint8 *data);
 Std_ReturnType lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data);
+Std_ReturnType lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
+void Convert_uint8_to_string(uint8 data,uint8 *str);
+void Convert_uint16_to_string(uint16 data,uint8 *str);
+void Convert_uint32_to_string(uint32 data,uint8 *str);
 #endif	/* ECU_LCD_H */
 

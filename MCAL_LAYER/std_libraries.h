@@ -10,6 +10,7 @@
 /*Section : Include Section*/
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /*Section : Macro Declaration Section*/
 /*Section : Macro Functions Declaration Section*/
 /*Section : Data Type Declaration Section*/

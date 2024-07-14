@@ -9,7 +9,7 @@
 #define	DEVICE_CONFIG_H
 /*Section : Include Section*/
 #include <xc.h>
-#define _XTAL_FREQ 20000000UL
+#define _XTAL_FREQ 8000000UL
 
 /*Section : Macro Declaration Section*/
 
