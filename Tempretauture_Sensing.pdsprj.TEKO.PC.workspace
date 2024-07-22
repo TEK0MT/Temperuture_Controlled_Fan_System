@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffff4607000084000000700d000073040000</PLACEMENT>
+  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffff5b0700005c000000850d00004b040000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
@@ -15,7 +15,7 @@
      <ITEM name="Version">100</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="691" x="2064" flags="00008033" y="907" h="200" pid="1" iid="-1">
+   <POPUP w="691" x="2064" flags="00000032" y="907" h="200" pid="1" iid="-1">
     <PROPERTIES>
      <ITEM name="Address Column Width">85</ITEM>
      <ITEM name="AutoResize">No</ITEM>
@@ -84,13 +84,13 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="600" x="2777" flags="0000002a" y="76" h="400" pid="1" iid="1">
+   <POPUP w="600" x="2849" flags="0000002a" y="465" h="400" pid="1" iid="1">
     <PROPERTIES>
-     <ITEM name="Breakpoint 0">"",059B,0000,9E2A,1106,1
+     <ITEM name="Breakpoint 0">"",041A,0000,BD11,0604,1
 </ITEM>
-     <ITEM name="Breakpoint 1">"",043E,0000,7F50,1106,1
+     <ITEM name="Breakpoint 1">"",0477,0000,5EEB,1106,1
 </ITEM>
-     <ITEM name="Breakpoint 2">"",0233,0000,097D,0604,1
+     <ITEM name="Breakpoint 2">"",05AE,0000,BD11,0604,1
 </ITEM>
      <ITEM name="Breakpoint 3">"",0481,0000,007D,0604,1
 </ITEM>
@@ -100,7 +100,7 @@
      <ITEM name="DISPOPCODES">No</ITEM>
      <ITEM name="FIXUPBPTS">Yes</ITEM>
      <ITEM name="WordsOnly">No</ITEM>
-     <ITEM name="nBreakpoints">3</ITEM>
+     <ITEM name="nBreakpoints">1</ITEM>
     </PROPERTIES>
    </POPUP>
    <POPUP w="447" x="2661" flags="0000000a" y="727" h="382" pid="2" iid="1">

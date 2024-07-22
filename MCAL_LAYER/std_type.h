@@ -9,8 +9,12 @@
 #ifndef STD_TYPE_H
 #define	STD_TYPE_H
 /*Section : Include Section*/
+#include "std_libraries.h"
 /*Section : Macro Declaration Section*/
 #define ZERO_INIT 0x00
+#define Std_ReturnType uint8
+#define E_OK 0x00
+#define E_NOT_OK 0x01
 /*Section : Macro Functions Declaration Section*/
 
 /*Section : Data Type Declaration Section*/

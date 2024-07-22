@@ -22,7 +22,6 @@
 #define MAX_PORTS      5
 #define BIT_MASK       0x01
 #define PORT_MASK      0xFF
-#define Std_ReturnType uint8
 /*Section : Macro Functions Declaration Section*/
 #define SET_BIT(Reg,Pos)        (Reg |= (BIT_MASK << Pos))
 #define CLEAR_BIT(Reg,Pos)      (Reg &= ~(BIT_MASK << Pos))

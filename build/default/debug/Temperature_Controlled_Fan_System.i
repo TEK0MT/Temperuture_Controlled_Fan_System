@@ -2129,7 +2129,7 @@ extern __bank0 __bit __timeout;
 
 
 # 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h" 1
-# 17 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h"
+# 21 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -2139,7 +2139,7 @@ typedef signed short sint16;
 typedef signed int sint32;
 typedef signed long long sint64;
 # 15 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
-# 32 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
+# 31 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
 typedef enum{
     PIN0 = 0,
     PIN1,
@@ -2239,6 +2239,37 @@ void Convert_uint32_to_string(uint32 data,uint8 *str);
 void ecu_initialzie(void);
 # 11 "./Temperature_Controlled_Fan_System.h" 2
 
+# 1 "./MCAL_LAYER/INTERRUPT/interrupt_manager.h" 1
+# 11 "./MCAL_LAYER/INTERRUPT/interrupt_manager.h"
+# 1 "./MCAL_LAYER/INTERRUPT/external_interrupt.h" 1
+# 11 "./MCAL_LAYER/INTERRUPT/external_interrupt.h"
+# 1 "./MCAL_LAYER/INTERRUPT/interrupt_config.h" 1
+# 11 "./MCAL_LAYER/INTERRUPT/external_interrupt.h" 2
+# 31 "./MCAL_LAYER/INTERRUPT/external_interrupt.h"
+typedef enum{
+    RISING_EDGE,
+    FALLING_EDGE
+}src_t;
+
+typedef struct{
+    void (*EXT_HANDLER)(void);
+    src_t source;
+}INTX_T;
+
+
+
+uint8 Enable_INTX(const INTX_T *intx);
+uint8 Disable_INTX(const INTX_T *intx);
+# 11 "./MCAL_LAYER/INTERRUPT/interrupt_manager.h" 2
+
+
+
+
+
+
+void ISR_INTX(void);
+# 12 "./Temperature_Controlled_Fan_System.h" 2
+
 
 
 
@@ -2257,28 +2288,15 @@ extern pin_config_t pin8;
 void apllication_initilaize(void);
 # 7 "Temperature_Controlled_Fan_System.c" 2
 
-const uint8 customChar[] = {
-  0x00,
-  0x0E,
-  0x11,
-  0x11,
-  0x0E,
-  0x00,
-  0x00,
-  0x00
-};
+void isr(void){
+    gpio_pin_toggle_logic(&pin1);
+}
+INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
 int main() {
     apllication_initilaize();
-    uint32 counter = 0;
-    uint8 str[11];
-
+   Enable_INTX(&int1);
 while(1){
-# 52 "Temperature_Controlled_Fan_System.c"
-    Convert_uint32_to_string(counter,str);
-    lcd_4bits_send_string_pos(&lcd,1,1,str);
-    lcd_4bit_custom_character(&lcd,1,10,customChar,0);
-    _delay((unsigned long)((500)*(8000000UL/4000.0)));
-    counter++;
+
 
 }
     return (0);
