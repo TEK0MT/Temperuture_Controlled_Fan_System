@@ -2256,10 +2256,18 @@ typedef struct{
     src_t source;
 }INTX_T;
 
+typedef struct{
+    void (*EXT_HIGH_INTERRUPT)(void);
+    void (*EXT_LOW_INTERRUPT)(void);
+    pin_config_t pin;
+}RBX_t;
 
 
 uint8 Enable_INTX(const INTX_T *intx);
 uint8 Disable_INTX(const INTX_T *intx);
+
+uint8 Enable_RBX(const RBX_t *rbx);
+uint8 Disable_RBX(const RBX_t *rbx);
 # 11 "./MCAL_LAYER/INTERRUPT/interrupt_manager.h" 2
 
 
@@ -2268,6 +2276,14 @@ uint8 Disable_INTX(const INTX_T *intx);
 
 
 void ISR_INTX(void);
+void ISR_RB0(uint8 n);
+void ISR_RB1(uint8 n);
+void ISR_RB2(uint8 n);
+void ISR_RB3(uint8 n);
+void ISR_RB4(uint8 n);
+void ISR_RB5(uint8 n);
+void ISR_RB6(uint8 n);
+void ISR_RB7(uint8 n);
 # 12 "./Temperature_Controlled_Fan_System.h" 2
 
 

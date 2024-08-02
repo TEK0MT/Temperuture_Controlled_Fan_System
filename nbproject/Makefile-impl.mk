@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Temperature-Controlled Fan System.X
+PROJECTNAME=Temperuture_Controlled_Fan_System
 
 # Active Configuration
 DEFAULTCONF=default

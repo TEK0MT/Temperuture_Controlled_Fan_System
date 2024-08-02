@@ -2203,10 +2203,18 @@ typedef struct{
     src_t source;
 }INTX_T;
 
+typedef struct{
+    void (*EXT_HIGH_INTERRUPT)(void);
+    void (*EXT_LOW_INTERRUPT)(void);
+    pin_config_t pin;
+}RBX_t;
 
 
 uint8 Enable_INTX(const INTX_T *intx);
 uint8 Disable_INTX(const INTX_T *intx);
+
+uint8 Enable_RBX(const RBX_t *rbx);
+uint8 Disable_RBX(const RBX_t *rbx);
 # 11 "MCAL_LAYER/INTERRUPT/interrupt_manager.h" 2
 
 
@@ -2215,10 +2223,118 @@ uint8 Disable_INTX(const INTX_T *intx);
 
 
 void ISR_INTX(void);
+void ISR_RB0(uint8 n);
+void ISR_RB1(uint8 n);
+void ISR_RB2(uint8 n);
+void ISR_RB3(uint8 n);
+void ISR_RB4(uint8 n);
+void ISR_RB5(uint8 n);
+void ISR_RB6(uint8 n);
+void ISR_RB7(uint8 n);
 # 7 "MCAL_LAYER/INTERRUPT/interrupt_manager.c" 2
+
+
+static uint8 counter = 0;
 
 void __attribute__((picinterrupt(("")))) InterruptManager(void){
     if((INTCONbits.INTE == 1) && (INTCONbits.INTF == 1) ){
         ISR_INTX();
     }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB0 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB0(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB0 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB0(1);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB1 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB1(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB1 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB1(1);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB2 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB2(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB2 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB2(1);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB3 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB3(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB3 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB3(1);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB4(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB4(1);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB5(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB5(1);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB6(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB6(1);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == 1) && (counter == 0)){
+        counter = 1;
+        ISR_RB7(0);
+    }
+    else{ }
+
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == 1) && (counter == 1)){
+        counter = 0;
+        ISR_RB7(1);
+    }
+    else{ }
 }

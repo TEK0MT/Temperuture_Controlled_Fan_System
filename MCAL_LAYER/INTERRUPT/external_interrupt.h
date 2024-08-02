@@ -38,10 +38,18 @@ typedef struct{
     src_t source;
 }INTX_T;
 
+typedef struct{
+    void (*EXT_HIGH_INTERRUPT)(void);
+    void (*EXT_LOW_INTERRUPT)(void);
+    pin_config_t pin;
+}RBX_t;
 
 /*Section : Functions Declaration Section*/
 Std_ReturnType Enable_INTX(const INTX_T *intx);
 Std_ReturnType Disable_INTX(const INTX_T *intx);
+
+Std_ReturnType Enable_RBX(const RBX_t *rbx);
+Std_ReturnType Disable_RBX(const RBX_t *rbx);
 
 #endif	/* EXTERNAL_INTERRUPT_H */
 
