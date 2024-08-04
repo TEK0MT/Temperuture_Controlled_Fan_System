@@ -15,6 +15,9 @@
         <itemPath>ECU_LAYER/ECU_LAYER.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_LAYER" displayName="MCAL_LAYER" projectFiles="true">
+        <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
+          <itemPath>MCAL_LAYER/EEPROM/eeprom.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
           <itemPath>MCAL_LAYER/GPIO/gpio_cfg.h</itemPath>
           <itemPath>MCAL_LAYER/GPIO/mcal_gpio.h</itemPath>

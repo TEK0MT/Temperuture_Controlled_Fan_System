@@ -10,6 +10,7 @@
 /*Section : Include Section*/
 #include "ECU_LAYER/ECU_LAYER.h"
 #include "MCAL_LAYER/INTERRUPT/interrupt_manager.h"
+#include "MCAL_LAYER/EEPROM/eeprom.h"
 /*Section : Macro Declaration Section*/
 /*Section : Macro Functions Declaration Section*/
 /*Section : Data Type Declaration Section*/
