@@ -2282,6 +2282,12 @@ void ISR_RB6(uint8 n);
 void ISR_RB7(uint8 n);
 # 12 "./Temperature_Controlled_Fan_System.h" 2
 
+# 1 "./MCAL_LAYER/EEPROM/eeprom.h" 1
+# 31 "./MCAL_LAYER/EEPROM/eeprom.h"
+uint8 WRITE_DATA_EEPROM(uint16 add,uint8 data);
+uint8 READ_DATA_EEPROM(uint16 add,uint8 *data);
+# 13 "./Temperature_Controlled_Fan_System.h" 2
+
 
 
 
@@ -2300,8 +2306,10 @@ extern pin_config_t pin8;
 void apllication_initilaize(void);
 # 7 "Temperature_Controlled_Fan_System.c" 2
 
+uint8 counter = 0;
 void isr(void){
     gpio_pin_toggle_logic(&pin1);
+    counter++;
 }
 
 void rb_isr(void){
@@ -2310,13 +2318,15 @@ void rb_isr(void){
 
 INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
 RBX_t rb2 = {.pin.port = PORTB_INDEX,.pin.pin = PIN4,.pin.logic = GPIO_LOW,.pin.direction = GPIO_DIRECTION_INPUT,.EXT_HIGH_INTERRUPT = rb_isr,.EXT_LOW_INTERRUPT = rb_isr};
+
 int main() {
     apllication_initilaize();
-
+   Enable_INTX(&int1);
    Enable_RBX(&rb2);
+    READ_DATA_EEPROM(0x00,&counter);
 while(1){
 
-
+    WRITE_DATA_EEPROM(0x00,counter);
 }
     return (0);
 }

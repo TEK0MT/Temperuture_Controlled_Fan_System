@@ -1,26 +1,26 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffff5b0700005c000000850d00004b040000</PLACEMENT>
+  <PLACEMENT>2c0000000200000003000000fffffffffffffffffffffffffffffffffdffffff1c000000270600000b040000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
    <POPUP w="800" x="1958" flags="00000002" y="131" h="200" pid="0" iid="-1">
     <PROPERTIES>
-     <ITEM name="Message Column Width">671</ITEM>
+     <ITEM name="Message Column Width">550</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
      <ITEM name="Source Column Width">100</ITEM>
      <ITEM name="Time Column Width">120</ITEM>
      <ITEM name="Version">100</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="691" x="2064" flags="00000032" y="907" h="200" pid="1" iid="-1">
+   <POPUP w="691" x="1940" flags="00000033" y="390" h="200" pid="1" iid="-1">
     <PROPERTIES>
      <ITEM name="Address Column Width">85</ITEM>
      <ITEM name="AutoResize">No</ITEM>
      <ITEM name="Gridlines">Yes</ITEM>
-     <ITEM name="Item 0">"TRISD","0x0088",00000001,00000004,136,1,0,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 0">"counter","0x005F",00000001,00000004,95,1,4,00000002,0,00000000,00000000</ITEM>
      <ITEM name="Item 1">"PORTD","0x0008",00000001,00000004,8,1,0,00000002,0,00000000,00000000</ITEM>
      <ITEM name="Item 2">"send_4bits@command","0x0078",00000001,00000004,120,1,0,00000002,0,00000000,00000000</ITEM>
      <ITEM name="Item 3">"send_4bits@command","0x0078",00000001,00000004,120,1,0,00000002,0,00000000,00000000</ITEM>
@@ -35,7 +35,7 @@
      <ITEM name="Value Column Width">256</ITEM>
      <ITEM name="Version">100</ITEM>
      <ITEM name="Watch Expression Column Width">85</ITEM>
-     <ITEM name="nItems">2</ITEM>
+     <ITEM name="nItems">1</ITEM>
     </PROPERTIES>
    </POPUP>
    <POPUP w="380" x="1998" flags="00000008" y="171" h="182" pid="3" iid="1">
@@ -51,11 +51,11 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="8" x="2038" flags="0000000a" y="211" h="32" pid="5" iid="1">
+   <POPUP w="20" x="2656" flags="0000800b" y="475" h="42" pid="5" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
-     <ITEM name="DispFormat">2</ITEM>
+     <ITEM name="DispFormat">4</ITEM>
      <ITEM name="ShowChanges">Yes</ITEM>
      <ITEM name="ShowToolTips">Yes</ITEM>
      <ITEM name="TopLineAddress">00000000</ITEM>
@@ -86,7 +86,7 @@
    </POPUP>
    <POPUP w="600" x="2849" flags="0000002a" y="465" h="400" pid="1" iid="1">
     <PROPERTIES>
-     <ITEM name="Breakpoint 0">"",041A,0000,BD11,0604,1
+     <ITEM name="Breakpoint 0">"",063A,0000,BD11,0604,1
 </ITEM>
      <ITEM name="Breakpoint 1">"",0477,0000,5EEB,1106,1
 </ITEM>
@@ -103,7 +103,7 @@
      <ITEM name="nBreakpoints">1</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="447" x="2661" flags="0000000a" y="727" h="382" pid="2" iid="1">
+   <POPUP w="447" x="2902" flags="0000000b" y="666" h="382" pid="2" iid="1">
     <PROPERTIES>
      <ITEM name="Address Column Width">96</ITEM>
      <ITEM name="AutoResize">No</ITEM>

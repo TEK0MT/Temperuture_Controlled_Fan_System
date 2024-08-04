@@ -1,0 +1,232 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"460 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\../../../xc8/pic/include/proc/pic16f877a.h
+[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S18 . RBIF INTF TMR0IF RBIE INTE TMR0IE PEIE GIE ]
+"470
+[s S19 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S19 . . T0IF . T0IE ]
+"459
+[u S17 `S18 1 `S19 1 ]
+[n S17 . . . ]
+"477
+[v _INTCONbits `VS17 ~T0 @X0 0 e@11 ]
+"2322
+[s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S94 . RD WR WREN WRERR . EEPGD ]
+"2321
+[u S93 `S94 1 ]
+[n S93 . . ]
+"2331
+[v _EECON1bits `VS93 ~T0 @X0 0 e@396 ]
+"2295
+[v _EEADR `Vuc ~T0 @X0 0 e@269 ]
+"2288
+[v _EEDATA `Vuc ~T0 @X0 0 e@268 ]
+"2361
+[v _EECON2 `Vuc ~T0 @X0 0 e@397 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
+"54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\../../../xc8/pic/include/proc/pic16f877a.h
+[; <" INDF equ 00h ;# ">
+"61
+[; <" TMR0 equ 01h ;# ">
+"68
+[; <" PCL equ 02h ;# ">
+"75
+[; <" STATUS equ 03h ;# ">
+"161
+[; <" FSR equ 04h ;# ">
+"168
+[; <" PORTA equ 05h ;# ">
+"218
+[; <" PORTB equ 06h ;# ">
+"280
+[; <" PORTC equ 07h ;# ">
+"342
+[; <" PORTD equ 08h ;# ">
+"404
+[; <" PORTE equ 09h ;# ">
+"436
+[; <" PCLATH equ 0Ah ;# ">
+"456
+[; <" INTCON equ 0Bh ;# ">
+"534
+[; <" PIR1 equ 0Ch ;# ">
+"596
+[; <" PIR2 equ 0Dh ;# ">
+"636
+[; <" TMR1 equ 0Eh ;# ">
+"643
+[; <" TMR1L equ 0Eh ;# ">
+"650
+[; <" TMR1H equ 0Fh ;# ">
+"657
+[; <" T1CON equ 010h ;# ">
+"732
+[; <" TMR2 equ 011h ;# ">
+"739
+[; <" T2CON equ 012h ;# ">
+"810
+[; <" SSPBUF equ 013h ;# ">
+"817
+[; <" SSPCON equ 014h ;# ">
+"887
+[; <" CCPR1 equ 015h ;# ">
+"894
+[; <" CCPR1L equ 015h ;# ">
+"901
+[; <" CCPR1H equ 016h ;# ">
+"908
+[; <" CCP1CON equ 017h ;# ">
+"966
+[; <" RCSTA equ 018h ;# ">
+"1061
+[; <" TXREG equ 019h ;# ">
+"1068
+[; <" RCREG equ 01Ah ;# ">
+"1075
+[; <" CCPR2 equ 01Bh ;# ">
+"1082
+[; <" CCPR2L equ 01Bh ;# ">
+"1089
+[; <" CCPR2H equ 01Ch ;# ">
+"1096
+[; <" CCP2CON equ 01Dh ;# ">
+"1154
+[; <" ADRESH equ 01Eh ;# ">
+"1161
+[; <" ADCON0 equ 01Fh ;# ">
+"1257
+[; <" OPTION_REG equ 081h ;# ">
+"1327
+[; <" TRISA equ 085h ;# ">
+"1377
+[; <" TRISB equ 086h ;# ">
+"1439
+[; <" TRISC equ 087h ;# ">
+"1501
+[; <" TRISD equ 088h ;# ">
+"1563
+[; <" TRISE equ 089h ;# ">
+"1620
+[; <" PIE1 equ 08Ch ;# ">
+"1682
+[; <" PIE2 equ 08Dh ;# ">
+"1722
+[; <" PCON equ 08Eh ;# ">
+"1756
+[; <" SSPCON2 equ 091h ;# ">
+"1818
+[; <" PR2 equ 092h ;# ">
+"1825
+[; <" SSPADD equ 093h ;# ">
+"1832
+[; <" SSPSTAT equ 094h ;# ">
+"2001
+[; <" TXSTA equ 098h ;# ">
+"2082
+[; <" SPBRG equ 099h ;# ">
+"2089
+[; <" CMCON equ 09Ch ;# ">
+"2159
+[; <" CVRCON equ 09Dh ;# ">
+"2224
+[; <" ADRESL equ 09Eh ;# ">
+"2231
+[; <" ADCON1 equ 09Fh ;# ">
+"2290
+[; <" EEDATA equ 010Ch ;# ">
+"2297
+[; <" EEADR equ 010Dh ;# ">
+"2304
+[; <" EEDATH equ 010Eh ;# ">
+"2311
+[; <" EEADRH equ 010Fh ;# ">
+"2318
+[; <" EECON1 equ 018Ch ;# ">
+"2363
+[; <" EECON2 equ 018Dh ;# ">
+"10 MCAL_LAYER/EEPROM/eeprom.c
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 10: uint8 WRITE_DATA_EEPROM(uint16 add,uint8 data){
+[v _WRITE_DATA_EEPROM `(uc ~T0 @X0 1 ef2`us`uc ]
+{
+[e :U _WRITE_DATA_EEPROM ]
+[v _add `us ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+[f ]
+"11
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 11:     uint8 status = INTCONbits.GIE;
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status . . _INTCONbits 0 7 ]
+"12
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 12:     (EECON1bits.EEPGD = 0);
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"13
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 13:     EEADR = (add & 0xFF);
+[e = _EEADR -> & -> _add `ui -> -> 255 `i `ui `uc ]
+"14
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 14:     EEDATA = data;
+[e = _EEDATA _data ]
+"15
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 15:     (EECON1bits.WREN = 1);
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"16
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 16:     (INTCONbits.GIE = 0);
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"18
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 18:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"19
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 19:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"21
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 21:     (EECON1bits.WR = 1);
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"22
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 22:     while(EECON1bits.WR);
+[e $U 106  ]
+[e :U 107 ]
+[e :U 106 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 107  ]
+[e :U 108 ]
+"23
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 23:     (EECON1bits.WREN = 0);
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"24
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 24:     INTCONbits.GIE = status;
+[e = . . _INTCONbits 0 7 _status ]
+"25
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 25: }
+[e :UE 105 ]
+}
+"26
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 26: uint8 READ_DATA_EEPROM(uint16 add,uint8 *data){
+[v _READ_DATA_EEPROM `(uc ~T0 @X0 1 ef2`us`*uc ]
+{
+[e :U _READ_DATA_EEPROM ]
+[v _add `us ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[f ]
+"27
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 27:     EEADR = (add & 0xFF);
+[e = _EEADR -> & -> _add `ui -> -> 255 `i `ui `uc ]
+"28
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 28:     (EECON1bits.EEPGD = 0);
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"29
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 29:     (EECON1bits.RD = 1);
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"30
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 30:     __nop();
+[e ( ___nop ..  ]
+"31
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 31:     __nop();
+[e ( ___nop ..  ]
+"32
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 32:     data = EEDATA;
+[e = _data -> _EEDATA `*uc ]
+"33
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 33: }
+[e :UE 109 ]
+}

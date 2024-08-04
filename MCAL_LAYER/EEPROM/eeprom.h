@@ -11,6 +11,7 @@
 /*Section : Include Section*/
 #include "../../../../../../Program Files (x86)/Microchip/mplabcomm/../../../Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f877a.h"
 #include "../GPIO/mcal_gpio.h"
+#include "../INTERRUPT/interrupt_manager.h"
 /*Section : Macro Declaration Section*/
 /*Section : Macro Functions Declaration Section*/
 #define ACCESS_MEMORY() (EECON1bits.EEPGD = 0)
@@ -26,5 +27,8 @@
 /*Section : Data Type Declaration Section*/
 
 /*Section : Functions Declaration Section*/
+
+Std_ReturnType WRITE_DATA_EEPROM(uint16 add,uint8 data);
+Std_ReturnType READ_DATA_EEPROM(uint16 add,uint8 *data);
 #endif	/* EEPROM_H */
 
