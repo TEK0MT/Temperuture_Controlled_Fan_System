@@ -2220,17 +2220,7 @@ uint8 Disable_RBX(const RBX_t *rbx);
 static uint8 set_src_intx(const INTX_T *intx);
 static uint8 EXT_Rbx_Fun(const RBX_t *rbx);
 static void(*EXT_INTX_HANDLER)(void);
-static void(*EXT_RB0_HIGH_HANDLER)(void);
-static void(*EXT_RB0_LOW_HANDLER)(void);
 
-static void(*EXT_RB1_HIGH_HANDLER)(void);
-static void(*EXT_RB1_LOW_HANDLER)(void);
-
-static void(*EXT_RB2_HIGH_HANDLER)(void);
-static void(*EXT_RB2_LOW_HANDLER)(void);
-
-static void(*EXT_RB3_HIGH_HANDLER)(void);
-static void(*EXT_RB3_LOW_HANDLER)(void);
 
 static void(*EXT_RB4_HIGH_HANDLER)(void);
 static void(*EXT_RB4_LOW_HANDLER)(void);
@@ -2248,77 +2238,12 @@ static void(*EXT_RB7_LOW_HANDLER)(void);
 
 void ISR_INTX(void){
     (INTCONbits.INTF = 0);
-    if(EXT_RB0_HIGH_HANDLER){
-        EXT_RB0_HIGH_HANDLER();
+    if(EXT_INTX_HANDLER){
+        EXT_INTX_HANDLER();
     }
     else{ }
 }
 
-void ISR_RB0(uint8 n){
-    (INTCONbits.INTF = 0);
-    if(!n){
-    if(EXT_RB0_HIGH_HANDLER){
-        EXT_RB0_HIGH_HANDLER();
-    }
-    else{ }
-    }
-    else{
-        if(EXT_RB0_LOW_HANDLER){
-        EXT_RB0_LOW_HANDLER();
-    }
-    else{ }
-    }
-
-}
-
-
-
-void ISR_RB1(uint8 n){
-    (INTCONbits.INTF = 0);
-    if(!n){
-    if(EXT_RB1_HIGH_HANDLER){
-        EXT_RB1_HIGH_HANDLER();
-    }
-    else{ }
-    }
-    else{
-        if(EXT_RB1_LOW_HANDLER){
-        EXT_RB1_LOW_HANDLER();
-    }
-    else{ }
-    }
-}
-
-void ISR_RB2(uint8 n){
-    (INTCONbits.INTF = 0);
-    if(!n){
-    if(EXT_RB2_HIGH_HANDLER){
-        EXT_RB2_HIGH_HANDLER();
-    }
-    else{ }
-    }
-    else{
-        if(EXT_RB2_LOW_HANDLER){
-        EXT_RB2_LOW_HANDLER();
-    }
-    else{ }
-    }
-}
-void ISR_RB3(uint8 n){
-    (INTCONbits.INTF = 0);
-    if(!n){
-    if(EXT_RB3_HIGH_HANDLER){
-        EXT_RB3_HIGH_HANDLER();
-    }
-    else{ }
-    }
-    else{
-        if(EXT_RB3_LOW_HANDLER){
-        EXT_RB3_LOW_HANDLER();
-    }
-    else{ }
-    }
-}
 void ISR_RB4(uint8 n){
     (INTCONbits.INTF = 0);
     if(!n){
@@ -2445,11 +2370,13 @@ uint8 Enable_RBX(const RBX_t *rbx){
         ret = 0x01;
     }
     else{
-        (INTCONbits.RBIE = 0)();
+        (INTCONbits.GIE = 1);
+        (INTCONbits.PEIE = 1);
+        (INTCONbits.RBIE = 0);
         (INTCONbits.RBIF = 0);
         ret = gpio_pin_direction_initialize(&rbx->pin);
         EXT_Rbx_Fun(rbx);
-        (INTCONbits.RBIE = 1)();
+        (INTCONbits.RBIE = 1);
     }
     return ret;
 }
@@ -2459,7 +2386,7 @@ uint8 Disable_RBX(const RBX_t *rbx){
         ret = 0x01;
     }
     else{
-        (INTCONbits.RBIE = 0)();
+        (INTCONbits.RBIE = 0);
     }
     return ret;
 }
@@ -2467,37 +2394,21 @@ uint8 Disable_RBX(const RBX_t *rbx){
 
 static uint8 EXT_Rbx_Fun(const RBX_t *rbx){
     switch(rbx->pin.pin){
-        case PIN0:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB0_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB0_LOW_HANDLER;
-            break;
-        case PIN1:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB1_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB1_LOW_HANDLER;
-            break;
-        case PIN2:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB2_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB2_LOW_HANDLER;
-            break;
-        case PIN3:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB3_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB3_LOW_HANDLER;
-            break;
         case PIN4:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB4_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB4_LOW_HANDLER;
+            EXT_RB4_HIGH_HANDLER = rbx->EXT_HIGH_INTERRUPT;
+            EXT_RB4_LOW_HANDLER = rbx->EXT_LOW_INTERRUPT;
             break;
         case PIN5:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB5_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB5_LOW_HANDLER;
+            EXT_RB5_HIGH_HANDLER = rbx->EXT_HIGH_INTERRUPT;
+            EXT_RB5_LOW_HANDLER = rbx->EXT_LOW_INTERRUPT;
             break;
         case PIN6:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB6_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB6_LOW_HANDLER;
+            EXT_RB6_HIGH_HANDLER = rbx->EXT_HIGH_INTERRUPT;
+            EXT_RB6_LOW_HANDLER = rbx->EXT_LOW_INTERRUPT;
             break;
         case PIN7:
-            rbx->EXT_HIGH_INTERRUPT = EXT_RB7_HIGH_HANDLER;
-            rbx->EXT_LOW_INTERRUPT = EXT_RB7_LOW_HANDLER;
+            EXT_RB7_HIGH_HANDLER = rbx->EXT_HIGH_INTERRUPT;
+            EXT_RB7_LOW_HANDLER = rbx->EXT_LOW_INTERRUPT;
             break;
     }
 }

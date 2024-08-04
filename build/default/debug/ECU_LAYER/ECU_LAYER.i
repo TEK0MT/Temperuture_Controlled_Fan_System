@@ -2260,5 +2260,8 @@ lcd_4bits_t lcd = {.rs.port = PORTC_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.r
                    .pins[3].port = PORTC_INDEX,.pins[3].pin = PIN5,.pins[3].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT};
 void ecu_initialzie(void){
     gpio_pin_initialize(&pin1);
+
+
+    gpio_pin_initialize(&pin2);
 # 42 "ECU_LAYER/ECU_LAYER.c"
 }

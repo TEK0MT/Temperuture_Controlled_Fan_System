@@ -29,8 +29,8 @@ lcd_4bits_t lcd = {.rs.port = PORTC_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.r
 void ecu_initialzie(void){
     gpio_pin_initialize(&pin1);
     /*motor_initialize(&motor1);
-    motor_initialize(&motor2);
-    gpio_pin_initialize(&pin2);
+    motor_initialize(&motor2);*/
+    gpio_pin_initialize(&pin2);/*
     gpio_pin_initialize(&pin3);
     gpio_pin_initialize(&pin4);
     gpio_pin_initialize(&pin5);

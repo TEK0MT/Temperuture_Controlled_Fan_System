@@ -15,10 +15,6 @@
 /*Section : Data Type Declaration Section*/
 /*Section : Functions Declaration Section*/
 void ISR_INTX(void);
-void ISR_RB0(uint8 n);
-void ISR_RB1(uint8 n);
-void ISR_RB2(uint8 n);
-void ISR_RB3(uint8 n);
 void ISR_RB4(uint8 n);
 void ISR_RB5(uint8 n);
 void ISR_RB6(uint8 n);

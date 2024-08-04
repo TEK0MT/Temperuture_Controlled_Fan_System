@@ -7,22 +7,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 ./Temperature_Controlled_Fan_System.h
 [; ;./Temperature_Controlled_Fan_System.h: 19: extern pin_config_t pin1;
 [v _pin1 `S102 ~T0 @X0 0 e ]
+"20
+[; ;./Temperature_Controlled_Fan_System.h: 20: extern pin_config_t pin2;
+[v _pin2 `S102 ~T0 @X0 0 e ]
 [v F1621 `(v ~T0 @X0 0 tf ]
-"11 Temperature_Controlled_Fan_System.c
-[; ;Temperature_Controlled_Fan_System.c: 11: INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
+"16 Temperature_Controlled_Fan_System.c
+[; ;Temperature_Controlled_Fan_System.c: 16: INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
 [c E1615 0 1 .. ]
 [n E1615 . RISING_EDGE FALLING_EDGE  ]
 "36 ./MCAL_LAYER/INTERRUPT/external_interrupt.h
 [; ;./MCAL_LAYER/INTERRUPT/external_interrupt.h: 36: typedef struct{
 [s S105 `*F1621 1 `E1615 1 ]
 [n S105 . EXT_HANDLER source ]
+[v F1626 `(v ~T0 @X0 0 tf ]
+[v F1628 `(v ~T0 @X0 0 tf ]
+"41
+[; ;./MCAL_LAYER/INTERRUPT/external_interrupt.h: 41: typedef struct{
+[s S106 `*F1626 1 `*F1628 1 `S102 1 ]
+[n S106 . EXT_HIGH_INTERRUPT EXT_LOW_INTERRUPT pin ]
+"17 Temperature_Controlled_Fan_System.c
+[; ;Temperature_Controlled_Fan_System.c: 17: RBX_t rb2 = {.pin.port = PORTB_INDEX,.pin.pin = PIN4,.pin.logic = GPIO_LOW,.pin.direction = GPIO_DIRECTION_INPUT,.EXT_HIGH_INTERRUPT = rb_isr,.EXT_LOW_INTERRUPT = rb_isr};
+[c E1512 0 1 2 3 4 .. ]
+[n E1512 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E1502 0 1 2 3 4 5 6 7 .. ]
+[n E1502 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
+[c E1519 0 1 .. ]
+[n E1519 . GPIO_LOW GPIO_HIGH  ]
+[c E1523 0 1 .. ]
+[n E1523 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [p mainexit ]
 "28 ./Temperature_Controlled_Fan_System.h
 [; ;./Temperature_Controlled_Fan_System.h: 28: void apllication_initilaize(void);
 [v _apllication_initilaize `(v ~T0 @X0 0 ef ]
-"48 ./MCAL_LAYER/INTERRUPT/external_interrupt.h
-[; ;./MCAL_LAYER/INTERRUPT/external_interrupt.h: 48: uint8 Enable_INTX(const INTX_T *intx);
-[v _Enable_INTX `(uc ~T0 @X0 0 ef1`*CS105 ]
+"51 ./MCAL_LAYER/INTERRUPT/external_interrupt.h
+[; ;./MCAL_LAYER/INTERRUPT/external_interrupt.h: 51: uint8 Enable_RBX(const RBX_t *rbx);
+[v _Enable_RBX `(uc ~T0 @X0 0 ef1`*CS106 ]
 "18 ./ECU_LAYER/ECU_LAYER.h
 [; ;./ECU_LAYER/ECU_LAYER.h: 18: void ecu_initialzie(void);
 [v _ecu_initialzie `(v ~T0 @X0 0 ef ]
@@ -159,8 +178,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Temperature_Controlled_Fan_System.c: 10: }
 [e :UE 107 ]
 }
-"11
-[; ;Temperature_Controlled_Fan_System.c: 11: INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
+"12
+[; ;Temperature_Controlled_Fan_System.c: 12: void rb_isr(void){
+[v _rb_isr `(v ~T0 @X0 1 ef ]
+{
+[e :U _rb_isr ]
+[f ]
+"13
+[; ;Temperature_Controlled_Fan_System.c: 13:     gpio_pin_toggle_logic(&pin2);
+[e ( _gpio_pin_toggle_logic (1 -> &U _pin2 `*CS102 ]
+"14
+[; ;Temperature_Controlled_Fan_System.c: 14: }
+[e :UE 108 ]
+}
+"16
+[; ;Temperature_Controlled_Fan_System.c: 16: INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
 [v _int1 `S105 ~T0 @X0 1 e ]
 [i _int1
 :U ..
@@ -170,47 +202,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
+"17
+[; ;Temperature_Controlled_Fan_System.c: 17: RBX_t rb2 = {.pin.port = PORTB_INDEX,.pin.pin = PIN4,.pin.logic = GPIO_LOW,.pin.direction = GPIO_DIRECTION_INPUT,.EXT_HIGH_INTERRUPT = rb_isr,.EXT_LOW_INTERRUPT = rb_isr};
+[v _rb2 `S106 ~T0 @X0 1 e ]
+[i _rb2
+:U ..
+:U ..
+&U _rb_isr
+&U _rb_isr
+:U ..
+:U ..
+-> . `E1512 1 `uc
+-> . `E1502 4 `uc
+-> . `E1519 0 `uc
+-> . `E1523 1 `uc
+..
+..
+..
+..
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"12
-[; ;Temperature_Controlled_Fan_System.c: 12: int main() {
+"18
+[; ;Temperature_Controlled_Fan_System.c: 18: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"13
-[; ;Temperature_Controlled_Fan_System.c: 13:     apllication_initilaize();
-[e ( _apllication_initilaize ..  ]
-"14
-[; ;Temperature_Controlled_Fan_System.c: 14:    Enable_INTX(&int1);
-[e ( _Enable_INTX (1 -> &U _int1 `*CS105 ]
-"15
-[; ;Temperature_Controlled_Fan_System.c: 15: while(1){
-[e :U 110 ]
-{
-"18
-[; ;Temperature_Controlled_Fan_System.c: 18: }
-}
-[e :U 109 ]
-[e $U 110  ]
-[e :U 111 ]
 "19
-[; ;Temperature_Controlled_Fan_System.c: 19:     return (0);
-[e ) -> 0 `i ]
-[e $UE 108  ]
-"20
-[; ;Temperature_Controlled_Fan_System.c: 20: }
-[e :UE 108 ]
-}
+[; ;Temperature_Controlled_Fan_System.c: 19:     apllication_initilaize();
+[e ( _apllication_initilaize ..  ]
 "21
-[; ;Temperature_Controlled_Fan_System.c: 21: void apllication_initilaize(void){
+[; ;Temperature_Controlled_Fan_System.c: 21:    Enable_RBX(&rb2);
+[e ( _Enable_RBX (1 -> &U _rb2 `*CS106 ]
+"22
+[; ;Temperature_Controlled_Fan_System.c: 22: while(1){
+[e :U 111 ]
+{
+"25
+[; ;Temperature_Controlled_Fan_System.c: 25: }
+}
+[e :U 110 ]
+[e $U 111  ]
+[e :U 112 ]
+"26
+[; ;Temperature_Controlled_Fan_System.c: 26:     return (0);
+[e ) -> 0 `i ]
+[e $UE 109  ]
+"27
+[; ;Temperature_Controlled_Fan_System.c: 27: }
+[e :UE 109 ]
+}
+"28
+[; ;Temperature_Controlled_Fan_System.c: 28: void apllication_initilaize(void){
 [v _apllication_initilaize `(v ~T0 @X0 1 ef ]
 {
 [e :U _apllication_initilaize ]
 [f ]
-"22
-[; ;Temperature_Controlled_Fan_System.c: 22:     ecu_initialzie();
+"29
+[; ;Temperature_Controlled_Fan_System.c: 29:     ecu_initialzie();
 [e ( _ecu_initialzie ..  ]
-"23
-[; ;Temperature_Controlled_Fan_System.c: 23: }
-[e :UE 112 ]
+"30
+[; ;Temperature_Controlled_Fan_System.c: 30: }
+[e :UE 113 ]
 }

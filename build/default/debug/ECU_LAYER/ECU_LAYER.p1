@@ -349,6 +349,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30
 [; ;ECU_LAYER/ECU_LAYER.c: 30:     gpio_pin_initialize(&pin1);
 [e ( _gpio_pin_initialize (1 -> &U _pin1 `*CS102 ]
+"33
+[; ;ECU_LAYER/ECU_LAYER.c: 33:     gpio_pin_initialize(&pin2);
+[e ( _gpio_pin_initialize (1 -> &U _pin2 `*CS102 ]
 "42
 [; ;ECU_LAYER/ECU_LAYER.c: 42: }
 [e :UE 105 ]

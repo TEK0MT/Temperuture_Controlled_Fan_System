@@ -22,8 +22,8 @@
 #define SET_FALLING_EDGE()          (OPTION_REGbits.INTEDG = 0)
 #endif
 #if RBX_INTERRUPT
-#define ENABLE_RBX_INTERRUPT (INTCONbits.RBIE = 1)
-#define DISABLE_RBX_INTERRUPT (INTCONbits.RBIE = 0)
+#define ENABLE_RBX_INTERRUPT() (INTCONbits.RBIE = 1)
+#define DISABLE_RBX_INTERRUPT() (INTCONbits.RBIE = 0)
 #define CLEAR_RBX_FLAG()         (INTCONbits.RBIF = 0)
 #endif
 #endif

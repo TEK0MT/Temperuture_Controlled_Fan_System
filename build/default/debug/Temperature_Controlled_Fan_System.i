@@ -2276,10 +2276,6 @@ uint8 Disable_RBX(const RBX_t *rbx);
 
 
 void ISR_INTX(void);
-void ISR_RB0(uint8 n);
-void ISR_RB1(uint8 n);
-void ISR_RB2(uint8 n);
-void ISR_RB3(uint8 n);
 void ISR_RB4(uint8 n);
 void ISR_RB5(uint8 n);
 void ISR_RB6(uint8 n);
@@ -2307,10 +2303,17 @@ void apllication_initilaize(void);
 void isr(void){
     gpio_pin_toggle_logic(&pin1);
 }
+
+void rb_isr(void){
+    gpio_pin_toggle_logic(&pin2);
+}
+
 INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
+RBX_t rb2 = {.pin.port = PORTB_INDEX,.pin.pin = PIN4,.pin.logic = GPIO_LOW,.pin.direction = GPIO_DIRECTION_INPUT,.EXT_HIGH_INTERRUPT = rb_isr,.EXT_LOW_INTERRUPT = rb_isr};
 int main() {
     apllication_initilaize();
-   Enable_INTX(&int1);
+
+   Enable_RBX(&rb2);
 while(1){
 
 
