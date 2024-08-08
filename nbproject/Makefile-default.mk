@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ECU_LAYER/LCD/ecu_lcd.c ECU_LAYER/Motor/ecu_motor_driver.c ECU_LAYER/ECU_LAYER.c MCAL_LAYER/GPIO/mcal_gpio.c MCAL_LAYER/INTERRUPT/external_interrupt.c MCAL_LAYER/INTERRUPT/interrupt_manager.c MCAL_LAYER/device_config.c Temperature_Controlled_Fan_System.c MCAL_LAYER/EEPROM/eeprom.c
+SOURCEFILES_QUOTED_IF_SPACED=ECU_LAYER/LCD/ecu_lcd.c ECU_LAYER/Motor/ecu_motor_driver.c ECU_LAYER/ECU_LAYER.c MCAL_LAYER/EEPROM/eeprom.c MCAL_LAYER/GPIO/mcal_gpio.c MCAL_LAYER/INTERRUPT/external_interrupt.c MCAL_LAYER/INTERRUPT/interrupt_manager.c MCAL_LAYER/device_config.c Temperature_Controlled_Fan_System.c MCAL_LAYER/ADC/hal_adc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU_LAYER/LCD/ecu_lcd.p1 ${OBJECTDIR}/ECU_LAYER/Motor/ecu_motor_driver.p1 ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1 ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/external_interrupt.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/interrupt_manager.p1 ${OBJECTDIR}/MCAL_LAYER/device_config.p1 ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1 ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/ECU_LAYER/LCD/ecu_lcd.p1.d ${OBJECTDIR}/ECU_LAYER/Motor/ecu_motor_driver.p1.d ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1.d ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1.d ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/external_interrupt.p1.d ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/interrupt_manager.p1.d ${OBJECTDIR}/MCAL_LAYER/device_config.p1.d ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1.d ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECU_LAYER/LCD/ecu_lcd.p1 ${OBJECTDIR}/ECU_LAYER/Motor/ecu_motor_driver.p1 ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1 ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/external_interrupt.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/interrupt_manager.p1 ${OBJECTDIR}/MCAL_LAYER/device_config.p1 ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1 ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/ECU_LAYER/LCD/ecu_lcd.p1.d ${OBJECTDIR}/ECU_LAYER/Motor/ecu_motor_driver.p1.d ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1.d ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1.d ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/external_interrupt.p1.d ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/interrupt_manager.p1.d ${OBJECTDIR}/MCAL_LAYER/device_config.p1.d ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1.d ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ECU_LAYER/LCD/ecu_lcd.p1 ${OBJECTDIR}/ECU_LAYER/Motor/ecu_motor_driver.p1 ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1 ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/external_interrupt.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/interrupt_manager.p1 ${OBJECTDIR}/MCAL_LAYER/device_config.p1 ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1 ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1
+OBJECTFILES=${OBJECTDIR}/ECU_LAYER/LCD/ecu_lcd.p1 ${OBJECTDIR}/ECU_LAYER/Motor/ecu_motor_driver.p1 ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1 ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/external_interrupt.p1 ${OBJECTDIR}/MCAL_LAYER/INTERRUPT/interrupt_manager.p1 ${OBJECTDIR}/MCAL_LAYER/device_config.p1 ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1 ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1
 
 # Source Files
-SOURCEFILES=ECU_LAYER/LCD/ecu_lcd.c ECU_LAYER/Motor/ecu_motor_driver.c ECU_LAYER/ECU_LAYER.c MCAL_LAYER/GPIO/mcal_gpio.c MCAL_LAYER/INTERRUPT/external_interrupt.c MCAL_LAYER/INTERRUPT/interrupt_manager.c MCAL_LAYER/device_config.c Temperature_Controlled_Fan_System.c MCAL_LAYER/EEPROM/eeprom.c
+SOURCEFILES=ECU_LAYER/LCD/ecu_lcd.c ECU_LAYER/Motor/ecu_motor_driver.c ECU_LAYER/ECU_LAYER.c MCAL_LAYER/EEPROM/eeprom.c MCAL_LAYER/GPIO/mcal_gpio.c MCAL_LAYER/INTERRUPT/external_interrupt.c MCAL_LAYER/INTERRUPT/interrupt_manager.c MCAL_LAYER/device_config.c Temperature_Controlled_Fan_System.c MCAL_LAYER/ADC/hal_adc.c
 
 
 
@@ -82,7 +82,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=16F877A
 # ------------------------------------------------------------------------------------
@@ -111,6 +111,14 @@ ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1: ECU_LAYER/ECU_LAYER.c  nbproject/Makefile-$
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1 ECU_LAYER/ECU_LAYER.c 
 	@-${MV} ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.d ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1: MCAL_LAYER/EEPROM/eeprom.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/EEPROM" 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 MCAL_LAYER/EEPROM/eeprom.c 
+	@-${MV} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.d ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1: MCAL_LAYER/GPIO/mcal_gpio.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/GPIO" 
@@ -152,13 +160,13 @@ ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1: Temperature_Controlled_Fan_Sy
 	@-${MV} ${OBJECTDIR}/Temperature_Controlled_Fan_System.d ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1: MCAL_LAYER/EEPROM/eeprom.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/EEPROM" 
-	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
-	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 MCAL_LAYER/EEPROM/eeprom.c 
-	@-${MV} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.d ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1: MCAL_LAYER/ADC/hal_adc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/ADC" 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1 MCAL_LAYER/ADC/hal_adc.c 
+	@-${MV} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.d ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/ECU_LAYER/LCD/ecu_lcd.p1: ECU_LAYER/LCD/ecu_lcd.c  nbproject/Makefile-${CND_CONF}.mk 
@@ -184,6 +192,14 @@ ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1: ECU_LAYER/ECU_LAYER.c  nbproject/Makefile-$
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1 ECU_LAYER/ECU_LAYER.c 
 	@-${MV} ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.d ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/ECU_LAYER/ECU_LAYER.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1: MCAL_LAYER/EEPROM/eeprom.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/EEPROM" 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 MCAL_LAYER/EEPROM/eeprom.c 
+	@-${MV} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.d ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/MCAL_LAYER/GPIO/mcal_gpio.p1: MCAL_LAYER/GPIO/mcal_gpio.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/GPIO" 
@@ -225,13 +241,13 @@ ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1: Temperature_Controlled_Fan_Sy
 	@-${MV} ${OBJECTDIR}/Temperature_Controlled_Fan_System.d ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Temperature_Controlled_Fan_System.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1: MCAL_LAYER/EEPROM/eeprom.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/EEPROM" 
-	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
-	@${RM} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1 MCAL_LAYER/EEPROM/eeprom.c 
-	@-${MV} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.d ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MCAL_LAYER/EEPROM/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1: MCAL_LAYER/ADC/hal_adc.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/MCAL_LAYER/ADC" 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1.d 
+	@${RM} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gcoff -mstack=compiled:auto:auto     -o ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1 MCAL_LAYER/ADC/hal_adc.c 
+	@-${MV} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.d ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCAL_LAYER/ADC/hal_adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
@@ -250,16 +266,16 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.map  -D__DEBUG=1  -mdebugger=none  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gcoff -mstack=compiled:auto:auto        $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
-	@${RM} ${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.hex 
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.map  -D__DEBUG=1  -mdebugger=none  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gcoff -mstack=compiled:auto:auto        $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	@${RM} ${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.hex 
 	
 	
 else
-${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gcoff -mstack=compiled:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/Temperature-Controlled_Fan_System.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gcoff -mstack=compiled:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/Temperuture_Controlled_Fan_System.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 	
 endif

@@ -13,4 +13,5 @@ ECU_LAYER/LCD/ecu_lcd_cfg.h  \
 MCAL_LAYER/INTERRUPT/interrupt_manager.h  \
 MCAL_LAYER/INTERRUPT/external_interrupt.h  \
 MCAL_LAYER/INTERRUPT/interrupt_config.h  \
-MCAL_LAYER/EEPROM/eeprom.h 
+MCAL_LAYER/EEPROM/eeprom.h  \
+MCAL_LAYER/ADC/hal_adc.h 

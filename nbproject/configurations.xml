@@ -15,6 +15,9 @@
         <itemPath>ECU_LAYER/ECU_LAYER.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_LAYER" displayName="MCAL_LAYER" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL_LAYER/ADC/hal_adc.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_LAYER/EEPROM/eeprom.h</itemPath>
         </logicalFolder>
@@ -55,6 +58,9 @@
         <itemPath>ECU_LAYER/ECU_LAYER.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_LAYER" displayName="MCAL_LAYER" projectFiles="true">
+        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+          <itemPath>MCAL_LAYER/ADC/hal_adc.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_LAYER/EEPROM/eeprom.c</itemPath>
         </logicalFolder>

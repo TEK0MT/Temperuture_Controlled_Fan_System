@@ -2288,6 +2288,48 @@ uint8 WRITE_DATA_EEPROM(uint16 add,uint8 data);
 uint8 READ_DATA_EEPROM(uint16 add,uint8 *data);
 # 13 "./Temperature_Controlled_Fan_System.h" 2
 
+# 1 "./MCAL_LAYER/ADC/hal_adc.h" 1
+# 26 "./MCAL_LAYER/ADC/hal_adc.h"
+typedef enum{
+    CHANNEL0 = 0,
+            CHANNEL1,
+            CHANNEL2,
+            CHANNEL3,
+            CHANNEL4,
+            CHANNEL5,
+            CHANNEL6,
+            CHANNEL7
+}channel_t;
+
+typedef enum{
+    FOSC_DIV2,
+            FOSC_DIV8,
+            FOSC_DIV32,
+            FOSC_DIV4,
+            FOSC_DIV16,
+            FOSC_DIV64
+}clock_time;
+
+typedef enum{
+    RIGHT_JUSTIFIED,
+            LEFT_JUSTIFIED
+}result_format;
+
+
+typedef struct{
+    channel_t channel;
+    clock_time clock;
+    result_format format;
+}adc_t;
+
+uint8 ADC_INIT(const adc_t *adc);
+uint8 ADC_DEINIT(const adc_t *adc);
+uint8 ADC_Start_Conversion(const adc_t *adc);
+uint8 ADC_Conversion_Is_Done(const adc_t *adc,uint8 *status);
+uint8 ADC_Get_Conversion_Result(const adc_t *adc,uint16 *result);
+uint8 ADC_Start_Conversion_Blocking(const adc_t *adc,channel_t channel,uint16 result);
+# 14 "./Temperature_Controlled_Fan_System.h" 2
+
 
 
 
@@ -2316,17 +2358,21 @@ void rb_isr(void){
     gpio_pin_toggle_logic(&pin2);
 }
 
-INTX_T int1 = {.source = RISING_EDGE,.EXT_HANDLER = isr};
-RBX_t rb2 = {.pin.port = PORTB_INDEX,.pin.pin = PIN4,.pin.logic = GPIO_LOW,.pin.direction = GPIO_DIRECTION_INPUT,.EXT_HIGH_INTERRUPT = rb_isr,.EXT_LOW_INTERRUPT = rb_isr};
 
+
+
+adc_t adc = {.channel = CHANNEL0,.clock = FOSC_DIV16,.format = RIGHT_JUSTIFIED};
+uint16 result = 0;
 int main() {
     apllication_initilaize();
-   Enable_INTX(&int1);
-   Enable_RBX(&rb2);
-    READ_DATA_EEPROM(0x00,&counter);
-while(1){
 
-    WRITE_DATA_EEPROM(0x00,counter);
+
+
+    ADC_INIT(&adc);
+
+while(1){
+    ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&result);
+
 }
     return (0);
 }
