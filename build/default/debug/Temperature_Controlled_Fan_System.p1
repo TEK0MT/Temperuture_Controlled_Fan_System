@@ -1,40 +1,70 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"60 ./MCAL_LAYER/ADC/../GPIO/mcal_gpio.h
-[s S102 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S102 . port pin logic direction ]
-"71
-[v _gpio_pin_toggle_logic `(uc ~T0 @X0 0 ef1`*CS102 ]
-"21 ./Temperature_Controlled_Fan_System.h
-[; ;./Temperature_Controlled_Fan_System.h: 21: extern pin_config_t pin1;
-[v _pin1 `S102 ~T0 @X0 0 e ]
-"22
-[; ;./Temperature_Controlled_Fan_System.h: 22: extern pin_config_t pin2;
-[v _pin2 `S102 ~T0 @X0 0 e ]
-"21 Temperature_Controlled_Fan_System.c
-[; ;Temperature_Controlled_Fan_System.c: 21: adc_t adc = {.channel = CHANNEL0,.clock = FOSC_DIV16,.format = RIGHT_JUSTIFIED};
+[p mainexit ]
+"29 ./Temperature_Controlled_Fan_System.h
+[; ;./Temperature_Controlled_Fan_System.h: 29: void apllication_initilaize(void);
+[v _apllication_initilaize `(v ~T0 @X0 0 ef ]
+"31 ./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../EEPROM/eeprom.h
+[; ;./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../EEPROM/eeprom.h: 31: uint8 WRITE_DATA_EEPROM(uint16 add,uint8 data);
+[v _WRITE_DATA_EEPROM `(uc ~T0 @X0 0 ef2`us`uc ]
+"18 Temperature_Controlled_Fan_System.c
+[; ;Temperature_Controlled_Fan_System.c: 18:     ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&adc_res);
 [c E1654 0 1 2 3 4 5 6 7 .. ]
 [n E1654 . CHANNEL0 CHANNEL1 CHANNEL2 CHANNEL3 CHANNEL4 CHANNEL5 CHANNEL6 CHANNEL7  ]
 [c E1664 0 1 2 3 4 5 .. ]
 [n E1664 . FOSC_DIV2 FOSC_DIV8 FOSC_DIV32 FOSC_DIV4 FOSC_DIV16 FOSC_DIV64  ]
 [c E1672 0 1 .. ]
 [n E1672 . RIGHT_JUSTIFIED LEFT_JUSTIFIED  ]
-"52 ./MCAL_LAYER/ADC/hal_adc.h
-[; ;./MCAL_LAYER/ADC/hal_adc.h: 52: typedef struct{
+"52 ./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h
+[; ;./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h: 52: typedef struct{
 [s S107 `E1654 1 `E1664 1 `E1672 1 ]
 [n S107 . channel clock format ]
-[p mainexit ]
-"30 ./Temperature_Controlled_Fan_System.h
-[; ;./Temperature_Controlled_Fan_System.h: 30: void apllication_initilaize(void);
-[v _apllication_initilaize `(v ~T0 @X0 0 ef ]
-"58 ./MCAL_LAYER/ADC/hal_adc.h
-[; ;./MCAL_LAYER/ADC/hal_adc.h: 58: uint8 ADC_INIT(const adc_t *adc);
-[v _ADC_INIT `(uc ~T0 @X0 0 ef1`*CS107 ]
 "63
-[; ;./MCAL_LAYER/ADC/hal_adc.h: 63: uint8 ADC_Start_Conversion_Blocking(const adc_t *adc,channel_t channel,uint16 result);
+[; ;./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h: 63: uint8 ADC_Start_Conversion_Blocking(const adc_t *adc,channel_t channel,uint16 result);
 [v _ADC_Start_Conversion_Blocking `(uc ~T0 @X0 0 ef3`*CS107`E1654`us ]
+"18 ./Temperature_Controlled_Fan_System.h
+[; ;./Temperature_Controlled_Fan_System.h: 18: extern adc_t adc;
+[v _adc `S107 ~T0 @X0 0 e ]
+"52 ./ECU_LAYER/LCD/ecu_lcd.h
+[; ;./ECU_LAYER/LCD/ecu_lcd.h: 52: void Convert_uint16_to_string(uint16 data,uint8 *str);
+[v _Convert_uint16_to_string `(v ~T0 @X0 0 ef2`us`*uc ]
+"60 ./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/../GPIO/mcal_gpio.h
+[s S102 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S102 . port pin logic direction ]
+"38 ./ECU_LAYER/LCD/ecu_lcd.h
+[; ;./ECU_LAYER/LCD/ecu_lcd.h: 38: typedef struct{
+[s S104 `S102 1 `S102 1 `S102 -> 4 `i ]
+[n S104 . rs en pins ]
+"49
+[; ;./ECU_LAYER/LCD/ecu_lcd.h: 49: uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data);
+[v _lcd_4bits_send_string_pos `(uc ~T0 @X0 0 ef4`*CS104`uc`uc`*uc ]
+"19 ./Temperature_Controlled_Fan_System.h
+[; ;./Temperature_Controlled_Fan_System.h: 19: extern lcd_4bits_t lcd;
+[v _lcd `S104 ~T0 @X0 0 e ]
+"18 ./ECU_LAYER/Motor/ecu_motor_driver.h
+[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 18: typedef struct{
+[s S103 `S102 -> 2 `i ]
+[n S103 . pins ]
+"23
+[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 23: uint8 motor_turn_right(const motor_t *motor);
+[v _motor_turn_right `(uc ~T0 @X0 0 ef1`*CS103 ]
+"16 ./Temperature_Controlled_Fan_System.h
+[; ;./Temperature_Controlled_Fan_System.h: 16: extern motor_t motor1;
+[v _motor1 `S103 ~T0 @X0 0 e ]
+"24 ./ECU_LAYER/Motor/ecu_motor_driver.h
+[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 24: uint8 motor_turn_left(const motor_t *motor);
+[v _motor_turn_left `(uc ~T0 @X0 0 ef1`*CS103 ]
+"17 ./Temperature_Controlled_Fan_System.h
+[; ;./Temperature_Controlled_Fan_System.h: 17: extern motor_t motor2;
+[v _motor2 `S103 ~T0 @X0 0 e ]
+"25 ./ECU_LAYER/Motor/ecu_motor_driver.h
+[; ;./ECU_LAYER/Motor/ecu_motor_driver.h: 25: uint8 motor_turn_off(const motor_t *motor);
+[v _motor_turn_off `(uc ~T0 @X0 0 ef1`*CS103 ]
 "18 ./ECU_LAYER/ECU_LAYER.h
 [; ;./ECU_LAYER/ECU_LAYER.h: 18: void ecu_initialzie(void);
 [v _ecu_initialzie `(v ~T0 @X0 0 ef ]
+"20 ./MCAL_LAYER/MCAL_LAYER.h
+[; ;./MCAL_LAYER/MCAL_LAYER.h: 20: uint8 mcal_initialize(void);
+[v _mcal_initialize `(uc ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\../../../../../../Program Files (x86)/Microchip/mplabcomm/../../../Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f877a.h
 [; <" INDF equ 00h ;# ">
 "61
@@ -155,103 +185,136 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" EECON1 equ 018Ch ;# ">
 "2363
 [; <" EECON2 equ 018Dh ;# ">
-"8 Temperature_Controlled_Fan_System.c
-[; ;Temperature_Controlled_Fan_System.c: 8: uint8 counter = 0;
-[v _counter `uc ~T0 @X0 1 e ]
-[i _counter
--> -> 0 `i `uc
-]
-"9
-[; ;Temperature_Controlled_Fan_System.c: 9: void isr(void){
-[v _isr `(v ~T0 @X0 1 ef ]
-{
-[e :U _isr ]
-[f ]
-"10
-[; ;Temperature_Controlled_Fan_System.c: 10:     gpio_pin_toggle_logic(&pin1);
-[e ( _gpio_pin_toggle_logic (1 -> &U _pin1 `*CS102 ]
+"10 Temperature_Controlled_Fan_System.c
+[; ;Temperature_Controlled_Fan_System.c: 10: uint16 adc_res;
+[v _adc_res `us ~T0 @X0 1 e ]
 "11
-[; ;Temperature_Controlled_Fan_System.c: 11:     counter++;
-[e ++ _counter -> -> 1 `i `uc ]
+[; ;Temperature_Controlled_Fan_System.c: 11: uint16 Temp;
+[v _Temp `us ~T0 @X0 1 e ]
 "12
-[; ;Temperature_Controlled_Fan_System.c: 12: }
-[e :UE 108 ]
-}
-"14
-[; ;Temperature_Controlled_Fan_System.c: 14: void rb_isr(void){
-[v _rb_isr `(v ~T0 @X0 1 ef ]
-{
-[e :U _rb_isr ]
-[f ]
-"15
-[; ;Temperature_Controlled_Fan_System.c: 15:     gpio_pin_toggle_logic(&pin2);
-[e ( _gpio_pin_toggle_logic (1 -> &U _pin2 `*CS102 ]
-"16
-[; ;Temperature_Controlled_Fan_System.c: 16: }
-[e :UE 109 ]
-}
-"21
-[; ;Temperature_Controlled_Fan_System.c: 21: adc_t adc = {.channel = CHANNEL0,.clock = FOSC_DIV16,.format = RIGHT_JUSTIFIED};
-[v _adc `S107 ~T0 @X0 1 e ]
-[i _adc
-:U ..
-:U ..
-. `E1654 0
-. `E1664 4
-. `E1672 0
-..
-..
-]
-"22
-[; ;Temperature_Controlled_Fan_System.c: 22: uint16 result = 0;
-[v _result `us ~T0 @X0 1 e ]
-[i _result
--> -> 0 `i `us
-]
+[; ;Temperature_Controlled_Fan_System.c: 12: uint16 Max_Temp;
+[v _Max_Temp `us ~T0 @X0 1 e ]
+"13
+[; ;Temperature_Controlled_Fan_System.c: 13: uint8 lcd_show[6];
+[v _lcd_show `uc ~T0 @X0 -> 6 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"23
-[; ;Temperature_Controlled_Fan_System.c: 23: int main() {
+"14
+[; ;Temperature_Controlled_Fan_System.c: 14: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"24
-[; ;Temperature_Controlled_Fan_System.c: 24:     apllication_initilaize();
+"15
+[; ;Temperature_Controlled_Fan_System.c: 15:     apllication_initilaize();
 [e ( _apllication_initilaize ..  ]
-"28
-[; ;Temperature_Controlled_Fan_System.c: 28:     ADC_INIT(&adc);
-[e ( _ADC_INIT (1 -> &U _adc `*CS107 ]
-"30
-[; ;Temperature_Controlled_Fan_System.c: 30: while(1){
-[e :U 112 ]
+"16
+[; ;Temperature_Controlled_Fan_System.c: 16:     WRITE_DATA_EEPROM(0x00,&Max_Temp);
+[e ( _WRITE_DATA_EEPROM (2 , -> -> 0 `i `us -> &U _Max_Temp `uc ]
+"17
+[; ;Temperature_Controlled_Fan_System.c: 17: while(1){
+[e :U 110 ]
 {
+"18
+[; ;Temperature_Controlled_Fan_System.c: 18:     ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&adc_res);
+[e ( _ADC_Start_Conversion_Blocking (3 , , -> &U _adc `*CS107 . `E1654 0 -> &U _adc_res `us ]
+"20
+[; ;Temperature_Controlled_Fan_System.c: 20:     Temp = adc_res * 4.8828125f;
+[e = _Temp -> * -> -> _adc_res `ui `f -> .4.8828125 `f `us ]
+"21
+[; ;Temperature_Controlled_Fan_System.c: 21:     Temp /= 10;
+[e =/ _Temp -> -> 10 `i `ui ]
+"22
+[; ;Temperature_Controlled_Fan_System.c: 22:     if(Temp > Max_Temp){
+[e $ ! > -> _Temp `ui -> _Max_Temp `ui 112  ]
+{
+"23
+[; ;Temperature_Controlled_Fan_System.c: 23:         Max_Temp = Temp;
+[e = _Max_Temp _Temp ]
+"24
+[; ;Temperature_Controlled_Fan_System.c: 24:     }
+}
+[e :U 112 ]
+"25
+[; ;Temperature_Controlled_Fan_System.c: 25:     Convert_uint16_to_string(Temp,lcd_show);
+[e ( _Convert_uint16_to_string (2 , _Temp &U _lcd_show ]
+"26
+[; ;Temperature_Controlled_Fan_System.c: 26:     lcd_4bits_send_string_pos(&lcd,1,1,"Temp is : ");
+[e ( _lcd_4bits_send_string_pos (4 , , , -> &U _lcd `*CS104 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
+"27
+[; ;Temperature_Controlled_Fan_System.c: 27:     lcd_4bits_send_string_pos(&lcd,1,10,lcd_show);
+[e ( _lcd_4bits_send_string_pos (4 , , , -> &U _lcd `*CS104 -> -> 1 `i `uc -> -> 10 `i `uc &U _lcd_show ]
+"28
+[; ;Temperature_Controlled_Fan_System.c: 28:     if((Temp >= 50) && (Temp < 60)){
+[e $ ! && >= -> _Temp `ui -> -> 50 `i `ui < -> _Temp `ui -> -> 60 `i `ui 113  ]
+{
+"29
+[; ;Temperature_Controlled_Fan_System.c: 29:         motor_turn_right(&motor1);
+[e ( _motor_turn_right (1 -> &U _motor1 `*CS103 ]
+"30
+[; ;Temperature_Controlled_Fan_System.c: 30:     }
+}
+[e $U 114  ]
 "31
-[; ;Temperature_Controlled_Fan_System.c: 31:     ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&result);
-[e ( _ADC_Start_Conversion_Blocking (3 , , -> &U _adc `*CS107 . `E1654 0 -> &U _result `us ]
-"33
-[; ;Temperature_Controlled_Fan_System.c: 33: }
-}
-[e :U 111 ]
-[e $U 112  ]
+[; ;Temperature_Controlled_Fan_System.c: 31:     else if(Temp >= 60){
 [e :U 113 ]
+[e $ ! >= -> _Temp `ui -> -> 60 `i `ui 115  ]
+{
+"32
+[; ;Temperature_Controlled_Fan_System.c: 32:         motor_turn_right(&motor1);
+[e ( _motor_turn_right (1 -> &U _motor1 `*CS103 ]
+"33
+[; ;Temperature_Controlled_Fan_System.c: 33:         motor_turn_left(&motor2);
+[e ( _motor_turn_left (1 -> &U _motor2 `*CS103 ]
 "34
-[; ;Temperature_Controlled_Fan_System.c: 34:     return (0);
-[e ) -> 0 `i ]
-[e $UE 110  ]
-"35
-[; ;Temperature_Controlled_Fan_System.c: 35: }
-[e :UE 110 ]
+[; ;Temperature_Controlled_Fan_System.c: 34:     }
 }
+[e $U 116  ]
+"35
+[; ;Temperature_Controlled_Fan_System.c: 35:     else{
+[e :U 115 ]
+{
 "36
-[; ;Temperature_Controlled_Fan_System.c: 36: void apllication_initilaize(void){
+[; ;Temperature_Controlled_Fan_System.c: 36:         motor_turn_off(&motor1);
+[e ( _motor_turn_off (1 -> &U _motor1 `*CS103 ]
+"37
+[; ;Temperature_Controlled_Fan_System.c: 37:         motor_turn_off(&motor2);
+[e ( _motor_turn_off (1 -> &U _motor2 `*CS103 ]
+"38
+[; ;Temperature_Controlled_Fan_System.c: 38:     }
+}
+[e :U 116 ]
+[e :U 114 ]
+"40
+[; ;Temperature_Controlled_Fan_System.c: 40:     WRITE_DATA_EEPROM(0x00,Max_Temp);
+[e ( _WRITE_DATA_EEPROM (2 , -> -> 0 `i `us -> _Max_Temp `uc ]
+"41
+[; ;Temperature_Controlled_Fan_System.c: 41: }
+}
+[e :U 109 ]
+[e $U 110  ]
+[e :U 111 ]
+"42
+[; ;Temperature_Controlled_Fan_System.c: 42:     return (0);
+[e ) -> 0 `i ]
+[e $UE 108  ]
+"43
+[; ;Temperature_Controlled_Fan_System.c: 43: }
+[e :UE 108 ]
+}
+"44
+[; ;Temperature_Controlled_Fan_System.c: 44: void apllication_initilaize(void){
 [v _apllication_initilaize `(v ~T0 @X0 1 ef ]
 {
 [e :U _apllication_initilaize ]
 [f ]
-"37
-[; ;Temperature_Controlled_Fan_System.c: 37:     ecu_initialzie();
+"45
+[; ;Temperature_Controlled_Fan_System.c: 45:     ecu_initialzie();
 [e ( _ecu_initialzie ..  ]
-"38
-[; ;Temperature_Controlled_Fan_System.c: 38: }
-[e :UE 114 ]
+"46
+[; ;Temperature_Controlled_Fan_System.c: 46:     mcal_initialize();
+[e ( _mcal_initialize ..  ]
+"47
+[; ;Temperature_Controlled_Fan_System.c: 47: }
+[e :UE 117 ]
 }
+[a 1C 84 101 109 112 32 105 115 32 58 32 0 ]

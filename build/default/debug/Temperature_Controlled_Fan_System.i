@@ -2239,13 +2239,15 @@ void Convert_uint32_to_string(uint32 data,uint8 *str);
 void ecu_initialzie(void);
 # 11 "./Temperature_Controlled_Fan_System.h" 2
 
-# 1 "./MCAL_LAYER/INTERRUPT/interrupt_manager.h" 1
-# 11 "./MCAL_LAYER/INTERRUPT/interrupt_manager.h"
-# 1 "./MCAL_LAYER/INTERRUPT/external_interrupt.h" 1
-# 11 "./MCAL_LAYER/INTERRUPT/external_interrupt.h"
-# 1 "./MCAL_LAYER/INTERRUPT/interrupt_config.h" 1
-# 11 "./MCAL_LAYER/INTERRUPT/external_interrupt.h" 2
-# 31 "./MCAL_LAYER/INTERRUPT/external_interrupt.h"
+# 1 "./MCAL_LAYER/MCAL_LAYER.h" 1
+# 12 "./MCAL_LAYER/MCAL_LAYER.h"
+# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_manager.h" 1
+# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_manager.h"
+# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h" 1
+# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h"
+# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_config.h" 1
+# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h" 2
+# 31 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h"
 typedef enum{
     RISING_EDGE,
     FALLING_EDGE
@@ -2268,7 +2270,7 @@ uint8 Disable_INTX(const INTX_T *intx);
 
 uint8 Enable_RBX(const RBX_t *rbx);
 uint8 Disable_RBX(const RBX_t *rbx);
-# 11 "./MCAL_LAYER/INTERRUPT/interrupt_manager.h" 2
+# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_manager.h" 2
 
 
 
@@ -2280,16 +2282,16 @@ void ISR_RB4(uint8 n);
 void ISR_RB5(uint8 n);
 void ISR_RB6(uint8 n);
 void ISR_RB7(uint8 n);
-# 12 "./Temperature_Controlled_Fan_System.h" 2
+# 12 "./MCAL_LAYER/MCAL_LAYER.h" 2
 
-# 1 "./MCAL_LAYER/EEPROM/eeprom.h" 1
-# 31 "./MCAL_LAYER/EEPROM/eeprom.h"
+# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../EEPROM/eeprom.h" 1
+# 31 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../EEPROM/eeprom.h"
 uint8 WRITE_DATA_EEPROM(uint16 add,uint8 data);
 uint8 READ_DATA_EEPROM(uint16 add,uint8 *data);
-# 13 "./Temperature_Controlled_Fan_System.h" 2
+# 13 "./MCAL_LAYER/MCAL_LAYER.h" 2
 
-# 1 "./MCAL_LAYER/ADC/hal_adc.h" 1
-# 26 "./MCAL_LAYER/ADC/hal_adc.h"
+# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h" 1
+# 26 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h"
 typedef enum{
     CHANNEL0 = 0,
             CHANNEL1,
@@ -2328,13 +2330,22 @@ uint8 ADC_Start_Conversion(const adc_t *adc);
 uint8 ADC_Conversion_Is_Done(const adc_t *adc,uint8 *status);
 uint8 ADC_Get_Conversion_Result(const adc_t *adc,uint16 *result);
 uint8 ADC_Start_Conversion_Blocking(const adc_t *adc,channel_t channel,uint16 result);
-# 14 "./Temperature_Controlled_Fan_System.h" 2
+# 14 "./MCAL_LAYER/MCAL_LAYER.h" 2
+
+
+
+
+
+
+uint8 mcal_initialize(void);
+# 12 "./Temperature_Controlled_Fan_System.h" 2
 
 
 
 
 extern motor_t motor1;
 extern motor_t motor2;
+extern adc_t adc;
 extern lcd_4bits_t lcd;
 extern pin_config_t pin1;
 extern pin_config_t pin2;
@@ -2348,34 +2359,43 @@ extern pin_config_t pin8;
 void apllication_initilaize(void);
 # 7 "Temperature_Controlled_Fan_System.c" 2
 
-uint8 counter = 0;
-void isr(void){
-    gpio_pin_toggle_logic(&pin1);
-    counter++;
-}
-
-void rb_isr(void){
-    gpio_pin_toggle_logic(&pin2);
-}
 
 
-
-
-adc_t adc = {.channel = CHANNEL0,.clock = FOSC_DIV16,.format = RIGHT_JUSTIFIED};
-uint16 result = 0;
+uint16 adc_res;
+uint16 Temp;
+uint16 Max_Temp;
+uint8 lcd_show[6];
 int main() {
     apllication_initilaize();
-
-
-
-    ADC_INIT(&adc);
-
+    WRITE_DATA_EEPROM(0x00,&Max_Temp);
 while(1){
-    ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&result);
+    ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&adc_res);
 
+    Temp = adc_res * 4.8828125f;
+    Temp /= 10;
+    if(Temp > Max_Temp){
+        Max_Temp = Temp;
+    }
+    Convert_uint16_to_string(Temp,lcd_show);
+    lcd_4bits_send_string_pos(&lcd,1,1,"Temp is : ");
+    lcd_4bits_send_string_pos(&lcd,1,10,lcd_show);
+    if((Temp >= 50) && (Temp < 60)){
+        motor_turn_right(&motor1);
+    }
+    else if(Temp >= 60){
+        motor_turn_right(&motor1);
+        motor_turn_left(&motor2);
+    }
+    else{
+        motor_turn_off(&motor1);
+        motor_turn_off(&motor2);
+    }
+
+    WRITE_DATA_EEPROM(0x00,Max_Temp);
 }
     return (0);
 }
 void apllication_initilaize(void){
     ecu_initialzie();
+    mcal_initialize();
 }

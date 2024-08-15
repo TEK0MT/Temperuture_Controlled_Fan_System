@@ -2245,11 +2245,11 @@ pin_config_t pin5 = {.port =PORTD_INDEX,.pin = PIN4,.logic = GPIO_LOW,.direction
 pin_config_t pin6 = {.port =PORTD_INDEX,.pin = PIN5,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
 pin_config_t pin7 = {.port =PORTD_INDEX,.pin = PIN6,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
 pin_config_t pin8 = {.port =PORTD_INDEX,.pin = PIN7,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-motor_t motor1 = {.pins[0].port = PORTB_INDEX,.pins[0].pin = PIN0,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[1].port = PORTB_INDEX,.pins[1].pin = PIN1,.pins[1].logic = GPIO_LOW,.pins[1].direction = GPIO_DIRECTION_OUTPUT};
+motor_t motor1 = {.pins[0].port = PORTD_INDEX,.pins[0].pin = PIN0,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
+                   .pins[1].port = PORTD_INDEX,.pins[1].pin = PIN1,.pins[1].logic = GPIO_LOW,.pins[1].direction = GPIO_DIRECTION_OUTPUT};
 
-motor_t motor2 = {.pins[0].port = PORTB_INDEX,.pins[0].pin = PIN2,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
-                   .pins[1].port = PORTB_INDEX,.pins[1].pin = PIN3,.pins[1].logic = GPIO_LOW,.pins[1].direction = GPIO_DIRECTION_OUTPUT};
+motor_t motor2 = {.pins[0].port = PORTD_INDEX,.pins[0].pin = PIN2,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
+                   .pins[1].port = PORTD_INDEX,.pins[1].pin = PIN3,.pins[1].logic = GPIO_LOW,.pins[1].direction = GPIO_DIRECTION_OUTPUT};
 
 
 lcd_4bits_t lcd = {.rs.port = PORTC_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.rs.direction = GPIO_DIRECTION_OUTPUT,
@@ -2259,9 +2259,9 @@ lcd_4bits_t lcd = {.rs.port = PORTC_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.r
                    .pins[2].port = PORTC_INDEX,.pins[2].pin = PIN4,.pins[2].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
                    .pins[3].port = PORTC_INDEX,.pins[3].pin = PIN5,.pins[3].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT};
 void ecu_initialzie(void){
-    gpio_pin_initialize(&pin1);
 
-
-    gpio_pin_initialize(&pin2);
-# 42 "ECU_LAYER/ECU_LAYER.c"
+    motor_initialize(&motor1);
+    motor_initialize(&motor2);
+# 41 "ECU_LAYER/ECU_LAYER.c"
+    lcd_4bits_initialize(&lcd);
 }

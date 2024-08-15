@@ -10,8 +10,9 @@ ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h  \
 ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h  \
 ECU_LAYER/LCD/ecu_lcd.h  \
 ECU_LAYER/LCD/ecu_lcd_cfg.h  \
-MCAL_LAYER/INTERRUPT/interrupt_manager.h  \
-MCAL_LAYER/INTERRUPT/external_interrupt.h  \
-MCAL_LAYER/INTERRUPT/interrupt_config.h  \
-MCAL_LAYER/EEPROM/eeprom.h  \
-MCAL_LAYER/ADC/hal_adc.h 
+MCAL_LAYER/MCAL_LAYER.h  \
+ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_manager.h  \
+ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h  \
+ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_config.h  \
+ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../EEPROM/eeprom.h  \
+ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h 

@@ -2307,16 +2307,37 @@ uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,u
     return ret;
 }
 void Convert_uint8_to_string(uint8 data,uint8 *str){
-    memset(str,'/0',4);
-    sprintf(str,"%i",data);
+    uint8 temp[4] = {0};
+    uint8 counter = 0;
+    memset(str,' ',3);
+    str[3] = '\0';
+    sprintf((char *)temp,"%i",data);
+    while(temp[counter] != '\0'){
+        str[counter] = temp[counter];
+        counter++;
+    }
 }
 void Convert_uint16_to_string(uint16 data,uint8 *str){
-    memset(str,'/0',6);
-    sprintf(str,"%i",data);
+    uint8 temp[6] = {0};
+    uint8 counter = 0;
+    memset(str,' ',5);
+    str[5] = '\0';
+    sprintf((char *)temp,"%i",data);
+    while(temp[counter] != '\0'){
+        str[counter] = temp[counter];
+        counter++;
+    }
 }
 void Convert_uint32_to_string(uint32 data,uint8 *str){
-    memset(str,'/0',11);
-    sprintf(str,"%i",data);
+    uint8 temp[11] = {0};
+    uint8 counter = 0;
+    memset(str,' ',10);
+    str[10] = '\0';
+    sprintf((char *)temp,"%i",data);
+    while(temp[counter] != '\0'){
+        str[counter] = temp[counter];
+        counter++;
+    }
 }
 uint8 lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos){
     uint8 ret = 0x00;

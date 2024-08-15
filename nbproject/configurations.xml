@@ -33,6 +33,7 @@
         <itemPath>MCAL_LAYER/std_libraries.h</itemPath>
         <itemPath>MCAL_LAYER/device_config.h</itemPath>
         <itemPath>MCAL_LAYER/std_type.h</itemPath>
+        <itemPath>MCAL_LAYER/MCAL_LAYER.h</itemPath>
       </logicalFolder>
       <itemPath>Temperature_Controlled_Fan_System.h</itemPath>
     </logicalFolder>
@@ -72,6 +73,7 @@
           <itemPath>MCAL_LAYER/INTERRUPT/interrupt_manager.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL_LAYER/device_config.c</itemPath>
+        <itemPath>MCAL_LAYER/MCAL_LAYER.c</itemPath>
       </logicalFolder>
       <itemPath>Temperature_Controlled_Fan_System.c</itemPath>
     </logicalFolder>

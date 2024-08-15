@@ -9,14 +9,13 @@
 #define	TEMPERATURE_CONTROLLED_FAN_SYSTEM_H
 /*Section : Include Section*/
 #include "ECU_LAYER/ECU_LAYER.h"
-#include "MCAL_LAYER/INTERRUPT/interrupt_manager.h"
-#include "MCAL_LAYER/EEPROM/eeprom.h"
-#include "MCAL_LAYER/ADC/hal_adc.h"
+#include "MCAL_LAYER/MCAL_LAYER.h"
 /*Section : Macro Declaration Section*/
 /*Section : Macro Functions Declaration Section*/
 /*Section : Data Type Declaration Section*/
 extern motor_t motor1;
 extern motor_t motor2;
+extern adc_t adc;
 extern lcd_4bits_t lcd;
 extern pin_config_t pin1;
 extern pin_config_t pin2;
