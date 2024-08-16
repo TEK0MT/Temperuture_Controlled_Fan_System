@@ -22,14 +22,21 @@ int main() {
     apllication_initilaize();
     READ_DATA_EEPROM(0xFF,&Max_Temp);
 while(1){
+    
+    
     ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&adc_res);
+    
+    
     Temp =  adc_res * 4.8828125f / 10;
 
     Convert_uint16_to_string(Temp,lcd_show);
     keypad_read_value(&keypad,&val);
     if(val == '*' && flag == 0){
         __delay_ms(400);
-        
+        temp[0] = '.';
+        temp[1] = '.';
+        temp[2] = '.';
+        temp[3] = '.';
         for(uint8 counter = 0;counter < 4;counter++){
         while(temp[counter] == '.'){
         keypad_read_value(&keypad,&(temp[counter]));
@@ -41,15 +48,27 @@ while(1){
         for(uint8 i = 0;i < 4;i++){
             if(temp[i] != pass[i]){
                 flag = 0;
+                lcd_4bits_send_command(&lcd,CLEAR_DISPLAY);
+                lcd_4bits_send_string_pos(&lcd,1,1,"Wrong Password");
+                __delay_ms(1000);
+                lcd_4bits_send_command(&lcd,CLEAR_DISPLAY);
                 break;
             }
             
-            else{}
+            else{
+                lcd_4bits_send_command(&lcd,CLEAR_DISPLAY);
+                __delay_ms(50);
+                lcd_4bits_send_string(&lcd,"Correct Password");
+                __delay_ms(500);
+            lcd_4bits_send_command(&lcd,CLEAR_DISPLAY);
+            }
         }
+        
     }
     
-    
     else{}
+    
+    val = '\0';
     Convert_uint16_to_string(Max_Temp,lcd_show_max);
     if(flag == 1){
     lcd_4bits_send_string_pos(&lcd,1,1,"Temp is : ");
