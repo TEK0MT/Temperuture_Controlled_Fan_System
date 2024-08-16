@@ -2259,5 +2259,5 @@ uint8 READ_DATA_EEPROM(uint16 add,uint8 *data){
     (EECON1bits.RD = 1);
     __nop();
     __nop();
-    data = EEDATA;
+    *data = EEDATA;
 }

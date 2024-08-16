@@ -224,8 +224,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL_LAYER/EEPROM/eeprom.c: 31:     __nop();
 [e ( ___nop ..  ]
 "32
-[; ;MCAL_LAYER/EEPROM/eeprom.c: 32:     data = EEDATA;
-[e = _data -> _EEDATA `*uc ]
+[; ;MCAL_LAYER/EEPROM/eeprom.c: 32:     *data = EEDATA;
+[e = *U _data _EEDATA ]
 "33
 [; ;MCAL_LAYER/EEPROM/eeprom.c: 33: }
 [e :UE 109 ]

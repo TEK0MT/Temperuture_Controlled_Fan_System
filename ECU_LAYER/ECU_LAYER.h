@@ -10,6 +10,7 @@
 /*Section : Include Section*/
 #include "Motor/ecu_motor_driver.h"
 #include "LCD/ecu_lcd.h"
+#include "KEYPAD/ecu_keypad.h"
 /*Section : Macro Declaration Section*/
 
 /*Section : Macro Functions Declaration Section*/

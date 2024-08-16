@@ -17,6 +17,7 @@ extern motor_t motor1;
 extern motor_t motor2;
 extern adc_t adc;
 extern lcd_4bits_t lcd;
+extern keypad_t keypad;
 extern pin_config_t pin1;
 extern pin_config_t pin2;
 extern pin_config_t pin3;

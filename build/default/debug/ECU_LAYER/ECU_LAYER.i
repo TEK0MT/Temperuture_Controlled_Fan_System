@@ -2229,6 +2229,17 @@ void Convert_uint16_to_string(uint16 data,uint8 *str);
 void Convert_uint32_to_string(uint32 data,uint8 *str);
 # 12 "ECU_LAYER/ECU_LAYER.h" 2
 
+# 1 "ECU_LAYER/KEYPAD/ecu_keypad.h" 1
+# 17 "ECU_LAYER/KEYPAD/ecu_keypad.h"
+typedef struct{
+    pin_config_t ROWS_PIN[4];
+    pin_config_t COLOUMNS_PIN[3];
+}keypad_t;
+
+uint8 keypad_initialize(const keypad_t *keypad);
+uint8 keypad_read_value(const keypad_t *keypad,uint8 *value);
+# 13 "ECU_LAYER/ECU_LAYER.h" 2
+
 
 
 
@@ -2237,14 +2248,18 @@ void Convert_uint32_to_string(uint32 data,uint8 *str);
 void ecu_initialzie(void);
 # 7 "ECU_LAYER/ECU_LAYER.c" 2
 
-pin_config_t pin1 = {.port =PORTD_INDEX,.pin = PIN0,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-pin_config_t pin2 = {.port =PORTD_INDEX,.pin = PIN1,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-pin_config_t pin3 = {.port =PORTD_INDEX,.pin = PIN2,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-pin_config_t pin4 = {.port =PORTD_INDEX,.pin = PIN3,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-pin_config_t pin5 = {.port =PORTD_INDEX,.pin = PIN4,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-pin_config_t pin6 = {.port =PORTD_INDEX,.pin = PIN5,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-pin_config_t pin7 = {.port =PORTD_INDEX,.pin = PIN6,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
-pin_config_t pin8 = {.port =PORTD_INDEX,.pin = PIN7,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
+
+keypad_t keypad = {.ROWS_PIN[0].port = PORTB_INDEX,.ROWS_PIN[0].pin = PIN0,.ROWS_PIN[0].direction = GPIO_DIRECTION_OUTPUT,.ROWS_PIN[0].logic = GPIO_LOW,
+                   .ROWS_PIN[1].port = PORTB_INDEX,.ROWS_PIN[1].pin = PIN1,.ROWS_PIN[1].direction = GPIO_DIRECTION_OUTPUT,.ROWS_PIN[1].logic = GPIO_LOW,
+                   .ROWS_PIN[2].port = PORTB_INDEX,.ROWS_PIN[2].pin = PIN2,.ROWS_PIN[2].direction = GPIO_DIRECTION_OUTPUT,.ROWS_PIN[2].logic = GPIO_LOW,
+                   .ROWS_PIN[3].port = PORTB_INDEX,.ROWS_PIN[3].pin = PIN3,.ROWS_PIN[3].direction = GPIO_DIRECTION_OUTPUT,.ROWS_PIN[3].logic = GPIO_LOW,
+                   .COLOUMNS_PIN[0].port = PORTB_INDEX,.COLOUMNS_PIN[0].pin = PIN4,.COLOUMNS_PIN[0].direction = GPIO_DIRECTION_INPUT,.COLOUMNS_PIN[0].logic = GPIO_LOW,
+                   .COLOUMNS_PIN[1].port = PORTB_INDEX,.COLOUMNS_PIN[1].pin = PIN5,.COLOUMNS_PIN[1].direction = GPIO_DIRECTION_INPUT,.COLOUMNS_PIN[1].logic = GPIO_LOW,
+                   .COLOUMNS_PIN[2].port = PORTB_INDEX,.COLOUMNS_PIN[2].pin = PIN6,.COLOUMNS_PIN[2].direction = GPIO_DIRECTION_INPUT,.COLOUMNS_PIN[2].logic = GPIO_LOW,};
+
+
+
+
 motor_t motor1 = {.pins[0].port = PORTD_INDEX,.pins[0].pin = PIN0,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
                    .pins[1].port = PORTD_INDEX,.pins[1].pin = PIN1,.pins[1].logic = GPIO_LOW,.pins[1].direction = GPIO_DIRECTION_OUTPUT};
 
@@ -2259,9 +2274,8 @@ lcd_4bits_t lcd = {.rs.port = PORTC_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.r
                    .pins[2].port = PORTC_INDEX,.pins[2].pin = PIN4,.pins[2].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
                    .pins[3].port = PORTC_INDEX,.pins[3].pin = PIN5,.pins[3].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT};
 void ecu_initialzie(void){
-
     motor_initialize(&motor1);
     motor_initialize(&motor2);
-# 41 "ECU_LAYER/ECU_LAYER.c"
+    keypad_initialize(&keypad);
     lcd_4bits_initialize(&lcd);
 }

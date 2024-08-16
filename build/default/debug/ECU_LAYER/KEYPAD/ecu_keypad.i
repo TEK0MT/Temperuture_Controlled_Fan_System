@@ -1,4 +1,4 @@
-# 1 "Temperature_Controlled_Fan_System.c"
+# 1 "ECU_LAYER/KEYPAD/ecu_keypad.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,26 +6,22 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Temperature_Controlled_Fan_System.c" 2
+# 1 "ECU_LAYER/KEYPAD/ecu_keypad.c" 2
 
 
 
 
 
 
-# 1 "./Temperature_Controlled_Fan_System.h" 1
-# 11 "./Temperature_Controlled_Fan_System.h"
-# 1 "./ECU_LAYER/ECU_LAYER.h" 1
-# 11 "./ECU_LAYER/ECU_LAYER.h"
-# 1 "./ECU_LAYER/Motor/ecu_motor_driver.h" 1
-# 11 "./ECU_LAYER/Motor/ecu_motor_driver.h"
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/gpio_cfg.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 1 "ECU_LAYER/KEYPAD/ecu_keypad.h" 1
+# 11 "ECU_LAYER/KEYPAD/ecu_keypad.h"
+# 1 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 1
+# 11 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h"
+# 1 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/gpio_cfg.h" 1
+# 11 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h"
+# 1 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../std_libraries.h" 1
+# 11 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -196,7 +192,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+# 11 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -273,7 +269,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+# 12 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
@@ -332,11 +328,11 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
-# 12 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 13 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../std_libraries.h" 2
+# 12 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h"
+# 1 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../device_config.h" 1
+# 11 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../device_config.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2124,12 +2120,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../device_config.h" 2
-# 13 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 11 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../device_config.h" 2
+# 13 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
 
 
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h" 1
-# 21 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../std_type.h"
+# 1 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../std_type.h" 1
+# 21 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/../std_type.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -2138,8 +2134,8 @@ typedef signed char sint8;
 typedef signed short sint16;
 typedef signed int sint32;
 typedef signed long long sint64;
-# 15 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
-# 31 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/mcal_gpio.h"
+# 15 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h" 2
+# 31 "ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h"
 typedef enum{
     PIN0 = 0,
     PIN1,
@@ -2190,49 +2186,13 @@ uint8 gpio_get_port_direction(const port_t port,direction_t *direction);
 uint8 gpio_port_write_logic(const port_t port,logic_t logic);
 uint8 gpio_port_read_logic(const port_t port,logic_t *logic);
 uint8 gpio_port_toggle_logic(const port_t port);
-# 11 "./ECU_LAYER/Motor/ecu_motor_driver.h" 2
+# 11 "ECU_LAYER/KEYPAD/ecu_keypad.h" 2
 
 
 
 
 
 
-
-typedef struct{
-    pin_config_t pins[2];
-}motor_t;
-
-uint8 motor_initialize(const motor_t *motor);
-uint8 motor_turn_right(const motor_t *motor);
-uint8 motor_turn_left(const motor_t *motor);
-uint8 motor_turn_off(const motor_t *motor);
-# 11 "./ECU_LAYER/ECU_LAYER.h" 2
-
-# 1 "./ECU_LAYER/LCD/ecu_lcd.h" 1
-# 11 "./ECU_LAYER/LCD/ecu_lcd.h"
-# 1 "./ECU_LAYER/LCD/ecu_lcd_cfg.h" 1
-# 11 "./ECU_LAYER/LCD/ecu_lcd.h" 2
-# 38 "./ECU_LAYER/LCD/ecu_lcd.h"
-typedef struct{
-    pin_config_t rs;
-    pin_config_t en;
-    pin_config_t pins[4];
-}lcd_4bits_t;
-
-uint8 lcd_4bits_initialize(const lcd_4bits_t *lcd);
-uint8 lcd_4bits_send_command(const lcd_4bits_t *lcd,uint8 command);
-uint8 lcd_4bits_send_char(const lcd_4bits_t *lcd,uint8 data);
-uint8 lcd_4bits_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 data);
-uint8 lcd_4bits_send_string(const lcd_4bits_t *lcd,uint8 *data);
-uint8 lcd_4bits_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *data);
-uint8 lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
-void Convert_uint8_to_string(uint8 data,uint8 *str);
-void Convert_uint16_to_string(uint16 data,uint8 *str);
-void Convert_uint32_to_string(uint32 data,uint8 *str);
-# 12 "./ECU_LAYER/ECU_LAYER.h" 2
-
-# 1 "./ECU_LAYER/KEYPAD/ecu_keypad.h" 1
-# 17 "./ECU_LAYER/KEYPAD/ecu_keypad.h"
 typedef struct{
     pin_config_t ROWS_PIN[4];
     pin_config_t COLOUMNS_PIN[3];
@@ -2240,214 +2200,61 @@ typedef struct{
 
 uint8 keypad_initialize(const keypad_t *keypad);
 uint8 keypad_read_value(const keypad_t *keypad,uint8 *value);
-# 13 "./ECU_LAYER/ECU_LAYER.h" 2
+# 7 "ECU_LAYER/KEYPAD/ecu_keypad.c" 2
 
 
 
+static const uint8 btn_values[4][3] = {
+                                                                {'1','2','3'},
+                                                                {'4','5','6'},
+                                                                {'7','8','9'},
+                                                                {'*','0','#'}
+                                                                };
 
-
-
-void ecu_initialzie(void);
-# 11 "./Temperature_Controlled_Fan_System.h" 2
-
-# 1 "./MCAL_LAYER/MCAL_LAYER.h" 1
-# 12 "./MCAL_LAYER/MCAL_LAYER.h"
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_manager.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_manager.h"
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h"
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_config.h" 1
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h" 2
-# 31 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/external_interrupt.h"
-typedef enum{
-    RISING_EDGE,
-    FALLING_EDGE
-}src_t;
-
-typedef struct{
-    void (*EXT_HANDLER)(void);
-    src_t source;
-}INTX_T;
-
-typedef struct{
-    void (*EXT_HIGH_INTERRUPT)(void);
-    void (*EXT_LOW_INTERRUPT)(void);
-    pin_config_t pin;
-}RBX_t;
-
-
-uint8 Enable_INTX(const INTX_T *intx);
-uint8 Disable_INTX(const INTX_T *intx);
-
-uint8 Enable_RBX(const RBX_t *rbx);
-uint8 Disable_RBX(const RBX_t *rbx);
-# 11 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../INTERRUPT/interrupt_manager.h" 2
-
-
-
-
-
-
-void ISR_INTX(void);
-void ISR_RB4(uint8 n);
-void ISR_RB5(uint8 n);
-void ISR_RB6(uint8 n);
-void ISR_RB7(uint8 n);
-# 12 "./MCAL_LAYER/MCAL_LAYER.h" 2
-
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../EEPROM/eeprom.h" 1
-# 31 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../EEPROM/eeprom.h"
-uint8 WRITE_DATA_EEPROM(uint16 add,uint8 data);
-uint8 READ_DATA_EEPROM(uint16 add,uint8 *data);
-# 13 "./MCAL_LAYER/MCAL_LAYER.h" 2
-
-# 1 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h" 1
-# 26 "./ECU_LAYER/Motor/../../MCAL_LAYER/GPIO/../ADC/hal_adc.h"
-typedef enum{
-    CHANNEL0 = 0,
-            CHANNEL1,
-            CHANNEL2,
-            CHANNEL3,
-            CHANNEL4,
-            CHANNEL5,
-            CHANNEL6,
-            CHANNEL7
-}channel_t;
-
-typedef enum{
-    FOSC_DIV2,
-            FOSC_DIV8,
-            FOSC_DIV32,
-            FOSC_DIV4,
-            FOSC_DIV16,
-            FOSC_DIV64
-}clock_time;
-
-typedef enum{
-    RIGHT_JUSTIFIED,
-            LEFT_JUSTIFIED
-}result_format;
-
-
-typedef struct{
-    channel_t channel;
-    clock_time clock;
-    result_format format;
-}adc_t;
-
-uint8 ADC_INIT(const adc_t *adc);
-uint8 ADC_DEINIT(const adc_t *adc);
-uint8 ADC_Start_Conversion(const adc_t *adc);
-uint8 ADC_Conversion_Is_Done(const adc_t *adc,uint8 *status);
-uint8 ADC_Get_Conversion_Result(const adc_t *adc,uint16 *result);
-uint8 ADC_Start_Conversion_Blocking(const adc_t *adc,channel_t channel,uint16 result);
-# 14 "./MCAL_LAYER/MCAL_LAYER.h" 2
-
-
-
-
-
-
-uint8 mcal_initialize(void);
-# 12 "./Temperature_Controlled_Fan_System.h" 2
-
-
-
-
-extern motor_t motor1;
-extern motor_t motor2;
-extern adc_t adc;
-extern lcd_4bits_t lcd;
-extern keypad_t keypad;
-extern pin_config_t pin1;
-extern pin_config_t pin2;
-extern pin_config_t pin3;
-extern pin_config_t pin4;
-extern pin_config_t pin5;
-extern pin_config_t pin6;
-extern pin_config_t pin7;
-extern pin_config_t pin8;
-
-void apllication_initilaize(void);
-# 7 "Temperature_Controlled_Fan_System.c" 2
-
-
-
-uint16 adc_res;
-uint16 Temp;
-uint16 Max_Temp = 0;
-uint8 lcd_show[6];
-uint8 lcd_show_max[6];
-uint8 pass[4] = {'5','4','8','9'};
-uint8 val;
-uint8 flag = 0;
-
-
-uint8 temp[4] = "....";
-int main() {
-    apllication_initilaize();
-    READ_DATA_EEPROM(0xFF,&Max_Temp);
-while(1){
-    ADC_Start_Conversion_Blocking(&adc,CHANNEL0,&adc_res);
-    Temp = adc_res * 4.8828125f / 10;
-
-    Convert_uint16_to_string(Temp,lcd_show);
-    keypad_read_value(&keypad,&val);
-    if(val == '*' && flag == 0){
-        _delay((unsigned long)((400)*(8000000UL/4000.0)));
-
-        for(uint8 counter = 0;counter < 4;counter++){
-        while(temp[counter] == '.'){
-        keypad_read_value(&keypad,&(temp[counter]));
-
-        }
-        _delay((unsigned long)((400)*(8000000UL/4000.0)));
-    }
-        flag = 1;
-        for(uint8 i = 0;i < 4;i++){
-            if(temp[i] != pass[i]){
-                flag = 0;
-                break;
-            }
-
-            else{}
-        }
-    }
-
-
-    else{}
-    Convert_uint16_to_string(Max_Temp,lcd_show_max);
-    if(flag == 1){
-    lcd_4bits_send_string_pos(&lcd,1,1,"Temp is : ");
-    lcd_4bits_send_string_pos(&lcd,1,10,lcd_show);
-    lcd_4bits_send_string_pos(&lcd,2,1,"Max Temp is : ");
-    lcd_4bits_send_string_pos(&lcd,2,14,lcd_show_max);
-    }
-    else if(flag == 0){
-        lcd_4bits_send_string_pos(&lcd,1,1,"Enter password");
-    }
-    else{}
-
-    if((Temp >= 50) && (Temp < 60)){
-        motor_turn_right(&motor1);
-    }
-    else if(Temp >= 60){
-        motor_turn_right(&motor1);
-        motor_turn_left(&motor2);
+uint8 keypad_initialize(const keypad_t *keypad){
+    uint8 ret = 0x00;
+    uint8 l_rows = 0x00;
+    uint8 l_coloumns = 0x00;
+    if(keypad == ((void*)0)){
+        ret = 0x01;
     }
     else{
-        motor_turn_off(&motor1);
-        motor_turn_off(&motor2);
-    }
-    if(Temp > Max_Temp){
-        Max_Temp = Temp;
-        WRITE_DATA_EEPROM(0xFF,Max_Temp);
-    }
+        for(l_rows = 0x00;l_rows < 4;l_rows++){
+            ret = gpio_pin_initialize(&(keypad->ROWS_PIN[l_rows]));
+        }
 
+        for(l_coloumns = 0x00;l_coloumns < 3;l_coloumns++){
+            ret = gpio_pin_initialize(&(keypad->COLOUMNS_PIN[l_coloumns]));
+        }
+    }
+    return ret;
 }
-    return (0);
-}
-void apllication_initilaize(void){
-    ecu_initialzie();
-    mcal_initialize();
+uint8 keypad_read_value(const keypad_t *keypad,uint8 *value){
+    uint8 ret = 0x00;
+    uint8 l_rows = 0x00;
+    uint8 l_coloumns = 0x00;
+    uint8 counter = 0x00;
+    uint8 val = 0x00;
+    if(keypad == ((void*)0)){
+        ret = 0x01;
+    }
+    else{
+        for(l_rows = 0x00;l_rows < 4;l_rows++){
+            for(counter = 0x00;counter < 4;counter++){
+                ret = gpio_pin_write_logic(&(keypad->ROWS_PIN[counter]),GPIO_LOW);
+            }
+            ret = gpio_pin_write_logic(&(keypad->ROWS_PIN[l_rows]),GPIO_HIGH);
+            _delay((unsigned long)((10)*(8000000UL/4000.0)));
+            for(l_coloumns = 0x00;l_coloumns < 3;l_coloumns++){
+                ret = gpio_pin_read_logic(&(keypad->COLOUMNS_PIN[l_coloumns]),&val);
+                if(val == GPIO_HIGH){
+                    *value = btn_values[l_rows][l_coloumns];
+                }
+                else{ }
+            }
+        }
+
+
+    }
+    return ret;
 }

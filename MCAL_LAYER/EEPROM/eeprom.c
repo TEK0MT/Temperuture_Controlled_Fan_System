@@ -29,5 +29,5 @@ Std_ReturnType READ_DATA_EEPROM(uint16 add,uint8 *data){
     ENABLE_READ();
     NOP();
     NOP();
-    data = EEDATA;
+    *data = EEDATA;
 }

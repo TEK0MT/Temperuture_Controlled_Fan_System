@@ -23,9 +23,13 @@ static void(*EXT_RB6_LOW_HANDLER)(void);
 
 static void(*EXT_RB7_HIGH_HANDLER)(void);
 static void(*EXT_RB7_LOW_HANDLER)(void);
+void ISR_INTX(void);
+void ISR_RB4(uint8 n);
+void ISR_RB5(uint8 n);
+void ISR_RB6(uint8 n);
+void ISR_RB7(uint8 n);
 
-
-
+#if INTERRUPT_ENABLED
 void ISR_INTX(void){
     CLEAR_INTX_FLAG();
     if(EXT_INTX_HANDLER){
@@ -202,3 +206,5 @@ static Std_ReturnType EXT_Rbx_Fun(const RBX_t *rbx){
             break;
     }
 }
+
+#endif

@@ -12,7 +12,7 @@
 #include "../std_type.h"
 #include "../GPIO/mcal_gpio.h"
 /*Section : Macro Declaration Section*/
-#define INTERRUPT_ENABLED       1
+#define INTERRUPT_ENABLED       0
 #define INTERRUPT_OCCURED       1
 #define ENABLE_ALL_INTERRUPT()  (INTCONbits.GIE = 1)
 #define DISABLE_ALL_INTERRUPT() (INTCONbits.GIE = 0)

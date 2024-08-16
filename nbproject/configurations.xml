@@ -5,6 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ECU_LAYER" displayName="ECU_LAYER" projectFiles="true">
+        <logicalFolder name="KEYPAD" displayName="KEYPAD" projectFiles="true">
+          <itemPath>ECU_LAYER/KEYPAD/ecu_keypad.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
           <itemPath>ECU_LAYER/LCD/ecu_lcd_cfg.h</itemPath>
           <itemPath>ECU_LAYER/LCD/ecu_lcd.h</itemPath>
@@ -50,6 +53,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ECU_LAYER" displayName="ECU_LAYER" projectFiles="true">
+        <logicalFolder name="KEYPAD" displayName="KEYPAD" projectFiles="true">
+          <itemPath>ECU_LAYER/KEYPAD/ecu_keypad.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
           <itemPath>ECU_LAYER/LCD/ecu_lcd.c</itemPath>
         </logicalFolder>

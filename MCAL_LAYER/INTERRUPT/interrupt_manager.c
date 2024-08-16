@@ -7,7 +7,7 @@
 #include "interrupt_manager.h"
 
 static uint8 counter = 0;
-
+#if INTERRUPT_ENABLED
 void  __interrupt() InterruptManager(void){
     if((INTCONbits.INTE == INTERRUPT_ENABLED) && (INTCONbits.INTF == INTERRUPT_OCCURED) ){
         ISR_INTX();
@@ -63,3 +63,4 @@ void  __interrupt() InterruptManager(void){
     }
     else{/*Nothing*/}
 }
+#endif
