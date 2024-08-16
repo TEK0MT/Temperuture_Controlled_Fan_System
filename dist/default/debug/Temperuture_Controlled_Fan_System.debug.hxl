@@ -1,24 +1,24 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\MOHAME~1\AppData\Local\Temp\xcAs3ms.\driver_tmp_3.o
+ C:\Users\MOHAME~1\AppData\Local\Temp\xcAsbs4.\driver_tmp_3.o
  -Odist/default/debug\Temperuture_Controlled_Fan_System.debug.hex
  -logfile=dist/default/debug\Temperuture_Controlled_Fan_System.debug.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 1FFFh		(C:\Users\MOHAME~1\AppData\Local\Temp\xcAs3ms.\driver_tmp_3.o)
-  28CAh - 2FFFh		(C:\Users\MOHAME~1\AppData\Local\Temp\xcAs3ms.\driver_tmp_3.o)
-  400Eh - 400Fh		(C:\Users\MOHAME~1\AppData\Local\Temp\xcAs3ms.\driver_tmp_3.o)
+  0h - 1FFFh		(C:\Users\MOHAME~1\AppData\Local\Temp\xcAsbs4.\driver_tmp_3.o)
+  2886h - 2FFFh		(C:\Users\MOHAME~1\AppData\Local\Temp\xcAsbs4.\driver_tmp_3.o)
+  400Eh - 400Fh		(C:\Users\MOHAME~1\AppData\Local\Temp\xcAsbs4.\driver_tmp_3.o)
  Unused ranges:
-  2000h - 28C9h
+  2000h - 2885h
   3000h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\MOHAME~1\AppData\Local\Temp\xcAs3ms.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\MOHAME~1\AppData\Local\Temp\xcAsbs4.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -535,7 +535,11 @@
 00001FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
-000028C0 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+00002880 | -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002890 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000028A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000028B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000028C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000028D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000028E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000028F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

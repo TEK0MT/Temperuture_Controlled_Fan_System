@@ -30,6 +30,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 ECU_LAYER/KEYPAD/ecu_keypad.h
 [; ;ECU_LAYER/KEYPAD/ecu_keypad.h: 22: uint8 keypad_initialize(const keypad_t *keypad);
 [v _keypad_initialize `(uc ~T0 @X0 0 ef1`*CS105 ]
+"72 ECU_LAYER/KEYPAD/../../MCAL_LAYER/GPIO/mcal_gpio.h
+[v _gpio_pin_initialize `(uc ~T0 @X0 0 ef1`*CS102 ]
 "44 ECU_LAYER/LCD/ecu_lcd.h
 [; ;ECU_LAYER/LCD/ecu_lcd.h: 44: uint8 lcd_4bits_initialize(const lcd_4bits_t *lcd);
 [v _lcd_4bits_initialize `(uc ~T0 @X0 0 ef1`*CS104 ]
@@ -208,6 +210,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
+"17
+[; ;ECU_LAYER/ECU_LAYER.c: 17: pin_config_t buzzer = {.port = PORTD_INDEX,.pin = PIN7,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
+[v _buzzer `S102 ~T0 @X0 1 e ]
+[i _buzzer
+:U ..
+:U ..
+-> . `E1512 3 `uc
+-> . `E1502 7 `uc
+-> . `E1519 0 `uc
+-> . `E1523 0 `uc
+..
+..
+]
 "20
 [; ;ECU_LAYER/ECU_LAYER.c: 20: motor_t motor1 = {.pins[0].port = PORTD_INDEX,.pins[0].pin = PIN0,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
 [v _motor1 `S103 ~T0 @X0 1 e ]
@@ -318,9 +333,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU_LAYER/ECU_LAYER.c: 36:     keypad_initialize(&keypad);
 [e ( _keypad_initialize (1 -> &U _keypad `*CS105 ]
 "37
-[; ;ECU_LAYER/ECU_LAYER.c: 37:     lcd_4bits_initialize(&lcd);
-[e ( _lcd_4bits_initialize (1 -> &U _lcd `*CS104 ]
+[; ;ECU_LAYER/ECU_LAYER.c: 37:     gpio_pin_initialize(&buzzer);
+[e ( _gpio_pin_initialize (1 -> &U _buzzer `*CS102 ]
 "38
-[; ;ECU_LAYER/ECU_LAYER.c: 38: }
+[; ;ECU_LAYER/ECU_LAYER.c: 38:     lcd_4bits_initialize(&lcd);
+[e ( _lcd_4bits_initialize (1 -> &U _lcd `*CS104 ]
+"39
+[; ;ECU_LAYER/ECU_LAYER.c: 39: }
 [e :UE 106 ]
 }

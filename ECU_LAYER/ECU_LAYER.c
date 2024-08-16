@@ -14,7 +14,7 @@ keypad_t keypad = {.ROWS_PIN[0].port = PORTB_INDEX,.ROWS_PIN[0].pin = PIN0,.ROWS
                    .COLOUMNS_PIN[1].port = PORTB_INDEX,.COLOUMNS_PIN[1].pin = PIN5,.COLOUMNS_PIN[1].direction = GPIO_DIRECTION_INPUT,.COLOUMNS_PIN[1].logic = GPIO_LOW,
                    .COLOUMNS_PIN[2].port = PORTB_INDEX,.COLOUMNS_PIN[2].pin = PIN6,.COLOUMNS_PIN[2].direction = GPIO_DIRECTION_INPUT,.COLOUMNS_PIN[2].logic = GPIO_LOW,};
 
-
+pin_config_t buzzer = {.port = PORTD_INDEX,.pin = PIN7,.logic = GPIO_LOW,.direction = GPIO_DIRECTION_OUTPUT};
 
 
 motor_t motor1 = {.pins[0].port = PORTD_INDEX,.pins[0].pin = PIN0,.pins[0].logic = GPIO_LOW,.pins[0].direction = GPIO_DIRECTION_OUTPUT,
@@ -34,5 +34,6 @@ void ecu_initialzie(void){
     motor_initialize(&motor1);
     motor_initialize(&motor2);
     keypad_initialize(&keypad);
+    gpio_pin_initialize(&buzzer);
     lcd_4bits_initialize(&lcd);
 }

@@ -2359,14 +2359,7 @@ extern motor_t motor2;
 extern adc_t adc;
 extern lcd_4bits_t lcd;
 extern keypad_t keypad;
-extern pin_config_t pin1;
-extern pin_config_t pin2;
-extern pin_config_t pin3;
-extern pin_config_t pin4;
-extern pin_config_t pin5;
-extern pin_config_t pin6;
-extern pin_config_t pin7;
-extern pin_config_t pin8;
+extern pin_config_t buzzer;
 
 void apllication_initilaize(void);
 # 7 "Temperature_Controlled_Fan_System.c" 2
@@ -2449,14 +2442,17 @@ while(1){
 
     if((Temp >= 50) && (Temp < 60)){
         motor_turn_right(&motor1);
+        motor_turn_off(&motor2);
     }
     else if(Temp >= 60){
         motor_turn_right(&motor1);
         motor_turn_left(&motor2);
+        gpio_pin_write_logic(&buzzer,GPIO_HIGH);
     }
     else{
         motor_turn_off(&motor1);
         motor_turn_off(&motor2);
+        gpio_pin_write_logic(&buzzer,GPIO_LOW);
     }
     if(Temp > Max_Temp){
         Max_Temp = Temp;
