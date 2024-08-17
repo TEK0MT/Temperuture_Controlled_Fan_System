@@ -41,4 +41,4 @@ This project is a temperature-controlled fan system using a PIC16F877A microcont
 
 The source code is provided in the repository. It includes configuration settings for the PIC16F877A, LCD initialization, EEPROM read/write functions, and fan control logic.
 
-#The password for keypad is "5489"
+# The password for keypad is "5489"
